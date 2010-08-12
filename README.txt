@@ -1,1 +1,1 @@
-A rough port of the Congress app for Android (http://sunlightfoundation.com/android/congress/) to the Windows Phone 7 platform.  This is a port of just the legislator-oriented functionality.
+A rough port of the Congress app for Android (http://sunlightfoundation.com/android/congress/) to the Windows Phone 7 platform.  This is a port of just the legislator-oriented functionality, what was released as v1.0 of the Android app.
