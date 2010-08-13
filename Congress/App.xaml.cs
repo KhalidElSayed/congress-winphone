@@ -13,30 +13,14 @@ using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 
-namespace Congress
-{
-    public partial class App : Application
-    {
-        // Static view model
-        private static MainViewModel viewModel = null;
-        public static MainViewModel ViewModel
-        {
-            get
-            {
-                // Delay creation of the view model until necessary
-                if (viewModel == null)
-                    viewModel = new MainViewModel();
-
-                return viewModel;
-            }
-        }
-
+namespace Congress {
+    public partial class App : Application {
+       
         // Easy access to the root frame
         public PhoneApplicationFrame RootFrame { get; private set; }
 
         // Constructor
-        public App()
-        {
+        public App() {
             // Global handler for uncaught exceptions. 
             // Note that exceptions thrown by ApplicationBarItem.Click will not get caught here.
             UnhandledException += Application_UnhandledException;
@@ -48,45 +32,22 @@ namespace Congress
             InitializePhoneApplication();
         }
 
-        // Code to execute when the application is launching (eg, from Start)
-        // This code will not execute when the application is reactivated
-        private void Application_Launching(object sender, LaunchingEventArgs e)
-        {
-        }
-
-        // Code to execute when the application is activated (brought to foreground)
-        // This code will not execute when the application is first launched
-        private void Application_Activated(object sender, ActivatedEventArgs e)
-        {
-        }
-
-        // Code to execute when the application is deactivated (sent to background)
-        // This code will not execute when the application is closing
-        private void Application_Deactivated(object sender, DeactivatedEventArgs e)
-        {
-        }
-
-        // Code to execute when the application is closing (eg, user hit Back)
-        // This code will not execute when the application is deactivated
-        private void Application_Closing(object sender, ClosingEventArgs e)
-        {
-        }
+        private void Application_Launching(object sender, LaunchingEventArgs e) {}
+        private void Application_Activated(object sender, ActivatedEventArgs e) {}
+        private void Application_Deactivated(object sender, DeactivatedEventArgs e) {}
+        private void Application_Closing(object sender, ClosingEventArgs e) {}
 
         // Code to execute if a navigation fails
-        void RootFrame_NavigationFailed(object sender, NavigationFailedEventArgs e)
-        {
-            if (System.Diagnostics.Debugger.IsAttached)
-            {
+        void RootFrame_NavigationFailed(object sender, NavigationFailedEventArgs e) {
+            if (System.Diagnostics.Debugger.IsAttached) {
                 // A navigation has failed; break into the debugger
                 System.Diagnostics.Debugger.Break();
             }
         }
 
         // Code to execute on Unhandled Exceptions
-        private void Application_UnhandledException(object sender, ApplicationUnhandledExceptionEventArgs e)
-        {
-            if (System.Diagnostics.Debugger.IsAttached)
-            {
+        private void Application_UnhandledException(object sender, ApplicationUnhandledExceptionEventArgs e) {
+            if (System.Diagnostics.Debugger.IsAttached) {
                 // An unhandled exception has occurred; break into the debugger
                 System.Diagnostics.Debugger.Break();
             }
@@ -98,8 +59,7 @@ namespace Congress
         private bool phoneApplicationInitialized = false;
 
         // Do not add any additional code to this method
-        private void InitializePhoneApplication()
-        {
+        private void InitializePhoneApplication() {
             if (phoneApplicationInitialized)
                 return;
 
@@ -116,8 +76,7 @@ namespace Congress
         }
 
         // Do not add any additional code to this method
-        private void CompleteInitializePhoneApplication(object sender, NavigationEventArgs e)
-        {
+        private void CompleteInitializePhoneApplication(object sender, NavigationEventArgs e) {
             // Set the root visual to allow the application to render
             if (RootVisual != RootFrame)
                 RootVisual = RootFrame;

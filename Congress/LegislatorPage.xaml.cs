@@ -12,27 +12,21 @@ using System.Windows.Shapes;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 
-namespace Congress
-{
-    public partial class DetailsPage : PhoneApplicationPage
-    {
+namespace Congress {
+
+    public partial class LegislatorPage : PhoneApplicationPage {
         // Constructor
-        public DetailsPage()
-        {
+        public LegislatorPage() {
             InitializeComponent();
         }
 
         // When page is navigated to, set data context to selected item in list
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
+        protected override void OnNavigatedTo(NavigationEventArgs e) {
             base.OnNavigatedTo(e);
 
-            string selectedIndex = "";
-            if (NavigationContext.QueryString.TryGetValue("selectedItem", out selectedIndex))
-            {
-                int index = int.Parse(selectedIndex);
-                DataContext = App.ViewModel.Items[index];
-            }
+            // string selectedIndex = "";
+            // if (NavigationContext.QueryString.TryGetValue("selectedItem", out selectedIndex))
+            //     int index = int.Parse(selectedIndex);
         }
     }
 }

@@ -6,7 +6,6 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DataContext="{d:DesignData Static/HomeMenu.xaml}"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -29,18 +28,8 @@
 
         <!--ContentPanel contains ListBox and ListBox ItemTemplate. Place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1">
-            <ListBox x:Name="MainListBox" ItemsSource="{Binding Items}" SelectionChanged="MainListBox_SelectionChanged">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel x:Name="DataTemplateStackPanel" Orientation="Horizontal">
-                            <Image x:Name="ItemImage" Source="/Congress;component/Images/ArrowImg.png" Height="43" Width="43" VerticalAlignment="Top" Margin="10,0,20,0"/>
-                            <StackPanel>
-                                <TextBlock x:Name="ItemText" Text="{Binding LineOne}" Margin="-2,-13,0,0" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                                <TextBlock x:Name="DetailsText" Text="{Binding LineTwo}" Margin="0,-6,0,3" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                            </StackPanel>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
+            <ListBox x:Name="MainListBox" SelectionChanged="MainListBox_SelectionChanged">
+                
             </ListBox>
         </Grid>
     </Grid>

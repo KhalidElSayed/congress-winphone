@@ -17,24 +17,12 @@ namespace Congress
     public partial class MainPage : PhoneApplicationPage
     {
         // Constructor
-        public MainPage()
-        {
+        public MainPage() {
             InitializeComponent();
         }
 
-        // When page is navigated to, set data context 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-
-            // Set the data context of the listbox control to the sample data
-            if (DataContext == null)
-                DataContext = App.ViewModel;
-        }
-
         // Handle selection changed on ListBox
-        private void MainListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        private void MainListBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             // If selected index is -1 (no selection) do nothing
             if (MainListBox.SelectedIndex == -1)
                 return;
