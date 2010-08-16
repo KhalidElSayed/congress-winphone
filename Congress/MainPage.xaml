@@ -29,7 +29,18 @@
         <!--ContentPanel contains ListBox and ListBox ItemTemplate. Place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1">
             <ListBox x:Name="MainListBox" SelectionChanged="MainListBox_SelectionChanged">
-                
+                <ListBoxItem>
+                    <StackPanel Orientation="Horizontal" x:Name="SearchLocation">
+                        <Image Source="/Congress;component/Images/ArrowImg.png" Height="43" Width="43" VerticalAlignment="Top" Margin="10,0,20,0"/>
+                        <TextBlock Text="by location" Style="{StaticResource PhoneTextNormalStyle}"/>
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <StackPanel Orientation="Horizontal" x:Name="SearchZip">
+                        <Image Source="/Congress;component/Images/ArrowImg.png" Height="43" Width="43" VerticalAlignment="Top" Margin="10,0,20,0"/>
+                        <TextBlock Text="by zip code" Style="{StaticResource PhoneTextNormalStyle}"/>
+                    </StackPanel>
+                </ListBoxItem>
             </ListBox>
         </Grid>
     </Grid>

@@ -6,6 +6,8 @@
   <local:LegislatorListViewModel.Legislators>
     <local:LegislatorViewModel Name="Rep. Tim Smith" />
     <local:LegislatorViewModel Name="Rep. Barbara Lee" />
-  </local:LegislatorListViewModel.Legislators>
+    <local:LegislatorViewModel Name="Rep. David James" />
+    <local:LegislatorViewModel Name="Sen. John Tester" />
+    </local:LegislatorListViewModel.Legislators>
 
 </local:LegislatorListViewModel>

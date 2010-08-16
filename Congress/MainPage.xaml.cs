@@ -12,11 +12,14 @@ using System.Windows.Shapes;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 
-namespace Congress
-{
-    public partial class MainPage : PhoneApplicationPage
-    {
-        // Constructor
+namespace Congress {
+
+    public partial class MainPage : PhoneApplicationPage {
+        public static int SEARCH_LOCATION = 0;
+        public static int SEARCH_ZIP = 1;
+        public static int SEARCH_STATE = 2;
+        public static int SEARCH_LASTNAME = 3;
+        
         public MainPage() {
             InitializeComponent();
         }
@@ -28,7 +31,7 @@ namespace Congress
                 return;
 
             // Navigate to the new page
-            NavigationService.Navigate(new Uri("/DetailsPage.xaml?selectedItem=" + MainListBox.SelectedIndex, UriKind.Relative));
+            NavigationService.Navigate(new Uri("/LegislatorListPage.xaml?selectedIndex=" + MainListBox.SelectedIndex, UriKind.Relative));
 
             // Reset selected index to -1 (no selection)
             MainListBox.SelectedIndex = -1;

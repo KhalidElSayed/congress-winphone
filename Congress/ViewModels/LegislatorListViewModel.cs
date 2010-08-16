@@ -16,5 +16,9 @@ namespace Congress {
 
     public class LegislatorListViewModel {
         public ObservableCollection<LegislatorViewModel> Legislators { get; set; }
+
+        public LegislatorListViewModel() {
+            Legislators = new ObservableCollection<LegislatorViewModel>() {};
+        }
     }
 }

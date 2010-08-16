@@ -24,9 +24,9 @@ namespace Congress {
         protected override void OnNavigatedTo(NavigationEventArgs e) {
             base.OnNavigatedTo(e);
 
-            // string selectedIndex = "";
-            // if (NavigationContext.QueryString.TryGetValue("selectedItem", out selectedIndex))
-            //     int index = int.Parse(selectedIndex);
+            string name = null;
+            if (NavigationContext.QueryString.TryGetValue("Name", out name))
+                LegislatorName.Text = name;
         }
     }
 }
