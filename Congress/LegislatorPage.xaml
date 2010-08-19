@@ -26,6 +26,7 @@
             <TextBlock x:Name="PageTitle" Text="CONGRESS" Style="{StaticResource PhoneTextNormalStyle}"/>
             <TextBlock x:Name="LegislatorName" Text="{Binding Name}" Margin="-3,-8,0,0" Style="{StaticResource PhoneTextTitle1Style}" FontSize="48" TextWrapping="Wrap" />
         </StackPanel>
+        <TextBlock x:Name="LegislatorBioguide" Grid.Row="1" Height="40" HorizontalAlignment="Left" Margin="21,48,0,0" Text="Bioguide ID goes here" VerticalAlignment="Top" Width="260" />
     </Grid>
 
 </phone:PhoneApplicationPage>

@@ -11,11 +11,11 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
+using Congress.Models;
 
 namespace Congress {
 
     public partial class LegislatorPage : PhoneApplicationPage {
-        // Constructor
         public LegislatorPage() {
             InitializeComponent();
         }
@@ -24,9 +24,20 @@ namespace Congress {
         protected override void OnNavigatedTo(NavigationEventArgs e) {
             base.OnNavigatedTo(e);
 
-            string name = null;
-            if (NavigationContext.QueryString.TryGetValue("Name", out name))
-                LegislatorName.Text = name;
+            string bioguideId = null;
+            if (NavigationContext.QueryString.TryGetValue("bioguideId", out bioguideId)) {
+                
+                bioguideId = "L000551"; // debug
+
+                LegislatorBioguide.Text = bioguideId;
+                LegislatorName.Text = "Loading...";
+
+                Legislator.find(bioguideId, new Legislator.LegislatorFoundEventHandler(displayLegislator));
+            }
+        }
+
+        protected void displayLegislator(Legislator legislator) {
+            LegislatorName.Text = legislator.lastName;
         }
     }
 }
