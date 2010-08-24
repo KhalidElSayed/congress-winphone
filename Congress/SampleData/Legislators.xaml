@@ -4,10 +4,38 @@
     xmlns:local="clr-namespace:Congress">
 
   <local:LegislatorListViewModel.Legislators>
-    <local:LegislatorViewModel Name="Rep. Tim Smith" />
-    <local:LegislatorViewModel Name="Rep. Barbara Lee" />
-    <local:LegislatorViewModel Name="Rep. David James" />
-    <local:LegislatorViewModel Name="Sen. John Tester" />
+    <local:LegislatorViewModel 
+        OfficialName="Sessions, Jeff"
+        TitledName="Sen. Jeff Sessions"
+        Party="Republican"
+        Position="Junior Senator from Alabama"
+        BioguideId="S001141"
+        PhotoUrl="http://assets.sunlightfoundation.com/moc/100x125/S001141.jpg"
+        />
+    <local:LegislatorViewModel 
+        OfficialName="Shelby, Richard"
+        TitledName="Sen. Richard Shelby"
+        Party="Republican"
+        Position="Senior Senator from Alabama"
+        BioguideId="S000320"
+        PhotoUrl="http://assets.sunlightfoundation.com/moc/100x125/S000320.jpg"
+        />
+    <local:LegislatorViewModel 
+        OfficialName="Bachus, Spencer"
+        TitledName="Rep. Spencer Bachus" 
+        Party="Republican"
+        Position="Representative for Alabama-6"
+        BioguideId="B000013"
+        PhotoUrl="http://assets.sunlightfoundation.com/moc/100x125/B000013.jpg"
+        />
+    <local:LegislatorViewModel 
+        OfficialName="Bright, Bobby"
+        TitledName="Rep. Bobby Bright" 
+        Party="Democrat"
+        Position="Representative for Alabama-2"
+        BioguideId="B001264"
+        PhotoUrl="http://assets.sunlightfoundation.com/moc/100x125/B001264.jpg"
+        />
     </local:LegislatorListViewModel.Legislators>
 
 </local:LegislatorListViewModel>

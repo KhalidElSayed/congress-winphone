@@ -109,14 +109,14 @@
     <Content Include="ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Page Include="SampleData\Legislator.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="SampleData\Legislators.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Resource Include="Images\search_all.png" />
+    <Resource Include="Images\search_lastname.png" />
+    <Resource Include="Images\search_location.png" />
+    <Resource Include="Images\search_zip.png" />
     <Content Include="SplashScreenImage.jpg" />
     <Resource Include="Images\ArrowImg.png" />
     <Content Include="Background.png">

@@ -19,19 +19,89 @@ namespace Congress.Models {
 
         public Legislator() {}
 
+
+        public string getName() {
+            return commonName() + " " + lastName;
+        }
+
+        public string commonName() {
+            if (nickName != null && nickName.Length > 0)
+                return nickName;
+            else
+                return firstName;
+        }
+
+        public string titledName() {
+            string name = title + ". " + getName();
+            if (nameSuffix != null && !nameSuffix.Equals(""))
+                name += ", " + nameSuffix;
+            return name;
+        }
+
+        public string getOfficialName() {
+            return lastName + ", " + commonName();
+        }
+
+        public string fullTitle() {
+            if (title.Equals("Del"))
+                return "Delegate";
+            else if (title.Equals("Com"))
+                return "Resident Commissioner";
+            else if (title.Equals("Sen"))
+                return "Senator";
+            else // "Rep"
+                return "Representative";
+        }
+
+        public string getDomain() {
+            if (district.Equals("Senior Seat") || district.Equals("Junior Seat"))
+                return district;
+            else if (district.Equals("0"))
+                return "At-Large";
+            else
+                return "District " + district;
+        }
+
+        public string partyName() {
+            if (party.Equals("D"))
+                return "Democrat";
+            if (party.Equals("R"))
+                return "Republican";
+            if (party.Equals("I"))
+                return "Independent";
+            else
+                return "";
+        }
+
+
+        /** Network operations */
+
         public static void find(string bioguideId, LegislatorFoundEventHandler handler) {
-            Uri uri = new Uri(Sunlight.url("legislators.get", "bioguide_id=" + bioguideId));
             WebClient downloader = new WebClient();
 
             downloader.DownloadStringCompleted += (s, e) => {
-                string json = e.Result;
-                Legislator legislator = oneFromJSON(json);
-                handler.Invoke(legislator);
+                handler.Invoke(oneFromJSON(e.Result));
             };
-            downloader.DownloadStringAsync(uri);
+
+            downloader.DownloadStringAsync(new Uri(Sunlight.url("legislators.get", "bioguide_id=" + bioguideId)));
+        }
+
+        public static void findByState(string state, LegislatorsFoundEventHandler handler) {
+            findMany("state=" + state, handler);
+        }
+
+        public static void findMany(string queryString, LegislatorsFoundEventHandler handler) {
+            WebClient downloader = new WebClient();
+
+            downloader.DownloadStringCompleted += (s, e) => {
+                handler.Invoke(manyFromJSON(e.Result));
+            };
+
+            downloader.DownloadStringAsync(new Uri(Sunlight.url("legislators.getList", queryString)));
         }
 
         public delegate void LegislatorFoundEventHandler(Legislator legislator);
+        public delegate void LegislatorsFoundEventHandler(Collection<Legislator> legislators);
 
         public static Legislator oneFromJSON(string json) {
             JObject root = JObject.Parse(json);
@@ -46,11 +116,10 @@ namespace Congress.Models {
             JArray legislatorsRoot = (JArray) response["legislators"];
 
             Collection<Legislator> legislators = new Collection<Legislator>();
-            foreach (JToken item in legislatorsRoot)
-                legislators.Add(oneFromJObject((JObject) item));
-
-            // sort by last name by default
-            legislators = (Collection<Legislator>) legislators.OrderBy(l => l.middleName);
+            foreach (JToken item in legislatorsRoot) {
+                JObject itemRoot = (JObject) ((JObject)item)["legislator"];
+                legislators.Add(oneFromJObject(itemRoot));
+            }
 
             return legislators;
         }

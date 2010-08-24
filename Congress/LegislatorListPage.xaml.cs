@@ -12,10 +12,13 @@ using System.Windows.Shapes;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using System.Collections.ObjectModel;
+using Congress.Models;
 
 namespace Congress {
 
     public partial class LegislatorListPage : PhoneApplicationPage {
+        private int searchType;
+
         // Constructor
         public LegislatorListPage() {
             InitializeComponent();
@@ -25,30 +28,48 @@ namespace Congress {
         protected override void OnNavigatedTo(NavigationEventArgs e) {
             base.OnNavigatedTo(e);
 
-            if (DataContext == null) {
-                DataContext = new LegislatorListViewModel() {
-                    Legislators = new ObservableCollection<LegislatorViewModel>() {
-                        new LegislatorViewModel() {Name = "First Legislator"},
-                        new LegislatorViewModel() {Name = "Second Legislator"},
-                    }
-                };
-            }
-
-            int index = -1;
             string selectedIndex = "";
-            if (NavigationContext.QueryString.TryGetValue("selectedIndex", out selectedIndex))
-                index = int.Parse(selectedIndex);
+            if (NavigationContext.QueryString.TryGetValue("searchType", out selectedIndex))
+                searchType = int.Parse(selectedIndex);
 
-            if (index == MainPage.SEARCH_LOCATION)
-                ListTitle.Text = "by your location";
-            else if (index == MainPage.SEARCH_LASTNAME)
-                ListTitle.Text = "by last name";
-            else if (index == MainPage.SEARCH_STATE)
-                ListTitle.Text = "by state";
-            else if (index == MainPage.SEARCH_ZIP)
-                ListTitle.Text = "by zip code";
-            else
-                ListTitle.Text = "search results";
+            string state;
+            NavigationContext.QueryString.TryGetValue("state", out state);
+
+            string lastName;
+            NavigationContext.QueryString.TryGetValue("lastName", out lastName);
+
+            string zip;
+            NavigationContext.QueryString.TryGetValue("zip", out zip);
+
+            // debug, lock to VA legislators for now
+            searchType = MainPage.SEARCH_STATE;
+            state = "VA";
+
+            // turn on Loading... message
+            Loading.Visibility = Visibility.Visible;
+            MainListBox.Visibility = Visibility.Collapsed;
+
+            if (searchType == MainPage.SEARCH_LOCATION) {
+                ListTitle.Text = "for your location";
+            }
+            else if (searchType == MainPage.SEARCH_LASTNAME) {
+                ListTitle.Text = "named \"" + lastName + "\"";
+            }
+            else if (searchType == MainPage.SEARCH_STATE) {
+                ListTitle.Text = "for " + state;
+                Legislator.findByState(state, loadLegislators);
+            }
+            else if (searchType == MainPage.SEARCH_ZIP) {
+                ListTitle.Text = "for " + zip;
+            }
+        }
+
+        private void loadLegislators(Collection<Legislator> legislators) {
+            Loading.Visibility = Visibility.Collapsed;
+            MainListBox.Visibility = Visibility.Visible;
+            if (DataContext == null) {
+                DataContext = LegislatorListViewModel.fromCollection(legislators);
+            }
         }
 
         // Handle selection changed on ListBox
@@ -56,9 +77,9 @@ namespace Congress {
             if (MainListBox.SelectedIndex == -1)
                 return;
 
-            LegislatorViewModel legislator = (MainListBox.ItemsSource as ObservableCollection<LegislatorViewModel>)[MainListBox.SelectedIndex];
+            LegislatorViewModel model = (MainListBox.ItemsSource as ObservableCollection<LegislatorViewModel>)[MainListBox.SelectedIndex];
 
-            NavigationService.Navigate(new Uri("/LegislatorPage.xaml?bioguideId=" + legislator.Name, UriKind.Relative));
+            NavigationService.Navigate(new Uri("/LegislatorPage.xaml?bioguideId=" + model.BioguideId, UriKind.Relative));
 
             // Reset selected index to -1 (no selection)
             MainListBox.SelectedIndex = -1;
