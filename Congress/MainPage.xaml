@@ -23,22 +23,34 @@
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="24,24,0,12">
             <TextBlock x:Name="ApplicationTitle" Text="CONGRESS" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="ListTitle" Text="home" Margin="-3,-8,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock x:Name="ListTitle" Text="home" Margin="-3,-8,0,0" Style="{StaticResource PhoneTextTitle1Style}" FontSize="72" />
         </StackPanel>
 
         <!--ContentPanel contains ListBox and ListBox ItemTemplate. Place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1">
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="24,20,0,0" Height="457" VerticalAlignment="Top">
             <ListBox x:Name="MainListBox" SelectionChanged="MainListBox_SelectionChanged">
                 <ListBoxItem>
-                    <StackPanel Orientation="Horizontal" x:Name="SearchLocation">
-                        <Image Source="/Congress;component/Images/ArrowImg.png" Height="43" Width="43" VerticalAlignment="Top" Margin="10,0,20,0"/>
-                        <TextBlock Text="by location" Style="{StaticResource PhoneTextNormalStyle}"/>
+                    <StackPanel Orientation="Horizontal" x:Name="SearchLocation" Height="77" VerticalAlignment="Top" Margin="0,20,0,0" Grid.Row="1">
+                        <Image Source="/Congress;component/Images/ArrowImg.png" Height="72" Width="72" VerticalAlignment="Top" Margin="10,0,20,0" />
+                        <TextBlock Text="your location" Style="{StaticResource PhoneTextNormalStyle}" VerticalAlignment="Stretch" Width="314" FontSize="48" />
                     </StackPanel>
                 </ListBoxItem>
                 <ListBoxItem>
-                    <StackPanel Orientation="Horizontal" x:Name="SearchZip">
-                        <Image Source="/Congress;component/Images/ArrowImg.png" Height="43" Width="43" VerticalAlignment="Top" Margin="10,0,20,0"/>
-                        <TextBlock Text="by zip code" Style="{StaticResource PhoneTextNormalStyle}"/>
+                    <StackPanel Orientation="Horizontal" x:Name="SearchZip" Height="77" VerticalAlignment="Top" Margin="0,20,0,0" Grid.Row="1">
+                        <Image Source="/Congress;component/Images/ArrowImg.png" Height="72" Width="72" VerticalAlignment="Top" Margin="10,0,20,0" />
+                        <TextBlock Text="zip code" Style="{StaticResource PhoneTextNormalStyle}" VerticalAlignment="Top" Height="70" Width="309" FontSize="48" />
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <StackPanel Orientation="Horizontal" x:Name="SearchState" Height="77" VerticalAlignment="Top" Margin="0,20,0,0" Grid.Row="1">
+                        <Image Source="/Congress;component/Images/ArrowImg.png" Height="72" Width="72" VerticalAlignment="Top" Margin="10,0,20,0" />
+                        <TextBlock Text="state" Style="{StaticResource PhoneTextNormalStyle}" VerticalAlignment="Top" Height="70" Width="309" FontSize="48" />
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <StackPanel Orientation="Horizontal" x:Name="SearchName" Height="77" VerticalAlignment="Top" Margin="0,20,0,0" Grid.Row="1">
+                        <Image Source="/Congress;component/Images/ArrowImg.png" Height="72" Width="72" VerticalAlignment="Top" Margin="10,0,20,0" />
+                        <TextBlock Text="last name" Style="{StaticResource PhoneTextNormalStyle}" VerticalAlignment="Top" Height="70" Width="309" FontSize="48" />
                     </StackPanel>
                 </ListBoxItem>
             </ListBox>
