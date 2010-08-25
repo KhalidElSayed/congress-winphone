@@ -26,18 +26,13 @@ namespace Congress {
 
             string bioguideId = null;
             if (NavigationContext.QueryString.TryGetValue("bioguideId", out bioguideId)) {
-                
-                bioguideId = "L000551"; // debug
-
-                LegislatorBioguide.Text = bioguideId;
-                LegislatorName.Text = "Loading...";
-
                 Legislator.find(bioguideId, new Legislator.LegislatorFoundEventHandler(displayLegislator));
             }
         }
 
         protected void displayLegislator(Legislator legislator) {
-            LegislatorName.Text = legislator.lastName;
+            if (DataContext == null)
+                DataContext = LegislatorViewModel.fromLegislator(legislator);
         }
     }
 }

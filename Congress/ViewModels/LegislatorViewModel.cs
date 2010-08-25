@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Congress.Models;
+using System.Text.RegularExpressions;
 
 namespace Congress {
 
@@ -23,8 +24,14 @@ namespace Congress {
         public string TitledName {get; set;}
         public string Position { get; set; }
         public string Party {get; set;}
+        public string District {get; set;}
+        public string State {get; set;}
         public string BioguideId { get; set; }
-        public string PhotoUrl {get; set;}
+        public string PhotoUrlMedium {get; set;}
+        public string PhotoUrlLarge { get; set; }
+        public string Phone {get; set;}
+        public string Website {get; set;}
+        public string Office {get; set;}
 
         public static LegislatorViewModel fromLegislator(Legislator legislator) {
             return new LegislatorViewModel() {
@@ -32,13 +39,25 @@ namespace Congress {
                 TitledName = legislator.titledName(),
                 Position = getPosition(legislator),
                 Party = legislator.partyName(),
+                State = getStateName(legislator.state),
+                District = getDistrict(legislator),
+                Phone = legislator.phone,
+                Website = legislator.website,
                 BioguideId = legislator.bioguideId,
-                PhotoUrl = photoUrl(PHOTO_MEDIUM, legislator.bioguideId)
+                Office = getOffice(legislator),
+                PhotoUrlMedium = photoUrl(PHOTO_MEDIUM, legislator.bioguideId),
+                PhotoUrlLarge = photoUrl(PHOTO_LARGE, legislator.bioguideId),
             };
         }
 
         public static string photoUrl(string size, string bioguideId) {
             return "http://assets.sunlightfoundation.com/moc/" + size + "/" + bioguideId + ".jpg";
+        }
+
+        public static string getOffice(Legislator legislator) {
+            string office = legislator.congressOffice;
+            string shortOffice = Regex.Replace(office, "(?:House|Senate) (?:Office)? Building", String.Empty, RegexOptions.IgnoreCase);
+            return shortOffice.Trim();
         }
 
         public static string getPosition(Legislator legislator) {
@@ -61,6 +80,20 @@ namespace Congress {
                 position = "Representative for " + state + "-" + district;
 
             return position;
+        }
+
+        public static string getDistrict(Legislator legislator) {
+            if (legislator.district.Equals("0"))
+                return "At-Large";
+            else if (legislator.district.Equals("Senior Seat") || legislator.district.Equals("Junior Seat"))
+                return legislator.district;
+            else
+                return "District " + legislator.district;
+        }
+
+        public static string getStateName(string stateCode) {
+            //TODO: Expand to full state names
+            return stateCode;
         }
     }
 }

@@ -5,36 +5,60 @@
 
   <local:LegislatorListViewModel.Legislators>
     <local:LegislatorViewModel 
+        BioguideId="S001141"
         OfficialName="Sessions, Jeff"
         TitledName="Sen. Jeff Sessions"
         Party="Republican"
+        State="AL"
+        District="Junior Seat"
         Position="Junior Senator from Alabama"
-        BioguideId="S001141"
-        PhotoUrl="http://assets.sunlightfoundation.com/moc/100x125/S001141.jpg"
+        Phone="202-224-4124"
+        Website="http://sessions.senate.gov/"
+        Office="335 Russell"
+        PhotoUrlMedium="http://assets.sunlightfoundation.com/moc/100x125/S001141.jpg"
+        PhotoUrlLarge="http://assets.sunlightfoundation.com/moc/200x250/S001141.jpg"
         />
     <local:LegislatorViewModel 
         OfficialName="Shelby, Richard"
         TitledName="Sen. Richard Shelby"
         Party="Republican"
+        District="Senior Seat"
+        State="AL"
+        Office="304 Russell"
         Position="Senior Senator from Alabama"
         BioguideId="S000320"
-        PhotoUrl="http://assets.sunlightfoundation.com/moc/100x125/S000320.jpg"
+        Phone="202-224-5744"
+        Website="http://shelby.senate.gov/"
+        PhotoUrlMedium="http://assets.sunlightfoundation.com/moc/100x125/S000320.jpg"
+        PhotoUrlLarge="http://assets.sunlightfoundation.com/moc/200x250/S000320.jpg"
         />
     <local:LegislatorViewModel 
         OfficialName="Bachus, Spencer"
         TitledName="Rep. Spencer Bachus" 
         Party="Republican"
+        District="6"
+        State="AL"
         Position="Representative for Alabama-6"
+        Office="2246 Rayburn"
         BioguideId="B000013"
-        PhotoUrl="http://assets.sunlightfoundation.com/moc/100x125/B000013.jpg"
+        Phone="202-225-4921"
+        Website="http://bachus.house.gov/"
+        PhotoUrlMedium="http://assets.sunlightfoundation.com/moc/100x125/B000013.jpg"
+        PhotoUrlLarge="http://assets.sunlightfoundation.com/moc/200x250/B000013.jpg"
         />
     <local:LegislatorViewModel 
         OfficialName="Bright, Bobby"
         TitledName="Rep. Bobby Bright" 
         Party="Democrat"
+        State="AL"
+        District="2"
         Position="Representative for Alabama-2"
+        Office="1205 Longworth"
         BioguideId="B001264"
-        PhotoUrl="http://assets.sunlightfoundation.com/moc/100x125/B001264.jpg"
+        Phone="202-225-2901"
+        Website="http://www.bright.house.gov/"
+        PhotoUrlMedium="http://assets.sunlightfoundation.com/moc/100x125/B001264.jpg"
+        PhotoUrlLarge="http://assets.sunlightfoundation.com/moc/200x250/B001264.jpg"
         />
     </local:LegislatorListViewModel.Legislators>
 
