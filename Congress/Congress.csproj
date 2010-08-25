@@ -117,6 +117,8 @@
     <Resource Include="Images\search_lastname.png" />
     <Resource Include="Images\search_location.png" />
     <Resource Include="Images\search_zip.png" />
+    <Resource Include="Images\phone.png" />
+    <Resource Include="Images\web.png" />
     <Content Include="SplashScreenImage.jpg" />
     <Resource Include="Images\ArrowImg.png" />
     <Content Include="Background.png">
