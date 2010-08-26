@@ -28,9 +28,9 @@ namespace Congress {
         protected override void OnNavigatedTo(NavigationEventArgs e) {
             base.OnNavigatedTo(e);
 
-            string selectedIndex = "";
-            if (NavigationContext.QueryString.TryGetValue("searchType", out selectedIndex))
-                searchType = int.Parse(selectedIndex);
+            string searchTypeString = "";
+            if (NavigationContext.QueryString.TryGetValue("searchType", out searchTypeString))
+                searchType = int.Parse(searchTypeString);
 
             string state;
             NavigationContext.QueryString.TryGetValue("state", out state);
@@ -41,10 +41,6 @@ namespace Congress {
             string zip;
             NavigationContext.QueryString.TryGetValue("zip", out zip);
 
-            // debug, lock to VA legislators for now
-            searchType = MainPage.SEARCH_STATE;
-            state = "VA";
-
             // turn on Loading... message
             Loading.Visibility = Visibility.Visible;
             MainListBox.Visibility = Visibility.Collapsed;
@@ -54,6 +50,7 @@ namespace Congress {
             }
             else if (searchType == MainPage.SEARCH_LASTNAME) {
                 ListTitle.Text = "named \"" + lastName + "\"";
+                Legislator.findByLastName(lastName, loadLegislators);
             }
             else if (searchType == MainPage.SEARCH_STATE) {
                 ListTitle.Text = "for " + state;
@@ -61,6 +58,7 @@ namespace Congress {
             }
             else if (searchType == MainPage.SEARCH_ZIP) {
                 ListTitle.Text = "for " + zip;
+                Legislator.findByZip(zip, loadLegislators);
             }
         }
 
