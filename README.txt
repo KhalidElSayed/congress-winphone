@@ -1,1 +1,6 @@
-A rough port of the Congress app for Android (http://sunlightfoundation.com/android/congress/) to the Windows Phone 7 platform.  This is a port of just the legislator-oriented functionality, what was released as v1.0 of the Android app.
+= SETUP =
+
+Copy Congress/Strings.resx.example to Congress/Strings.resx, and from within Visual Studio fill in the value for your Sunlight Labs API key.
+
+You can obtain an API key at:
+http://services.sunlightlabs.com
