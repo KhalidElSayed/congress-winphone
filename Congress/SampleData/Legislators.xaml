@@ -5,7 +5,6 @@
 
   <local:LegislatorListViewModel.Legislators>
     <local:LegislatorViewModel 
-        BioguideId="S001141"
         OfficialName="Sessions, Jeff"
         TitledName="Sen. Jeff Sessions"
         Party="Republican"
@@ -13,10 +12,12 @@
         District="Junior Seat"
         Position="Junior Senator from Alabama"
         Phone="202-224-4124"
-        Website="http://sessions.senate.gov/"
         Office="335 Russell"
         PhotoUrlMedium="http://assets.sunlightfoundation.com/moc/100x125/S001141.jpg"
         PhotoUrlLarge="http://assets.sunlightfoundation.com/moc/200x250/S001141.jpg"
+        CallMessage="Call his office"
+        WebsiteMessage="Visit his website"
+        ShortWebsite="sessions.senate.gov"
         />
     <local:LegislatorViewModel 
         OfficialName="Shelby, Richard"
@@ -26,11 +27,12 @@
         State="AL"
         Office="304 Russell"
         Position="Senior Senator from Alabama"
-        BioguideId="S000320"
         Phone="202-224-5744"
-        Website="http://shelby.senate.gov/"
         PhotoUrlMedium="http://assets.sunlightfoundation.com/moc/100x125/S000320.jpg"
         PhotoUrlLarge="http://assets.sunlightfoundation.com/moc/200x250/S000320.jpg"
+        CallMessage="Call his office"
+        WebsiteMessage="Visit his website"
+        ShortWebsite="shelby.senate.gov"
         />
     <local:LegislatorViewModel 
         OfficialName="Bachus, Spencer"
@@ -40,11 +42,12 @@
         State="AL"
         Position="Representative for Alabama-6"
         Office="2246 Rayburn"
-        BioguideId="B000013"
         Phone="202-225-4921"
-        Website="http://bachus.house.gov/"
         PhotoUrlMedium="http://assets.sunlightfoundation.com/moc/100x125/B000013.jpg"
         PhotoUrlLarge="http://assets.sunlightfoundation.com/moc/200x250/B000013.jpg"
+        CallMessage="Call his office"
+        WebsiteMessage="Visit his website"
+        ShortWebsite="bachus.house.gov"
         />
     <local:LegislatorViewModel 
         OfficialName="Bright, Bobby"
@@ -54,11 +57,12 @@
         District="2"
         Position="Representative for Alabama-2"
         Office="1205 Longworth"
-        BioguideId="B001264"
         Phone="202-225-2901"
-        Website="http://www.bright.house.gov/"
         PhotoUrlMedium="http://assets.sunlightfoundation.com/moc/100x125/B001264.jpg"
         PhotoUrlLarge="http://assets.sunlightfoundation.com/moc/200x250/B001264.jpg"
+        CallMessage="Call his office"
+        WebsiteMessage="Visit his website"
+        ShortWebsite="bright.house.gov"
         />
     </local:LegislatorListViewModel.Legislators>
 

@@ -39,10 +39,16 @@ namespace Congress {
         }
 
         private void makeCall(object sender, MouseButtonEventArgs e) {
-            PhoneCallTask phoneCallTask = new PhoneCallTask();
-            phoneCallTask.PhoneNumber = legislator.phone;
-            phoneCallTask.DisplayName = legislator.titledName();
-            phoneCallTask.Show();
+            PhoneCallTask call = new PhoneCallTask();
+            call.PhoneNumber = legislator.phone;
+            call.DisplayName = legislator.titledName();
+            call.Show();
+        }
+
+        private void visitWebsite(object sender, MouseButtonEventArgs e) {
+            WebBrowserTask web = new WebBrowserTask();
+            web.URL = legislator.website;
+            web.Show();
         }
     }
 }

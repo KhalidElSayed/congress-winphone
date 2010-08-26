@@ -26,15 +26,19 @@ namespace Congress {
         public string Party {get; set;}
         public string District {get; set;}
         public string State {get; set;}
-        public string BioguideId { get; set; }
         public string PhotoUrlMedium {get; set;}
         public string PhotoUrlLarge { get; set; }
         public string Phone {get; set;}
-        public string Website {get; set;}
         public string Office {get; set;}
+        public string CallMessage {get; set;}
+        public string WebsiteMessage {get; set;}
+        public string ShortWebsite {get; set;}
+
+        public Legislator legislator;
 
         public static LegislatorViewModel fromLegislator(Legislator legislator) {
             return new LegislatorViewModel() {
+                legislator = legislator,
                 OfficialName = legislator.getOfficialName(),
                 TitledName = legislator.titledName(),
                 Position = getPosition(legislator),
@@ -42,12 +46,38 @@ namespace Congress {
                 State = getStateName(legislator.state),
                 District = getDistrict(legislator),
                 Phone = legislator.phone,
-                Website = legislator.website,
-                BioguideId = legislator.bioguideId,
                 Office = getOffice(legislator),
                 PhotoUrlMedium = photoUrl(PHOTO_MEDIUM, legislator.bioguideId),
                 PhotoUrlLarge = photoUrl(PHOTO_LARGE, legislator.bioguideId),
+                CallMessage = callMessage(legislator),
+                WebsiteMessage = websiteMessage(legislator),
+                ShortWebsite = shortWebsite(legislator),
             };
+        }
+
+        public static string shortWebsite(Legislator legislator) {
+            string website = legislator.website;
+            website = Regex.Replace(website, "^http://(?:www\\.)?", "");
+            website = Regex.Replace(website, "/$", "");
+            return website;
+        }
+
+        public static string callMessage(Legislator legislator) {
+            if (legislator.gender.Equals("M"))
+                return "Call his office";
+            else if (legislator.gender.Equals("F"))
+                return "Call her office";
+            else // safeguard against future transgendered or non-gendered officeholders
+                return "Call their office";
+        }
+
+        public static string websiteMessage(Legislator legislator) {
+            if (legislator.gender.Equals("M"))
+                return "Visit his website";
+            else if (legislator.gender.Equals("F"))
+                return "Visit her website";
+            else // safeguard against future transgendered or non-gendered officeholders
+                return "Visit their website";
         }
 
         public static string photoUrl(string size, string bioguideId) {

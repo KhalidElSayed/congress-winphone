@@ -79,7 +79,7 @@ namespace Congress {
 
             LegislatorViewModel model = (MainListBox.ItemsSource as ObservableCollection<LegislatorViewModel>)[MainListBox.SelectedIndex];
 
-            NavigationService.Navigate(new Uri("/LegislatorPage.xaml?bioguideId=" + model.BioguideId, UriKind.Relative));
+            NavigationService.Navigate(new Uri("/LegislatorPage.xaml?bioguideId=" + model.legislator.bioguideId, UriKind.Relative));
 
             // Reset selected index to -1 (no selection)
             MainListBox.SelectedIndex = -1;
