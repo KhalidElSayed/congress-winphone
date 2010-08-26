@@ -12,10 +12,13 @@ using System.Windows.Shapes;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Congress.Models;
+using Microsoft.Phone.Tasks;
 
 namespace Congress {
 
     public partial class LegislatorPage : PhoneApplicationPage {
+        private Legislator legislator;
+
         public LegislatorPage() {
             InitializeComponent();
         }
@@ -31,8 +34,15 @@ namespace Congress {
         }
 
         protected void displayLegislator(Legislator legislator) {
-            if (DataContext == null)
-                DataContext = LegislatorViewModel.fromLegislator(legislator);
+            this.legislator = legislator;
+            DataContext = LegislatorViewModel.fromLegislator(legislator);
+        }
+
+        private void makeCall(object sender, MouseButtonEventArgs e) {
+            PhoneCallTask phoneCallTask = new PhoneCallTask();
+            phoneCallTask.PhoneNumber = legislator.phone;
+            phoneCallTask.DisplayName = legislator.titledName();
+            phoneCallTask.Show();
         }
     }
 }
