@@ -76,6 +76,22 @@ namespace Congress.Models {
 
         /** Network operations */
 
+        public static void findByState(string state, LegislatorsFoundEventHandler handler) {
+            findMany("getList", "state=" + state, handler);
+        }
+
+        public static void findByZip(string zip, LegislatorsFoundEventHandler handler) {
+            findMany("allForZip", "zip=" + zip, handler);
+        }
+
+        public static void findByLastName(string lastName, LegislatorsFoundEventHandler handler) {
+            findMany("getList", "lastname=" + lastName, handler);
+        }
+
+        public static void findByLocation(string latitude, string longitude, LegislatorsFoundEventHandler handler) {
+            findMany("allForLatLong", "latitude=" + latitude + "&longitude=" + longitude, handler);
+        }
+
         public static void find(string bioguideId, LegislatorFoundEventHandler handler) {
             WebClient downloader = new WebClient();
 
@@ -86,18 +102,14 @@ namespace Congress.Models {
             downloader.DownloadStringAsync(new Uri(Sunlight.url("legislators.get", "bioguide_id=" + bioguideId)));
         }
 
-        public static void findByState(string state, LegislatorsFoundEventHandler handler) {
-            findMany("state=" + state, handler);
-        }
-
-        public static void findMany(string queryString, LegislatorsFoundEventHandler handler) {
+        public static void findMany(string method, string queryString, LegislatorsFoundEventHandler handler) {
             WebClient downloader = new WebClient();
 
             downloader.DownloadStringCompleted += (s, e) => {
                 handler.Invoke(manyFromJSON(e.Result));
             };
 
-            downloader.DownloadStringAsync(new Uri(Sunlight.url("legislators.getList", queryString)));
+            downloader.DownloadStringAsync(new Uri(Sunlight.url("legislators." + method, queryString)));
         }
 
         public delegate void LegislatorFoundEventHandler(Legislator legislator);
