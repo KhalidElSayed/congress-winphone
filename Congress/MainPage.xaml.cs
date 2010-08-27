@@ -58,14 +58,26 @@ namespace Congress {
                 Background = new SolidColorBrush(Colors.DarkGray)
             };
 
-            TextBlock askText = new TextBlock() { Text = ask };
+            TextBlock askText = new TextBlock() { 
+                Text = ask ,
+                Margin = new Thickness(10.0)
+            };
             TextBox input = new TextBox() { 
-                Margin = new Thickness(5.0) 
+                Margin = new Thickness(10.0)
+            };
+
+            StackPanel buttons = new StackPanel() {
+                Orientation = System.Windows.Controls.Orientation.Horizontal,
             };
 
             Button ok = new Button() { 
                 Content = "OK", 
-                Margin = new Thickness(5.0) 
+                Margin = new Thickness(10.0) 
+            };
+
+            Button cancel = new Button() {
+                Content = "Cancel",
+                Margin = new Thickness(10.0)
             };
 
             ok.Click += (s, e) => {
@@ -73,8 +85,15 @@ namespace Congress {
                 handler.Invoke(input.Text);
             };
 
+            cancel.Click += (s, e) => {
+                popup.IsOpen = false;
+            };
+
+            buttons.Children.Add(ok);
+            buttons.Children.Add(cancel);
+
             main.Children.Add(input);
-            main.Children.Add(ok);
+            main.Children.Add(buttons);
             border.Child = main;
             popup.Child = border;
 
