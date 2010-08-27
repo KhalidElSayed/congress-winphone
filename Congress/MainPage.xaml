@@ -13,7 +13,7 @@
     mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768" 
     shell:SystemTray.IsVisible="True">
 
-    <!--Data context is set to sample data above and LayoutRoot contains the root grid where all other page content is placed-->
+    
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -25,6 +25,8 @@
             <TextBlock x:Name="ApplicationTitle" Text="CONGRESS" Style="{StaticResource PhoneTextNormalStyle}"/>
             <TextBlock x:Name="ListTitle" Text="home" Margin="-3,-8,0,0" Style="{StaticResource PhoneTextTitle1Style}" FontSize="72" />
         </StackPanel>
+
+        <Popup x:Name="popup" IsOpen="False" Margin="100,200,0,0" Visibility="Collapsed" Opacity="0.7" />
 
         <!--ContentPanel contains ListBox and ListBox ItemTemplate. Place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="24,20,0,0" Height="457" VerticalAlignment="Top">

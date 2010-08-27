@@ -44,24 +44,21 @@ namespace Congress {
         }
 
         private void GetTextInput(string ask, PopupTextResultHandler handler) {
-            Popup popup = new Popup() {
-                VerticalAlignment = VerticalAlignment.Center,
-                HorizontalAlignment = HorizontalAlignment.Center
-            };
-
             Border border = new Border() {
                 BorderBrush = new SolidColorBrush(Colors.White),
                 BorderThickness = new Thickness(5.0)
             };
 
             StackPanel main = new StackPanel() {
-                Background = new SolidColorBrush(Colors.DarkGray)
+                Background = new SolidColorBrush(Colors.Black)
             };
 
             TextBlock askText = new TextBlock() { 
-                Text = ask ,
-                Margin = new Thickness(10.0)
+                Text = ask,
+                Margin = new Thickness(10.0),
+                FontSize = 28.0,
             };
+
             TextBox input = new TextBox() { 
                 Margin = new Thickness(10.0)
             };
@@ -81,21 +78,30 @@ namespace Congress {
             };
 
             ok.Click += (s, e) => {
+                //ContentPanel.Visibility = Visibility.Visible;
                 popup.IsOpen = false;
+                popup.Visibility = Visibility.Collapsed;
+                
                 handler.Invoke(input.Text);
             };
 
             cancel.Click += (s, e) => {
+                //ContentPanel.Visibility = Visibility.Visible;
                 popup.IsOpen = false;
+                popup.Visibility = Visibility.Collapsed;
             };
 
             buttons.Children.Add(ok);
             buttons.Children.Add(cancel);
-
+            
+            main.Children.Add(askText);
             main.Children.Add(input);
             main.Children.Add(buttons);
             border.Child = main;
             popup.Child = border;
+
+            popup.Visibility = Visibility.Visible;
+            //ContentPanel.Visibility = Visibility.Collapsed;
 
             popup.IsOpen = true;
         }
