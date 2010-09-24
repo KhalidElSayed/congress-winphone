@@ -1,0 +1,74 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="Congress.LegislatorPivot"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    d:DataContext="{d:DesignData SampleData/Legislators.xaml}"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent" d:DataContext="{Binding Legislators[0]}">
+        <!--Pivot Control-->
+        <controls:Pivot Title="{Binding TitledName}" FontSize="20">
+            
+            <!-- Legislator Profile -->
+            <controls:PivotItem Header="item1">
+                <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="24,0,0,0">
+                    <StackPanel x:Name="TopPanel" Orientation="Horizontal" Margin="0,0,0,10">
+                        <Image Height="250" x:Name="LegislatorPhoto" Source="{Binding PhotoUrlLarge}" Stretch="Fill" Width="200" />
+
+                        <StackPanel x:Name="FactsPanel" Orientation="Vertical" Margin="20,0,0,0" VerticalAlignment="Center">
+                            <TextBlock x:Name="LegislatorParty" Text="{Binding Party}" Margin="0,10" FontSize="28" />
+                            <TextBlock x:Name="LegislatorState" Text="{Binding State}" Margin="0,10" FontSize="28" />
+                            <TextBlock x:Name="LegislatorDistrict" Text="{Binding District}" Margin="0,10" FontSize="28" />
+                            <TextBlock x:Name="LegislatorOffice" Text="{Binding Office}" Margin="0,10" FontSize="28" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel MouseLeftButtonDown="makeCall" x:Name="PhonePanel" Orientation="Horizontal" Margin="0,20,0,0">
+                        <Image Source="/Congress;component/Images/phone.png" />
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock x:Name="LegislatorPhone" Text="{Binding CallMessage}" FontSize="40" Margin="30,0,0,0" />
+                            <TextBlock Text="{Binding Phone}" Margin="30,0,0,0" FontSize="24" Foreground="#FFD4D4D4" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel MouseLeftButtonDown="visitWebsite" x:Name="WebPanel" Orientation="Horizontal" Margin="0,20,0,0">
+                        <Image Source="/Congress;component/Images/web.png" />
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock x:Name="LegislatorWeb" Text="{Binding WebsiteMessage}" FontSize="40" Margin="30,0,0,0" />
+                            <TextBlock Text="{Binding ShortWebsite}" Margin="30,0,0,0" FontSize="24" Foreground="#FFD4D4D4" />
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </controls:PivotItem>
+
+            <!--Pivot item two-->
+            <controls:PivotItem Header="item2">
+                <TextBlock x:Name="Pivot2" Text="Message" FontSize="40" Margin="0,0,0,0" />
+            </controls:PivotItem>
+        </controls:Pivot>
+    </Grid>
+
+    <!--Sample code showing usage of ApplicationBar-->
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton x:Name="appbar_button1" IconUri="/Images/appbar_button1.png" Text="Button 1"/>
+            <shell:ApplicationBarIconButton x:Name="appbar_button2" IconUri="/Images/appbar_button2.png" Text="Button 2"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem x:Name="menuItem1" Text="MenuItem 1"/>
+                <shell:ApplicationBarMenuItem x:Name="menuItem2" Text="MenuItem 2"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+    
+</phone:PhoneApplicationPage>

@@ -9,17 +9,16 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
-using Congress.Models;
 using Microsoft.Phone.Tasks;
+using Congress.Models;
+using System.Windows.Navigation;
 
 namespace Congress {
-
-    public partial class LegislatorPage : PhoneApplicationPage {
+    public partial class LegislatorPivot : PhoneApplicationPage {
         private Legislator legislator;
 
-        public LegislatorPage() {
+        public LegislatorPivot() {
             InitializeComponent();
         }
 
@@ -37,6 +36,7 @@ namespace Congress {
             this.legislator = legislator;
             DataContext = LegislatorViewModel.fromLegislator(legislator);
         }
+
 
         private void makeCall(object sender, MouseButtonEventArgs e) {
             PhoneCallTask call = new PhoneCallTask();
