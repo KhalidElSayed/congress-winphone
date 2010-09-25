@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using System.Collections.ObjectModel;
 using Congress.Models;
+using Congress.ViewModels;
 
 namespace Congress {
 

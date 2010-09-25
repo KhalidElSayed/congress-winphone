@@ -13,7 +13,7 @@ using System.Windows.Shapes;
 using Congress.Models;
 using System.Text.RegularExpressions;
 
-namespace Congress {
+namespace Congress.ViewModels {
 
     public class LegislatorViewModel {
         public static string PHOTO_LARGE = "200x250";

@@ -15,7 +15,7 @@ using Congress.Models;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace Congress {
+namespace Congress.ViewModels {
 
     public class LegislatorListViewModel {
         public ObservableCollection<LegislatorViewModel> Legislators { get; set; }
@@ -27,11 +27,11 @@ namespace Congress {
         public static LegislatorListViewModel fromCollection(Collection<Legislator> legislators) {
             IOrderedEnumerable<Legislator> sortedLegislators = legislators.OrderBy(l => l.title, new TitleComparer()).ThenBy(l => l.lastName);
 
-
             ObservableCollection<LegislatorViewModel> models = new ObservableCollection<LegislatorViewModel>();
             foreach (Legislator legislator in sortedLegislators) {
                 models.Add(LegislatorViewModel.fromLegislator(legislator));
             }
+
             return new LegislatorListViewModel() { Legislators = models };
         }
 

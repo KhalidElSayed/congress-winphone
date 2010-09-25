@@ -1,0 +1,30 @@
+﻿<local:NewsItemListViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Congress.ViewModels">
+
+    <local:NewsItemListViewModel.NewsItems>
+        <local:NewsItemViewModel
+          Title="First Piece of News"
+          Url="http://ap.com/something"
+          Excerpt="Something has happened today. Tune in later on to our news page for news page updates."
+          Timestamp="Jan 22"
+          Source="AP Newswire"
+          />
+        <local:NewsItemViewModel
+          Title="Second Piece of News, a Much Longer One"
+          Excerpt="Something crazy has happened in the past, a very long event that requires a longer description. You would be a fool not to tune in to our RSS of news RSS items."
+          Url="http://cnn.com/something"
+          Timestamp="Dec 21, 2009"
+          Source="CNN"
+          />
+        <local:NewsItemViewModel
+          Title="Final News"
+          Excerpt="End of world"
+          Url="http://ap.com/something"
+          Timestamp="Mar 20, 2008"
+          Source="AP Newswire"
+          />
+    </local:NewsItemListViewModel.NewsItems>
+
+</local:NewsItemListViewModel>

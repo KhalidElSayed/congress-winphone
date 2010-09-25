@@ -12,18 +12,17 @@ using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Tasks;
 using Congress.Models;
+using Congress.ViewModels;
 using System.Windows.Navigation;
 
 namespace Congress {
     public partial class LegislatorPivot : PhoneApplicationPage {
-        private Legislator legislator;
         private LegislatorViewModel view;
 
         public LegislatorPivot() {
             InitializeComponent();
         }
 
-        // When page is navigated to, set data context to selected item in list
         protected override void OnNavigatedTo(NavigationEventArgs e) {
             base.OnNavigatedTo(e);
 
@@ -34,22 +33,21 @@ namespace Congress {
         }
 
         protected void displayLegislator(Legislator legislator) {
-            this.legislator = legislator;
-            DataContext = LegislatorViewModel.fromLegislator(legislator);
-            view = (LegislatorViewModel) DataContext;
+            this.view = LegislatorViewModel.fromLegislator(legislator);
+            DataContext = view;
         }
 
 
         private void makeCall(object sender, MouseButtonEventArgs e) {
             PhoneCallTask call = new PhoneCallTask();
-            call.PhoneNumber = legislator.phone;
+            call.PhoneNumber = view.legislator.phone;
             call.DisplayName = view.TitledName;
             call.Show();
         }
 
         private void visitWebsite(object sender, MouseButtonEventArgs e) {
             WebBrowserTask web = new WebBrowserTask();
-            web.URL = legislator.website;
+            web.URL = view.legislator.website;
             web.Show();
         }
     }

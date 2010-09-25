@@ -29,7 +29,6 @@
             
             <TextBlock x:Name="Loading" Style="{StaticResource PhoneTextNormalStyle}" Text="Loading..." Visibility="Collapsed" Margin="0,0,0,530" />
             
-            
             <ListBox x:Name="MainListBox" ItemsSource="{Binding Legislators}" SelectionChanged="MainListBox_SelectionChanged" BorderThickness="0" BorderBrush="Transparent">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
