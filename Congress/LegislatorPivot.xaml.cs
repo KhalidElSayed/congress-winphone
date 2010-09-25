@@ -35,6 +35,15 @@ namespace Congress {
         protected void displayLegislator(Legislator legislator) {
             this.view = LegislatorViewModel.fromLegislator(legislator);
             DataContext = view;
+
+            // trigger news fetching
+
+            // if twitter_id then add pivot and trigger tweet fetching
+            //if (view.legislator.twitterId != null && view.legislator.twitterId.Length > 0) {
+            //    MainPivot.Items.Add(new PivotItem() { Header = "tweets" });
+            //}
+
+            // if youtube_url then add pivot and trigger video fetching
         }
 
 

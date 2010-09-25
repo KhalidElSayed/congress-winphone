@@ -17,7 +17,7 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <!--Pivot Control-->
-        <controls:Pivot Title="{Binding TitledName}" FontSize="20">
+        <controls:Pivot x:Name="MainPivot" Title="{Binding TitledName}" FontSize="20">
             
             <!-- Legislator Profile -->
             <controls:PivotItem Header="profile" d:DataContext="{d:DesignData SampleData/Legislators.xaml}">
