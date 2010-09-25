@@ -71,7 +71,6 @@ namespace Congress {
             }
         }
 
-        // Handle selection changed on ListBox
         private void MainListBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             if (MainListBox.SelectedIndex == -1)
                 return;

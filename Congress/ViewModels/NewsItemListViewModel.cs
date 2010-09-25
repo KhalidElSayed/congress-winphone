@@ -15,7 +15,7 @@ namespace Congress.ViewModels {
         public ObservableCollection<NewsItemViewModel> NewsItems { get; set; }
 
         public NewsItemListViewModel() {
-            //Legislators = new ObservableCollection<LegislatorViewModel>() {};
+            NewsItems= new ObservableCollection<NewsItemViewModel>() {};
         }
     }
 }

@@ -50,5 +50,10 @@ namespace Congress {
             web.URL = view.legislator.website;
             web.Show();
         }
+
+        private void NewsList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            if (NewsList.SelectedIndex == -1)
+                return;
+        }
     }
 }
