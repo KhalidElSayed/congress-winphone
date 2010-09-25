@@ -21,7 +21,7 @@
         <controls:Pivot Title="{Binding TitledName}" FontSize="20">
             
             <!-- Legislator Profile -->
-            <controls:PivotItem Header="item1">
+            <controls:PivotItem Header="profile">
                 <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="24,0,0,0">
                     <StackPanel x:Name="TopPanel" Orientation="Horizontal" Margin="0,0,0,10">
                         <Image Height="250" x:Name="LegislatorPhoto" Source="{Binding PhotoUrlLarge}" Stretch="Fill" Width="200" />

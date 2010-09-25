@@ -18,6 +18,7 @@
         CallMessage="Call his office"
         WebsiteMessage="Visit his website"
         ShortWebsite="sessions.senate.gov"
+        NewsKeyword="Sen. Jeff Sessions"
         />
     <local:LegislatorViewModel 
         OfficialName="Shelby, Richard"
@@ -33,6 +34,7 @@
         CallMessage="Call his office"
         WebsiteMessage="Visit his website"
         ShortWebsite="shelby.senate.gov"
+        NewsKeyword="Sen. Richard Shelby"
         />
     <local:LegislatorViewModel 
         OfficialName="Bachus, Spencer"
@@ -48,6 +50,7 @@
         CallMessage="Call his office"
         WebsiteMessage="Visit his website"
         ShortWebsite="bachus.house.gov"
+        NewsKeyword="Rep. Spencer Bachus"
         />
     <local:LegislatorViewModel 
         OfficialName="Bright, Bobby"
@@ -63,6 +66,7 @@
         CallMessage="Call his office"
         WebsiteMessage="Visit his website"
         ShortWebsite="bright.house.gov"
+        NewsKeyword="Rep. Bobby Bright"
         />
     </local:LegislatorListViewModel.Legislators>
 

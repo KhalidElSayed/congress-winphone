@@ -68,9 +68,6 @@
     <Compile Include="LegislatorListPage.xaml.cs">
       <DependentUpon>LegislatorListPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LegislatorPage.xaml.cs">
-      <DependentUpon>LegislatorPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -93,10 +90,6 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="LegislatorListPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="LegislatorPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -33,16 +33,17 @@ namespace Congress {
         public string CallMessage {get; set;}
         public string WebsiteMessage {get; set;}
         public string ShortWebsite {get; set;}
+        public string NewsKeyword {get; set;}
 
         public Legislator legislator;
 
         public static LegislatorViewModel fromLegislator(Legislator legislator) {
             return new LegislatorViewModel() {
                 legislator = legislator,
-                OfficialName = legislator.getOfficialName(),
-                TitledName = legislator.titledName(),
+                OfficialName = getOfficialName(legislator),
+                TitledName = titledName(legislator),
                 Position = getPosition(legislator),
-                Party = legislator.partyName(),
+                Party = partyName(legislator),
                 State = getStateName(legislator.state),
                 District = getDistrict(legislator),
                 Phone = legislator.phone,
@@ -52,7 +53,65 @@ namespace Congress {
                 CallMessage = callMessage(legislator),
                 WebsiteMessage = websiteMessage(legislator),
                 ShortWebsite = shortWebsite(legislator),
+                NewsKeyword = newsKeyword(legislator)
             };
+        }
+
+        public static string getName(Legislator legislator) {
+            return commonName(legislator) + " " + legislator.lastName;
+        }
+
+        public static string commonName(Legislator legislator) {
+            if (legislator.nickName != null && legislator.nickName.Length > 0)
+                return legislator.nickName;
+            else
+                return legislator.firstName;
+        }
+
+        public static string titledName(Legislator legislator) {
+            string name = legislator.title + ". " + getName(legislator);
+            if (legislator.nameSuffix != null && !legislator.nameSuffix.Equals(""))
+                name += ", " + legislator.nameSuffix;
+            return name;
+        }
+
+        public static string getOfficialName(Legislator legislator) {
+            return legislator.lastName + ", " + commonName(legislator);
+        }
+
+        public static string fullTitle(Legislator legislator) {
+            if (legislator.title.Equals("Del"))
+                return "Delegate";
+            else if (legislator.title.Equals("Com"))
+                return "Resident Commissioner";
+            else if (legislator.title.Equals("Sen"))
+                return "Senator";
+            else // "Rep"
+                return "Representative";
+        }
+
+        public static string getDomain(Legislator legislator) {
+            if (legislator.district.Equals("Senior Seat") || legislator.district.Equals("Junior Seat"))
+                return legislator.district;
+            else if (legislator.district.Equals("0"))
+                return "At-Large";
+            else
+                return "District " + legislator.district;
+        }
+
+        public static string partyName(Legislator legislator) {
+            if (legislator.party.Equals("D"))
+                return "Democrat";
+            if (legislator.party.Equals("R"))
+                return "Republican";
+            if (legislator.party.Equals("I"))
+                return "Independent";
+            else
+                return "";
+        }
+
+        public static string newsKeyword(Legislator legislator) {
+            return legislator.title + ". " + getName(legislator);
         }
 
         public static string shortWebsite(Legislator legislator) {
@@ -104,7 +163,7 @@ namespace Congress {
                 if (legislator.title.Equals("Rep"))
                     position = "Representative for " + state + " At-Large";
                 else
-                    position = legislator.fullTitle() + " for " + state;
+                    position = fullTitle(legislator) + " for " + state;
             }
             else
                 position = "Representative for " + state + "-" + district;

@@ -17,6 +17,7 @@ using System.Windows.Navigation;
 namespace Congress {
     public partial class LegislatorPivot : PhoneApplicationPage {
         private Legislator legislator;
+        private LegislatorViewModel view;
 
         public LegislatorPivot() {
             InitializeComponent();
@@ -35,13 +36,14 @@ namespace Congress {
         protected void displayLegislator(Legislator legislator) {
             this.legislator = legislator;
             DataContext = LegislatorViewModel.fromLegislator(legislator);
+            view = (LegislatorViewModel) DataContext;
         }
 
 
         private void makeCall(object sender, MouseButtonEventArgs e) {
             PhoneCallTask call = new PhoneCallTask();
             call.PhoneNumber = legislator.phone;
-            call.DisplayName = legislator.titledName();
+            call.DisplayName = view.TitledName;
             call.Show();
         }
 

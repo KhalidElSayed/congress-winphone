@@ -20,60 +20,6 @@ namespace Congress.Models {
         public Legislator() {}
 
 
-        public string getName() {
-            return commonName() + " " + lastName;
-        }
-
-        public string commonName() {
-            if (nickName != null && nickName.Length > 0)
-                return nickName;
-            else
-                return firstName;
-        }
-
-        public string titledName() {
-            string name = title + ". " + getName();
-            if (nameSuffix != null && !nameSuffix.Equals(""))
-                name += ", " + nameSuffix;
-            return name;
-        }
-
-        public string getOfficialName() {
-            return lastName + ", " + commonName();
-        }
-
-        public string fullTitle() {
-            if (title.Equals("Del"))
-                return "Delegate";
-            else if (title.Equals("Com"))
-                return "Resident Commissioner";
-            else if (title.Equals("Sen"))
-                return "Senator";
-            else // "Rep"
-                return "Representative";
-        }
-
-        public string getDomain() {
-            if (district.Equals("Senior Seat") || district.Equals("Junior Seat"))
-                return district;
-            else if (district.Equals("0"))
-                return "At-Large";
-            else
-                return "District " + district;
-        }
-
-        public string partyName() {
-            if (party.Equals("D"))
-                return "Democrat";
-            if (party.Equals("R"))
-                return "Republican";
-            if (party.Equals("I"))
-                return "Independent";
-            else
-                return "";
-        }
-
-
         /** Network operations */
 
         public static void findByState(string state, LegislatorsFoundEventHandler handler) {
