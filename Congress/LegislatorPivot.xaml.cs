@@ -14,6 +14,7 @@ using Microsoft.Phone.Tasks;
 using Congress.Models;
 using Congress.ViewModels;
 using System.Windows.Navigation;
+using System.Collections.ObjectModel;
 
 namespace Congress {
     public partial class LegislatorPivot : PhoneApplicationPage {
@@ -35,8 +36,9 @@ namespace Congress {
         protected void displayLegislator(Legislator legislator) {
             this.view = LegislatorViewModel.fromLegislator(legislator);
             DataContext = view;
-
+            
             // trigger news fetching
+            NewsItem.search(view.NewsKeyword, displayNews);
 
             // if twitter_id then add pivot and trigger tweet fetching
             //if (view.legislator.twitterId != null && view.legislator.twitterId.Length > 0) {
@@ -46,6 +48,9 @@ namespace Congress {
             // if youtube_url then add pivot and trigger video fetching
         }
 
+        protected void displayNews(Collection<NewsItem> items) {
+            NewsPivot.DataContext = NewsItemListViewModel.fromCollection(items);
+        }
 
         private void makeCall(object sender, MouseButtonEventArgs e) {
             PhoneCallTask call = new PhoneCallTask();

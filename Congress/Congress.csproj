@@ -71,6 +71,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\NewsItem.cs" />
     <Compile Include="Models\Legislator.cs" />
     <Compile Include="LegislatorPivot.xaml.cs">
       <DependentUpon>LegislatorPivot.xaml</DependentUpon>
@@ -80,6 +81,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Strings.resx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.resx.example</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\NewsItemListViewModel.cs" />
     <Compile Include="ViewModels\NewsItemViewModel.cs" />

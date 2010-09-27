@@ -8,6 +8,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using Congress.Models;
 
 namespace Congress.ViewModels {
     public class NewsItemViewModel {
@@ -17,6 +18,16 @@ namespace Congress.ViewModels {
         public string Source {get; set;}
         public string Timestamp {get; set;}
 
-        //public NewsItem newsItem;
+        public NewsItem newsItem;
+
+        public static NewsItemViewModel fromNewsItem(NewsItem item) {
+            return new NewsItemViewModel() {
+                Title = item.title,
+                Excerpt = item.summary,
+                Url = item.clickUrl,
+                Source = item.source,
+                Timestamp = "time"
+            };
+        }
     }
 }

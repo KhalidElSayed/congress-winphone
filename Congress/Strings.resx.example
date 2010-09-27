@@ -121,4 +121,8 @@
     <value />
     <comment>Sunlight Labs API key</comment>
   </data>
+  <data name="YahooApiKey" xml:space="preserve">
+    <value />
+    <comment>Yahoo News API key</comment>
+  </data>
 </root>

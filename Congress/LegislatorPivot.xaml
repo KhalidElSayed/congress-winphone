@@ -51,7 +51,7 @@
                 </StackPanel>
             </controls:PivotItem>
 
-            <controls:PivotItem Header="news" d:DataContext="{d:DesignData SampleData/NewsItems.xaml}">
+            <controls:PivotItem Name="NewsPivot" Header="news" d:DataContext="{d:DesignData SampleData/NewsItems.xaml}">
                 
                 <ListBox x:Name="NewsList" ItemsSource="{Binding NewsItems}" SelectionChanged="NewsList_SelectionChanged" BorderThickness="0" BorderBrush="Transparent">
                     <ListBox.ItemTemplate>

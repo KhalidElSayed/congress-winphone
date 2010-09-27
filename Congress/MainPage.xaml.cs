@@ -60,7 +60,8 @@ namespace Congress {
             };
 
             TextBox input = new TextBox() { 
-                Margin = new Thickness(10.0)
+                Margin = new Thickness(10.0),
+                Text = "MA"
             };
 
             StackPanel buttons = new StackPanel() {
