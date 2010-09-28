@@ -18,7 +18,7 @@ namespace Congress.ViewModels {
 
         public Tweet tweet;
 
-        public static TweetViewModel fromNewsItem(Tweet tweet) {
+        public static TweetViewModel fromTweet(Tweet tweet) {
             return new TweetViewModel() {
                 Username = tweet.username,
                 Text = tweet.text,

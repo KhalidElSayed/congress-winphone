@@ -23,7 +23,7 @@ namespace Congress.ViewModels {
 
             ObservableCollection<TweetViewModel> models = new ObservableCollection<TweetViewModel>();
             foreach (Tweet tweet in tweets)
-                models.Add(TweetViewModel.fromNewsItem(tweet));
+                models.Add(TweetViewModel.fromTweet(tweet));
 
             return new TweetListViewModel() { Tweets = models };
         }

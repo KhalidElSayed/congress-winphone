@@ -1,0 +1,30 @@
+﻿<local:VideoListViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Congress.ViewModels">
+
+    <local:VideoListViewModel.Videos>
+        <local:VideoViewModel
+            Title="Video About Myself"
+            Description="This is where I talk about America."
+            Date="Sep 22"
+            ThumbnailUrl="http://assets.sunlightfoundation.com/moc/100x125/S001141.jpg"
+            Url="http://youtube.com"
+            />
+        <local:VideoViewModel
+            Title="Video About Myself"
+            Description="This is where I talk about America."
+            Date="Sep 22"
+            ThumbnailUrl="http://assets.sunlightfoundation.com/moc/100x125/S001141.jpg"
+            Url="http://youtube.com"
+            />
+        <local:VideoViewModel
+            Title="Video About Myself"
+            Description="This is where I talk about America."
+            Date="Sep 22"
+            ThumbnailUrl="http://assets.sunlightfoundation.com/moc/100x125/S001141.jpg"
+            Url="http://youtube.com"
+            />
+    </local:VideoListViewModel.Videos>
+
+</local:VideoListViewModel>

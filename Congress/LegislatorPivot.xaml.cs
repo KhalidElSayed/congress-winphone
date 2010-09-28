@@ -54,7 +54,7 @@ namespace Congress {
 
             // if youtube_url then add pivot and trigger video fetching
             if (view.legislator.youtubeUrl != null && view.legislator.youtubeUrl.Length > 0) {
-                
+                Video.getVideos(youtubeUsername(legislator.youtubeUrl), displayVideos);
             }
         }
 
@@ -83,6 +83,27 @@ namespace Congress {
             MainPivot.Items.Add(TweetsPivot);
         }
 
+        protected void displayVideos(Collection<Video> videos) {
+            VideosPivot = new PivotItem() { Name = "VideosPivot", Header = "videos" };
+
+            VideosList = new ListBox() {
+                Name = "VideosList",
+                BorderThickness = new Thickness(0.0),
+                BorderBrush = new SolidColorBrush(Colors.Transparent)
+            };
+
+            string template = "<DataTemplate xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\">" +
+                    "<TextBlock Text=\"{Binding Title}\" Style=\"{StaticResource PhoneTextNormalStyle}\" FontSize=\"24\" />" +
+                "</DataTemplate>";
+            DataTemplate videoTemplate = (DataTemplate) XamlReader.Load(template);
+
+            VideosList.ItemTemplate = videoTemplate;
+            VideosList.ItemsSource = VideoListViewModel.fromCollection(videos).Videos;
+            VideosPivot.Content = VideosList;
+
+            MainPivot.Items.Add(VideosPivot);
+        }
+
         private void makeCall(object sender, MouseButtonEventArgs e) {
             PhoneCallTask call = new PhoneCallTask();
             call.PhoneNumber = view.legislator.phone;
@@ -104,6 +125,11 @@ namespace Congress {
         private void TweetsList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             if (TweetsList.SelectedIndex == -1)
                 return;
+        }
+
+        // plucks a youtube username from a url
+        private string youtubeUsername(string url) {
+            return "senatorkerry";
         }
     }
 }
