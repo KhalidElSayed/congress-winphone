@@ -71,6 +71,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Tweet.cs" />
     <Compile Include="Models\NewsItem.cs" />
     <Compile Include="Models\Legislator.cs" />
     <Compile Include="LegislatorPivot.xaml.cs">
@@ -87,6 +88,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx.example</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\TweetListViewModel.cs" />
+    <Compile Include="ViewModels\TweetViewModel.cs" />
     <Compile Include="ViewModels\NewsItemListViewModel.cs" />
     <Compile Include="ViewModels\NewsItemViewModel.cs" />
     <Compile Include="ViewModels\LegislatorViewModel.cs" />
@@ -117,6 +120,10 @@
     <Page Include="LegislatorPivot.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SampleData\Tweets.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="SampleData\NewsItems.xaml">
       <Generator>MSBuild:Compile</Generator>

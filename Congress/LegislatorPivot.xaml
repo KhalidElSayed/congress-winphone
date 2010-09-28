@@ -20,7 +20,7 @@
         <controls:Pivot x:Name="MainPivot" Title="{Binding TitledName}" FontSize="20">
             
             <!-- Legislator Profile -->
-            <controls:PivotItem Header="profile" d:DataContext="{d:DesignData SampleData/Legislators.xaml}">
+            <controls:PivotItem Name="ProfilePivot" Header="profile" d:DataContext="{d:DesignData SampleData/Legislators.xaml}">
                 <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="24,0,0,0" d:DataContext="{Binding Legislators[0]}">
                     <StackPanel x:Name="TopPanel" Orientation="Horizontal" Margin="0,0,0,10">
                         <Image Height="250" x:Name="LegislatorPhoto" Source="{Binding PhotoUrlLarge}" Stretch="Fill" Width="200" />
@@ -62,6 +62,7 @@
                 </ListBox>
                 
             </controls:PivotItem>
+
         </controls:Pivot>
     </Grid>
 

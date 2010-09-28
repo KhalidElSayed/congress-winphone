@@ -15,10 +15,17 @@ using Congress.Models;
 using Congress.ViewModels;
 using System.Windows.Navigation;
 using System.Collections.ObjectModel;
+using System.Windows.Markup;
 
 namespace Congress {
     public partial class LegislatorPivot : PhoneApplicationPage {
         private LegislatorViewModel view;
+
+        private PivotItem TweetsPivot;
+        private ListBox TweetsList;
+
+        private PivotItem VideosPivot;
+        private ListBox VideosList;
 
         public LegislatorPivot() {
             InitializeComponent();
@@ -41,15 +48,39 @@ namespace Congress {
             NewsItem.search(view.NewsKeyword, displayNews);
 
             // if twitter_id then add pivot and trigger tweet fetching
-            //if (view.legislator.twitterId != null && view.legislator.twitterId.Length > 0) {
-            //    MainPivot.Items.Add(new PivotItem() { Header = "tweets" });
-            //}
+            if (view.legislator.twitterId != null && view.legislator.twitterId.Length > 0) {
+                Tweet.search(legislator.twitterId, displayTweets);
+            }
 
             // if youtube_url then add pivot and trigger video fetching
+            if (view.legislator.youtubeUrl != null && view.legislator.youtubeUrl.Length > 0) {
+                
+            }
         }
 
         protected void displayNews(Collection<NewsItem> items) {
             NewsPivot.DataContext = NewsItemListViewModel.fromCollection(items);
+        }
+
+        protected void displayTweets(Collection<Tweet> tweets) {
+            TweetsPivot = new PivotItem() { Name = "TweetsPivot", Header = "tweets" };
+
+            TweetsList = new ListBox() {
+                Name = "TweetsList",
+                BorderThickness = new Thickness(0.0),
+                BorderBrush = new SolidColorBrush(Colors.Transparent)
+            };
+
+            string template = "<DataTemplate xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\">" +
+                    "<TextBlock Text=\"{Binding Text}\" Style=\"{StaticResource PhoneTextNormalStyle}\" FontSize=\"24\" />" +
+                "</DataTemplate>";
+            DataTemplate tweetTemplate = (DataTemplate) XamlReader.Load(template);
+
+            TweetsList.ItemTemplate = tweetTemplate;
+            TweetsList.ItemsSource = TweetListViewModel.fromCollection(tweets).Tweets;
+            TweetsPivot.Content = TweetsList;
+
+            MainPivot.Items.Add(TweetsPivot);
         }
 
         private void makeCall(object sender, MouseButtonEventArgs e) {
@@ -67,6 +98,11 @@ namespace Congress {
 
         private void NewsList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             if (NewsList.SelectedIndex == -1)
+                return;
+        }
+
+        private void TweetsList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            if (TweetsList.SelectedIndex == -1)
                 return;
         }
     }
