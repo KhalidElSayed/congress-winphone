@@ -21,12 +21,6 @@ namespace Congress {
     public partial class LegislatorPivot : PhoneApplicationPage {
         private LegislatorViewModel view;
 
-        private PivotItem TweetsPivot;
-        private ListBox TweetsList;
-
-        private PivotItem VideosPivot;
-        private ListBox VideosList;
-
         public LegislatorPivot() {
             InitializeComponent();
         }
@@ -63,45 +57,11 @@ namespace Congress {
         }
 
         protected void displayTweets(Collection<Tweet> tweets) {
-            TweetsPivot = new PivotItem() { Name = "TweetsPivot", Header = "tweets" };
-
-            TweetsList = new ListBox() {
-                Name = "TweetsList",
-                BorderThickness = new Thickness(0.0),
-                BorderBrush = new SolidColorBrush(Colors.Transparent)
-            };
-
-            string template = "<DataTemplate xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\">" +
-                    "<TextBlock Text=\"{Binding Text}\" Style=\"{StaticResource PhoneTextNormalStyle}\" FontSize=\"24\" />" +
-                "</DataTemplate>";
-            DataTemplate tweetTemplate = (DataTemplate) XamlReader.Load(template);
-
-            TweetsList.ItemTemplate = tweetTemplate;
-            TweetsList.ItemsSource = TweetListViewModel.fromCollection(tweets).Tweets;
-            TweetsPivot.Content = TweetsList;
-
-            MainPivot.Items.Add(TweetsPivot);
+            TweetsPivot.DataContext = TweetListViewModel.fromCollection(tweets);
         }
 
         protected void displayVideos(Collection<Video> videos) {
-            VideosPivot = new PivotItem() { Name = "VideosPivot", Header = "videos" };
-
-            VideosList = new ListBox() {
-                Name = "VideosList",
-                BorderThickness = new Thickness(0.0),
-                BorderBrush = new SolidColorBrush(Colors.Transparent)
-            };
-
-            string template = "<DataTemplate xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\">" +
-                    "<TextBlock Text=\"{Binding Title}\" Style=\"{StaticResource PhoneTextNormalStyle}\" FontSize=\"24\" />" +
-                "</DataTemplate>";
-            DataTemplate videoTemplate = (DataTemplate) XamlReader.Load(template);
-
-            VideosList.ItemTemplate = videoTemplate;
-            VideosList.ItemsSource = VideoListViewModel.fromCollection(videos).Videos;
-            VideosPivot.Content = VideosList;
-
-            MainPivot.Items.Add(VideosPivot);
+            VideosPivot.DataContext = VideoListViewModel.fromCollection(videos);
         }
 
         private void makeCall(object sender, MouseButtonEventArgs e) {
@@ -124,6 +84,11 @@ namespace Congress {
 
         private void TweetsList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             if (TweetsList.SelectedIndex == -1)
+                return;
+        }
+
+        private void VideosList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            if (VideosList.SelectedIndex == -1)
                 return;
         }
 

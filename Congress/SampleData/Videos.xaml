@@ -6,20 +6,20 @@
     <local:VideoListViewModel.Videos>
         <local:VideoViewModel
             Title="Video About Myself"
-            Description="This is where I talk about America."
+            Description="This is where I talk about me."
             Date="Sep 22"
             ThumbnailUrl="http://assets.sunlightfoundation.com/moc/100x125/S001141.jpg"
             Url="http://youtube.com"
             />
         <local:VideoViewModel
-            Title="Video About Myself"
-            Description="This is where I talk about America."
+            Title="Video About My Friend"
+            Description="This is where I talk about my friend Dave."
             Date="Sep 22"
             ThumbnailUrl="http://assets.sunlightfoundation.com/moc/100x125/S001141.jpg"
             Url="http://youtube.com"
             />
         <local:VideoViewModel
-            Title="Video About Myself"
+            Title="Video About America"
             Description="This is where I talk about America."
             Date="Sep 22"
             ThumbnailUrl="http://assets.sunlightfoundation.com/moc/100x125/S001141.jpg"

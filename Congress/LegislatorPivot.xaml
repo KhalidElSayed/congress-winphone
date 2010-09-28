@@ -63,6 +63,30 @@
                 
             </controls:PivotItem>
 
+            <controls:PivotItem Name="TweetsPivot" Header="tweets" d:DataContext="{d:DesignData SampleData/Tweets.xaml}">
+
+                <ListBox x:Name="TweetsList" ItemsSource="{Binding Tweets}" SelectionChanged="TweetsList_SelectionChanged" BorderThickness="0" BorderBrush="Transparent">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock x:Name="TweetText" Text="{Binding Text}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="24" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+            </controls:PivotItem>
+
+            <controls:PivotItem Name="VideosPivot" Header="videos" d:DataContext="{d:DesignData SampleData/Videos.xaml}">
+
+                <ListBox x:Name="VideosList" ItemsSource="{Binding Videos}" SelectionChanged="VideosList_SelectionChanged" BorderThickness="0" BorderBrush="Transparent">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock x:Name="VideoTitle" Text="{Binding Title}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="24" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+            </controls:PivotItem>
+
         </controls:Pivot>
     </Grid>
 
