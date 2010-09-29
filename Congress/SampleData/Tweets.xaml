@@ -5,19 +5,16 @@
 
     <local:TweetListViewModel.Tweets>
         <local:TweetViewModel
-            Username="@username"
             Text="I posted something on Twitter today."
-            Date="2 days ago"
+            Byline="posted 2 days ago by @username"
             />
         <local:TweetViewModel
-            Username="@username"
             Text="I posted something else on Twitter today with a link to http://somethingstore.com."
-            Date="2 days ago"
+            Byline="posted on Sep 22 by @username"
             />
         <local:TweetViewModel
-            Username="@username"
             Text="DOWN WITH THE INTERNET"
-            Date="2 days ago"
+            Byline="posted on Sep 25, 2009 by @username"
             />
     </local:TweetListViewModel.Tweets>
 

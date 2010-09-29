@@ -8,22 +8,19 @@
           Title="First Piece of News"
           Url="http://ap.com/something"
           Excerpt="Something has happened today. Tune in later on to our news page for news page updates."
-          Timestamp="Jan 22"
-          Source="AP Newswire"
+          DateSource="Jan 22 - AP Newswire"
           />
         <local:NewsItemViewModel
           Title="Second Piece of News, a Much Longer One"
           Excerpt="Something crazy has happened in the past, a very long event that requires a longer description. You would be a fool not to tune in to our RSS of news RSS items."
           Url="http://cnn.com/something"
-          Timestamp="Dec 21, 2009"
-          Source="CNN"
+          DateSource="Dec 21, 2009 - CNN"
           />
         <local:NewsItemViewModel
           Title="Final News"
           Excerpt="End of world"
           Url="http://ap.com/something"
-          Timestamp="Mar 20, 2008"
-          Source="AP Newswire"
+          DateSource="Mar 20, 2008 - AP Newswire"
           />
     </local:NewsItemListViewModel.NewsItems>
 

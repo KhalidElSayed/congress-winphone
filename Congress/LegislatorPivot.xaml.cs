@@ -16,6 +16,7 @@ using Congress.ViewModels;
 using System.Windows.Navigation;
 using System.Collections.ObjectModel;
 using System.Windows.Markup;
+using System.Text.RegularExpressions;
 
 namespace Congress {
     public partial class LegislatorPivot : PhoneApplicationPage {
@@ -100,7 +101,7 @@ namespace Congress {
 
         // plucks a youtube username from a url
         private string youtubeUsername(string url) {
-            return "senatorkerry";
+            return Regex.Replace(url, "^http://(?:www\\.)?youtube\\.com/(?:user/)?(.*?)/?", "");
         }
     }
 }

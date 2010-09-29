@@ -18,7 +18,7 @@
 
     <Grid x:Name="LayoutRoot" Background="Transparent" d:DataContext="{Binding Legislators[0]}">
         
-        <controls:Pivot x:Name="MainPivot" Title="{Binding TitledName}" FontSize="20">
+        <controls:Pivot x:Name="MainPivot" Title="{Binding TitledName}" FontSize="24">
             
             <controls:PivotItem Name="ProfilePivot" Header="profile" d:DataContext="{d:DesignData SampleData/Legislators.xaml}">
                 <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="24,0,0,0" d:DataContext="{Binding Legislators[0]}">
@@ -37,7 +37,7 @@
                         <Image Source="/Congress;component/Images/phone.png" />
                         <StackPanel Orientation="Vertical">
                             <TextBlock x:Name="LegislatorPhone" Text="{Binding CallMessage}" FontSize="40" Margin="30,0,0,0" />
-                            <TextBlock Text="{Binding Phone}" Margin="30,0,0,0" FontSize="24" Foreground="#FFD4D4D4" />
+                            <TextBlock Text="{Binding Phone}" Margin="30,0,0,0" FontSize="24" Foreground="Gray" />
                         </StackPanel>
                     </StackPanel>
 
@@ -45,7 +45,7 @@
                         <Image Source="/Congress;component/Images/web.png" />
                         <StackPanel Orientation="Vertical">
                             <TextBlock x:Name="LegislatorWeb" Text="{Binding WebsiteMessage}" FontSize="40" Margin="30,0,0,0" />
-                            <TextBlock Text="{Binding ShortWebsite}" Margin="30,0,0,0" FontSize="24" Foreground="#FFD4D4D4" />
+                            <TextBlock Text="{Binding ShortWebsite}" Margin="30,0,0,0" FontSize="24" Foreground="Gray" />
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
@@ -56,7 +56,11 @@
                 <ListBox x:Name="NewsList" ItemsSource="{Binding NewsItems}" SelectionChanged="NewsList_SelectionChanged" BorderThickness="0" BorderBrush="Transparent">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock x:Name="NewsItemTitle" Text="{Binding Title}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="24" />
+                            <StackPanel Orientation="Vertical" Margin="0,0,0,30">
+                                <TextBlock x:Name="NewsItemTitle" Text="{Binding Title}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="24" TextWrapping="Wrap" />
+                                <TextBlock x:Name="NewsItemDateSource" Text="{Binding DateSource}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="16" TextWrapping="Wrap" Foreground="Gray" Margin="12,2,12,0" />
+                                <TextBlock x:Name="NewsItemExcerpt" Text="{Binding Excerpt}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="18" TextWrapping="Wrap" Margin="12,7,12,0" />
+                            </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
@@ -64,15 +68,16 @@
             </controls:PivotItem>
 
             <controls:PivotItem Name="TweetsPivot" Header="tweets" d:DataContext="{d:DesignData SampleData/Tweets.xaml}">
-
                 <ListBox x:Name="TweetsList" ItemsSource="{Binding Tweets}" SelectionChanged="TweetsList_SelectionChanged" BorderThickness="0" BorderBrush="Transparent">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock x:Name="TweetText" Text="{Binding Text}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="24" />
+                            <StackPanel Orientation="Vertical" Margin="0,0,0,30">
+                                <TextBlock x:Name="TweetText" Text="{Binding Text}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="22" TextWrapping="Wrap" />
+                                <TextBlock x:Name="TweetByline" Text="{Binding Byline}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="18" TextWrapping="Wrap" Margin="12,3,12,0" Foreground="Gray"></TextBlock>
+                            </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-
             </controls:PivotItem>
 
             <controls:PivotItem Name="VideosPivot" Header="videos" d:DataContext="{d:DesignData SampleData/Videos.xaml}">
@@ -80,7 +85,7 @@
                 <ListBox x:Name="VideosList" ItemsSource="{Binding Videos}" SelectionChanged="VideosList_SelectionChanged" BorderThickness="0" BorderBrush="Transparent">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Grid Margin="0,10" Width="Auto">
+                            <Grid Margin="0,0,0,30" Width="Auto">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="*" />
@@ -89,7 +94,7 @@
                                 <Image Grid.Column="0" x:Name="VideoThumbnail" Source="{Binding ThumbnailUrl}" VerticalAlignment="Top" Margin="0,8,0,0" />
                                 <StackPanel Grid.Column="1" Orientation="Vertical" Width="Auto" VerticalAlignment="Top" Margin="0">
                                     <TextBlock x:Name="VideoTitle" Text="{Binding Title}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="22" TextWrapping="Wrap" />
-                                    <TextBlock x:Name="VideoDate" Text="{Binding Date}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="16" />
+                                    <TextBlock x:Name="VideoDate" Text="{Binding Date}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="16" Foreground="Gray"/>
                                     <TextBlock x:Name="VideoDescription" Text="{Binding Description}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="18" Margin="12,15" TextWrapping="Wrap" />
                                 </StackPanel>
                             </Grid>
