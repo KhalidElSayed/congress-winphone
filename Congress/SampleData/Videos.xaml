@@ -7,22 +7,22 @@
         <local:VideoViewModel
             Title="Video About Myself"
             Description="This is where I talk about me."
-            Date="Sep 22"
-            ThumbnailUrl="http://assets.sunlightfoundation.com/moc/100x125/S001141.jpg"
+            Date="Sep 22, 2010"
+            ThumbnailUrl="http://i.ytimg.com/vi/TNmqN7TvkUo/default.jpg"
             Url="http://youtube.com"
             />
         <local:VideoViewModel
             Title="Video About My Friend"
             Description="This is where I talk about my friend Dave."
-            Date="Sep 22"
-            ThumbnailUrl="http://assets.sunlightfoundation.com/moc/100x125/S001141.jpg"
+            Date="Sep 22, 2009"
+            ThumbnailUrl="http://i.ytimg.com/vi/TNmqN7TvkUo/default.jpg"
             Url="http://youtube.com"
             />
         <local:VideoViewModel
             Title="Video About America"
-            Description="This is where I talk about America."
-            Date="Sep 22"
-            ThumbnailUrl="http://assets.sunlightfoundation.com/moc/100x125/S001141.jpg"
+            Description="This is where I talk about America. This is where I talk about America. This is where I talk about America. This is where I talk about America. This is where I talk about America."
+            Date="Sep 22, 2008"
+            ThumbnailUrl="http://i.ytimg.com/vi/TNmqN7TvkUo/default.jpg"
             Url="http://youtube.com"
             />
     </local:VideoListViewModel.Videos>

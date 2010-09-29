@@ -22,7 +22,8 @@ namespace Congress.ViewModels {
             return new TweetViewModel() {
                 Username = tweet.username,
                 Text = tweet.text,
-                Date = dateFor(tweet)
+                Date = dateFor(tweet),
+                tweet = tweet
             };
         }
 

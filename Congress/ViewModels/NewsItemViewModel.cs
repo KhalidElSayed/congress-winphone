@@ -26,7 +26,8 @@ namespace Congress.ViewModels {
                 Excerpt = item.summary,
                 Url = item.clickUrl,
                 Source = item.source,
-                Timestamp = "time"
+                Timestamp = "time",
+                newsItem = item
             };
         }
     }

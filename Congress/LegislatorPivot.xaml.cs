@@ -78,18 +78,24 @@ namespace Congress {
         }
 
         private void NewsList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            if (NewsList.SelectedIndex == -1)
-                return;
+            if (NewsList.SelectedIndex > -1)
+                new WebBrowserTask() {URL = ((NewsItemViewModel) NewsList.SelectedItem).newsItem.url}.Show();
         }
 
         private void TweetsList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            if (TweetsList.SelectedIndex == -1)
-                return;
+            // no action
         }
 
         private void VideosList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             if (VideosList.SelectedIndex == -1)
                 return;
+            
+            VideoViewModel model = (VideoViewModel) VideosList.SelectedItem;
+            Video video = model.video;
+
+            WebBrowserTask task = new WebBrowserTask();
+            task.URL = video.url;
+            task.Show();
         }
 
         // plucks a youtube username from a url

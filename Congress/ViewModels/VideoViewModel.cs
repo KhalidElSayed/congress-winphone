@@ -26,12 +26,20 @@ namespace Congress.ViewModels {
                 Description = video.description,
                 Date = dateFor(video.updated),
                 Url = video.url,
-                ThumbnailUrl = video.thumbnailUrl
+                ThumbnailUrl = video.thumbnailUrl,
+                video = video
             };
         }
 
-        public static String dateFor(DateTime updated) {
-            return "___ __";
+        public static string dateFor(DateTime updated) {
+            return String.Format("{0:MMM d, yyyy}", updated);
+        }
+
+        public static string descriptionFor(string description) {
+            if (description.Length > 150)
+                return description.Remove(147) + "...";
+            else
+                return description;
         }
     }
 }
