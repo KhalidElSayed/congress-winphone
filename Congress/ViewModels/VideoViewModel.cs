@@ -32,7 +32,10 @@ namespace Congress.ViewModels {
         }
 
         public static string dateFor(DateTime updated) {
-            return String.Format("{0:MMM d, yyyy}", updated);
+            if (DateTime.Now.Year == updated.Year)
+                return String.Format("{0:MMM d}", updated);
+            else
+                return String.Format("{0:MMM d, yyyy}", updated);
         }
 
         public static string descriptionFor(string description) {

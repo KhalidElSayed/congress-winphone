@@ -34,7 +34,10 @@ namespace Congress.ViewModels {
         }
 
         public static string dateFor(DateTime published) {
-            return String.Format("{0:MMM d, yyyy}", published);
+            if (DateTime.Now.Year == published.Year)
+                return String.Format("{0:MMM d}", published);
+            else
+                return String.Format("{0:MMM d, yyyy}", published);
         }
 
         public static string descriptionFor(string description) {
