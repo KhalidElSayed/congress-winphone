@@ -29,6 +29,11 @@ namespace Congress {
         protected override void OnNavigatedTo(NavigationEventArgs e) {
             base.OnNavigatedTo(e);
 
+            string titledName = null;
+            if (NavigationContext.QueryString.TryGetValue("titledName", out titledName)) {
+                MainPivot.Title = titledName;
+            }
+
             string bioguideId = null;
             if (NavigationContext.QueryString.TryGetValue("bioguideId", out bioguideId)) {
                 Legislator.find(bioguideId, new Legislator.LegislatorFoundEventHandler(displayLegislator));
