@@ -33,7 +33,12 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" x:Name="DataTemplateStackPanel" Margin="0,10">
-                            <Image x:Name="LegislatorImage" Source="{Binding PhotoUrlMedium}" />
+                            <StackPanel x:Name="LegislatorImageBackground" Width="100" Height="125">
+                                <StackPanel.Background>
+                                    <ImageBrush ImageSource="/Congress;component/Images/loading_photo.png"/>
+                                </StackPanel.Background>
+                                <Image x:Name="LegislatorImage" Width="100" Height="125" Source="{Binding PhotoUrlMedium}" />
+                            </StackPanel>
                             <StackPanel>
                                 <TextBlock x:Name="LegislatorName" Text="{Binding OfficialName}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="32" />
                                 <TextBlock x:Name="LegislatorParty" Text="{Binding Party}" Style="{StaticResource PhoneTextNormalStyle}" />

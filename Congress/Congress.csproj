@@ -143,6 +143,7 @@
     <Resource Include="Images\web.png" />
     <Content Include="Images\appbar.feature.email.rest.png" />
     <Content Include="Images\appbar.questionmark.rest.png" />
+    <Resource Include="Images\loading_photo.png" />
     <Content Include="SplashScreenImage.jpg" />
     <Resource Include="Images\ArrowImg.png" />
     <Content Include="Background.png">
