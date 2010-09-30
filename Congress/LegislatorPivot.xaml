@@ -116,7 +116,7 @@
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
             <shell:ApplicationBarIconButton Click="gotoOpenCongress" x:Name="OpenCongressButton" IconUri="/Images/appbar.feature.email.rest.png" Text="OpenCongress"></shell:ApplicationBarIconButton>
             <shell:ApplicationBarIconButton Click="gotoGovTrack" x:Name="GovTrackButton" IconUri="/Images/appbar.questionmark.rest.png" Text="GovTrack"></shell:ApplicationBarIconButton>
-            <shell:ApplicationBarIconButton Click="gotoBioguide" x:Name="BioguideButton" IconUri="/Images/appbar.email.rest.png" Text="Biography"></shell:ApplicationBarIconButton>
+            <shell:ApplicationBarIconButton Click="gotoBioguide" x:Name="BioguideButton" IconUri="/Images/appbar.feature.email.rest.png" Text="Biography"></shell:ApplicationBarIconButton>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
     
