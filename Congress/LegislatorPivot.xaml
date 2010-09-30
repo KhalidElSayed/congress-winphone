@@ -23,7 +23,12 @@
             <controls:PivotItem Name="ProfilePivot" Header="profile" d:DataContext="{d:DesignData SampleData/Legislators.xaml}">
                 <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="24,0,0,0" d:DataContext="{Binding Legislators[0]}">
                     <StackPanel x:Name="TopPanel" Orientation="Horizontal" Margin="0,0,0,10">
-                        <Image Height="250" x:Name="LegislatorPhoto" Source="{Binding PhotoUrlLarge}" Stretch="Fill" Width="200" />
+                        <StackPanel x:Name="LegislatorPhotoBackground" Width="200" Height="250">
+                            <StackPanel.Background>
+                                <ImageBrush ImageSource="/Congress;component/Images/loading_photo.png"/>
+                            </StackPanel.Background>
+                            <Image Height="250" x:Name="LegislatorPhoto" Source="{Binding PhotoUrlLarge}" Stretch="Fill" Width="200" />
+                        </StackPanel>
 
                         <StackPanel x:Name="FactsPanel" Orientation="Vertical" Margin="20,0,0,0" VerticalAlignment="Center">
                             <TextBlock x:Name="LegislatorParty" Text="{Binding Party}" Margin="0,10" FontSize="28" />
