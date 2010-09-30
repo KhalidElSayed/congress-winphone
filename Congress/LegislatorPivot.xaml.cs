@@ -103,5 +103,17 @@ namespace Congress {
         private string youtubeUsername(string url) {
             return Regex.Replace(url, "^http://(?:www\\.)?youtube\\.com/(?:user/)?(.*?)/?", "");
         }
+
+        private void gotoBioguide(object s, EventArgs e) {
+            new WebBrowserTask() { URL = view.BioguideUrl }.Show();
+        }
+
+        private void gotoOpenCongress(object s, EventArgs e) {
+            new WebBrowserTask() { URL = view.OpenCongressUrl }.Show();
+        }
+
+        private void gotoGovTrack(object s, EventArgs e) {
+            new WebBrowserTask() { URL = view.GovTrackUrl }.Show();
+        }
     }
 }

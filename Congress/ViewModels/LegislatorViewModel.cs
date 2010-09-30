@@ -34,6 +34,9 @@ namespace Congress.ViewModels {
         public string WebsiteMessage {get; set;}
         public string ShortWebsite {get; set;}
         public string NewsKeyword {get; set;}
+        public string OpenCongressUrl {get; set;}
+        public string GovTrackUrl {get; set;}
+        public string BioguideUrl {get; set;}
 
         public Legislator legislator;
 
@@ -53,7 +56,10 @@ namespace Congress.ViewModels {
                 CallMessage = callMessage(legislator),
                 WebsiteMessage = websiteMessage(legislator),
                 ShortWebsite = shortWebsite(legislator),
-                NewsKeyword = newsKeyword(legislator)
+                NewsKeyword = newsKeyword(legislator),
+                OpenCongressUrl = openCongressUrl(legislator),
+                GovTrackUrl = govTrackUrl(legislator),
+                BioguideUrl = bioguideUrl(legislator)
             };
         }
 
@@ -183,6 +189,18 @@ namespace Congress.ViewModels {
         public static string getStateName(string stateCode) {
             //TODO: Expand to full state names
             return stateCode;
+        }
+
+        public static string bioguideUrl(Legislator legislator) {
+            return "http://bioguide.congress.gov/scripts/biodisplay.pl?index=" + legislator.bioguideId;
+        }
+
+        public static string openCongressUrl(Legislator legislator) {
+            return "http://www.opencongress.org/person/show/" + legislator.govTrackId;
+        }
+
+        public static string govTrackUrl(Legislator legislator) {
+            return "http://www.govtrack.us/congress/person.xpd?id=" + legislator.govTrackId;
         }
     }
 }

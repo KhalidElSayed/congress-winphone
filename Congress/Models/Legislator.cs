@@ -10,7 +10,7 @@ using Newtonsoft.Json.Linq;
 namespace Congress.Models {
     public class Legislator {
 
-        public string bioguideId; // unique ID
+        public string bioguideId, govTrackId; // unique ID
         public string title, firstName, nickName, middleName, lastName, nameSuffix;
         public string district, state, party, gender, senateClass;
         public string website, phone, congressOffice;
@@ -86,6 +86,7 @@ namespace Congress.Models {
             Legislator legislator = new Legislator();
 
             legislator.bioguideId = (string) root["bioguide_id"];
+            legislator.govTrackId = (string) root["govtrack_id"];
 
             legislator.title = (string) root["title"];
             legislator.firstName = (string) root["firstname"];
