@@ -64,11 +64,12 @@ namespace Congress {
         }
 
         private void loadLegislators(Collection<Legislator> legislators) {
+            // turn off Loading... message
             Loading.Visibility = Visibility.Collapsed;
             MainListBox.Visibility = Visibility.Visible;
-            if (DataContext == null) {
+
+            if (DataContext == null)
                 DataContext = LegislatorListViewModel.fromCollection(legislators);
-            }
         }
 
         private void MainListBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
