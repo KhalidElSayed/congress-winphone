@@ -11,6 +11,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
+using Microsoft.Phone.Tasks;
 using System.Windows.Controls.Primitives;
 
 namespace Congress {
@@ -113,8 +114,14 @@ namespace Congress {
             NavigationService.Navigate(new Uri("/LegislatorListPage.xaml?searchType=" + searchType + "&" + queryString, UriKind.Relative));
         }
 
-        private void SearchName_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) {
+        private void sendFeedback(object sender, EventArgs e) {
+            EmailComposeTask task = new EmailComposeTask();
+            task.Subject = Congress.Strings.EmailSubject;
+            task.To = Congress.Strings.EmailTo;
+            task.Show();
+        }
 
+        private void showAbout(object sender, EventArgs e) {
         }
     }
 }

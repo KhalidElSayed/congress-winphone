@@ -117,6 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+    <data name="EmailSubject" xml:space="preserve">
+    <value />
+    <comment>Subject of the feedback email.</comment>
+  </data>
+  <data name="EmailTo" xml:space="preserve">
+    <value />
+    <comment>Email address to send feedback to.</comment>
+  </data>
   <data name="SunlightApiKey" xml:space="preserve">
     <value />
     <comment>Sunlight Labs API key</comment>

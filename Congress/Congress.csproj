@@ -84,11 +84,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
-    <Compile Include="Strings.resx.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Strings.resx.example</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\VideoListViewModel.cs" />
     <Compile Include="ViewModels\VideoViewModel.cs" />
     <Compile Include="ViewModels\TweetListViewModel.cs" />
@@ -146,6 +141,8 @@
     <Resource Include="Images\search_zip.png" />
     <Resource Include="Images\phone.png" />
     <Resource Include="Images\web.png" />
+    <Content Include="Images\appbar.feature.email.rest.png" />
+    <Content Include="Images\appbar.questionmark.rest.png" />
     <Content Include="SplashScreenImage.jpg" />
     <Resource Include="Images\ArrowImg.png" />
     <Content Include="Background.png">
@@ -153,10 +150,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Strings.resx.example">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Strings.resx.Designer.cs</LastGenOutput>
-    </None>
     <EmbeddedResource Include="Strings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
