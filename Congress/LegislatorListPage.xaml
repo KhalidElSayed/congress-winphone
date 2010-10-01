@@ -21,12 +21,12 @@
         </Grid.RowDefinitions>
 
         <StackPanel x:Name="Header" Grid.Row="0" Margin="0,0,0,12" Background="#FF113B20">
-            <TextBlock Grid.Column="1" x:Name="MainTitle" Text="for your location" Margin="24,10,0,10" Style="{StaticResource PhoneTextTitle1Style}" FontSize="44" TextWrapping="Wrap"/>
+            <TextBlock Grid.Column="1" x:Name="MainTitle" Text="for your location" Margin="24,10,0,10" Style="{StaticResource PhoneTextTitle1Style}" FontSize="44" TextWrapping="Wrap" Foreground="White"/>
         </StackPanel>
         
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="24,0,0,0">
-            
-            <TextBlock x:Name="Loading" Style="{StaticResource PhoneTextNormalStyle}" Text="Loading..." Visibility="Collapsed" Margin="0,0,0,530" />
+
+            <TextBlock x:Name="Loading" Style="{StaticResource PhoneTextNormalStyle}" Text="Loading..." Visibility="Collapsed" Margin="0,0,0,530" Foreground="White"/>
             
             <ListBox x:Name="MainListBox" ItemsSource="{Binding Legislators}" SelectionChanged="MainListBox_SelectionChanged" BorderThickness="0" BorderBrush="Transparent">
                 <ListBox.ItemTemplate>
@@ -39,9 +39,9 @@
                                 <Image x:Name="LegislatorImage" Width="100" Height="125" Source="{Binding PhotoUrlMedium}" />
                             </StackPanel>
                             <StackPanel VerticalAlignment="Center" Margin="10,0,0,0">
-                                <TextBlock x:Name="LegislatorName" Text="{Binding OfficialName}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="32" />
-                                <TextBlock x:Name="LegislatorParty" Text="{Binding Party}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="20" />
-                                <TextBlock x:Name="LegislatorPosition" Text="{Binding Position}" Style="{StaticResource PhoneTextNormalStyle}" VerticalAlignment="Bottom" />
+                                <TextBlock x:Name="LegislatorName" Text="{Binding OfficialName}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="32" Foreground="White"/>
+                                <TextBlock x:Name="LegislatorParty" Text="{Binding Party}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="20" Foreground="White"/>
+                                <TextBlock x:Name="LegislatorPosition" Text="{Binding Position}" Style="{StaticResource PhoneTextNormalStyle}" VerticalAlignment="Bottom" Foreground="White"/>
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>

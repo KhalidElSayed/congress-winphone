@@ -74,6 +74,8 @@ namespace Congress {
             TextBox input = new TextBox() { 
                 Margin = new Thickness(10, 5, 0, 5),
                 InputScope = scope,
+                Foreground = new SolidColorBrush(Colors.White),
+                BorderBrush = new SolidColorBrush(Colors.White)
             };
 
             StackPanel buttons = new StackPanel() {
@@ -86,11 +88,15 @@ namespace Congress {
             Button ok = new Button() { 
                 Content = "OK", 
                 Margin = new Thickness(10, 0, 3, 0),
+                Foreground = new SolidColorBrush(Colors.White),
+                BorderBrush = new SolidColorBrush(Colors.White)
             };
 
             Button cancel = new Button() {
                 Content = "Cancel",
-                Margin = new Thickness(3, 0, 10, 0)
+                Margin = new Thickness(3, 0, 10, 0),
+                Foreground = new SolidColorBrush(Colors.White),
+                BorderBrush = new SolidColorBrush(Colors.White)
             };
 
             ok.Click += (s, e) => {

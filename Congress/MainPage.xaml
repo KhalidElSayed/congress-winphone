@@ -27,7 +27,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Image Grid.Column="0" x:Name="MainIcon" Source="/Congress;component/Images/app_icon.png" Margin="24,10,10,10" />
-            <TextBlock Grid.Column="1" x:Name="MainTitle" Text="Congress" Margin="10,5,0,0" Style="{StaticResource PhoneTextTitle1Style}" FontSize="48" />
+            <TextBlock Grid.Column="1" x:Name="MainTitle" Text="Congress" Margin="10,5,0,0" Style="{StaticResource PhoneTextTitle1Style}" FontSize="48" Foreground="White"/>
         </Grid>
         
         <TextBlock Grid.Row="1" x:Name="LegislatorHeader" FontSize="24" Text="Find your legislators by" Margin="24,10,0,0" Foreground="#FFC4C4C4" />
