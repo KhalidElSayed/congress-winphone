@@ -26,6 +26,9 @@ namespace Congress {
             InitializeComponent();
         }
 
+        Popup popup = new Popup();
+
+
         private void ZipSearch(object sender, MouseEventArgs e) {
             GetTextInput("Enter a zip code:", (zip) => {
                 LaunchList(SEARCH_ZIP, "zip=" + zip);
@@ -46,51 +49,51 @@ namespace Congress {
 
         private void GetTextInput(string ask, PopupTextResultHandler handler) {
             Border border = new Border() {
-                BorderBrush = new SolidColorBrush(Colors.White),
-                BorderThickness = new Thickness(5.0)
+                BorderBrush = new SolidColorBrush(new Color() {R = 96, G = 96, B = 96, A = 255}),
+                BorderThickness = new Thickness(3.0)
             };
 
             StackPanel main = new StackPanel() {
-                Background = new SolidColorBrush(Colors.Black)
+                Background = new SolidColorBrush(new Color() {R = 24, G = 40, B = 75, A = 255})
             };
 
             TextBlock askText = new TextBlock() { 
                 Text = ask,
-                Margin = new Thickness(10.0),
+                Margin = new Thickness(17, 10, 17, 5),
                 FontSize = 28.0,
+                Foreground = new SolidColorBrush(Colors.White)
             };
 
             TextBox input = new TextBox() { 
-                Margin = new Thickness(10.0),
-                Text = "MA"
+                Margin = new Thickness(10, 5, 0, 5),
+                
             };
 
             StackPanel buttons = new StackPanel() {
+                Margin = new Thickness(0, 15, 0, 0),
                 Orientation = System.Windows.Controls.Orientation.Horizontal,
+                Background = new SolidColorBrush(new Color() {R = 48, G = 48, B = 48, A = 255}),
+                HorizontalAlignment = HorizontalAlignment.Stretch
             };
 
             Button ok = new Button() { 
                 Content = "OK", 
-                Margin = new Thickness(10.0) 
+                Margin = new Thickness(10, 0, 3, 0),
             };
 
             Button cancel = new Button() {
                 Content = "Cancel",
-                Margin = new Thickness(10.0)
+                Margin = new Thickness(3, 0, 10, 0)
             };
 
             ok.Click += (s, e) => {
-                //ContentPanel.Visibility = Visibility.Visible;
                 popup.IsOpen = false;
-                popup.Visibility = Visibility.Collapsed;
                 
                 handler.Invoke(input.Text);
             };
 
             cancel.Click += (s, e) => {
-                //ContentPanel.Visibility = Visibility.Visible;
                 popup.IsOpen = false;
-                popup.Visibility = Visibility.Collapsed;
             };
 
             buttons.Children.Add(ok);
@@ -102,8 +105,8 @@ namespace Congress {
             border.Child = main;
             popup.Child = border;
 
-            popup.Visibility = Visibility.Visible;
-            //ContentPanel.Visibility = Visibility.Collapsed;
+            popup.HorizontalOffset = 100;
+            popup.VerticalOffset = 250;
 
             popup.IsOpen = true;
         }
