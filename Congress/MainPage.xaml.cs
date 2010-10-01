@@ -26,9 +26,7 @@ namespace Congress {
             InitializeComponent();
         }
 
-        Popup popup = new Popup();
-
-
+        
         private void ZipSearch(object sender, MouseEventArgs e) {
             GetTextInput("Enter a zip code:", InputScopeNameValue.TelephoneNumber, (zip) => {
                 LaunchList(SEARCH_ZIP, "zip=" + zip);
@@ -48,6 +46,8 @@ namespace Congress {
         }
 
         private void GetTextInput(string ask, InputScopeNameValue scopeValue, PopupTextResultHandler handler) {
+            Popup popup = new Popup();
+
             // initialize the input scope
             InputScope scope = new InputScope();
             InputScopeName name = new InputScopeName() {
@@ -132,6 +132,7 @@ namespace Congress {
         }
 
         private void showAbout(object sender, EventArgs e) {
+            NavigationService.Navigate(new Uri("/About.xaml", UriKind.Relative));
         }
     }
 }
