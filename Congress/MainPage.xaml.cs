@@ -30,24 +30,31 @@ namespace Congress {
 
 
         private void ZipSearch(object sender, MouseEventArgs e) {
-            GetTextInput("Enter a zip code:", (zip) => {
+            GetTextInput("Enter a zip code:", InputScopeNameValue.TelephoneNumber, (zip) => {
                 LaunchList(SEARCH_ZIP, "zip=" + zip);
             });
         }
 
         private void LastNameSearch(object sender, MouseEventArgs e) {
-            GetTextInput("Enter a last name:", (lastName) => {
+            GetTextInput("Enter a last name:", InputScopeNameValue.PersonalSurname, (lastName) => {
                 LaunchList(SEARCH_LASTNAME, "lastName=" + lastName);
             });
         }
 
         private void StateSearch(object sender, MouseEventArgs e) {
-            GetTextInput("Enter a state code:", (stateCode) => {
+            GetTextInput("Enter a state code:", InputScopeNameValue.AddressCountryShortName, (stateCode) => {
                 LaunchList(SEARCH_STATE, "state=" + stateCode);
             });
         }
 
-        private void GetTextInput(string ask, PopupTextResultHandler handler) {
+        private void GetTextInput(string ask, InputScopeNameValue scopeValue, PopupTextResultHandler handler) {
+            // initialize the input scope
+            InputScope scope = new InputScope();
+            InputScopeName name = new InputScopeName() {
+                NameValue = scopeValue
+            };
+            scope.Names.Add(name);
+
             Border border = new Border() {
                 BorderBrush = new SolidColorBrush(new Color() {R = 96, G = 96, B = 96, A = 255}),
                 BorderThickness = new Thickness(3.0)
@@ -66,7 +73,7 @@ namespace Congress {
 
             TextBox input = new TextBox() { 
                 Margin = new Thickness(10, 5, 0, 5),
-                
+                InputScope = scope,
             };
 
             StackPanel buttons = new StackPanel() {
