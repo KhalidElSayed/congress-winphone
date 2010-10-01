@@ -23,7 +23,7 @@ namespace Congress.ViewModels {
         public static VideoViewModel fromVideo(Video video) {
             return new VideoViewModel() {
                 Title = video.title,
-                Description = video.description,
+                Description = descriptionFor(video.description),
                 Date = dateFor(video.updated),
                 Url = video.url,
                 ThumbnailUrl = video.thumbnailUrl,
