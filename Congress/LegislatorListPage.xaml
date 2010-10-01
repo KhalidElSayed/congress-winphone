@@ -14,15 +14,14 @@
     mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768" 
     shell:SystemTray.IsVisible="True">
 
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Background="#FF051924">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="24,24,0,12">
-            <TextBlock x:Name="PageTitle" Text="CONGRESS" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="ListTitle" Text="Search Results" Margin="-3,-8,0,0" Style="{StaticResource PhoneTextTitle1Style}" FontSize="48" TextWrapping="Wrap" />
+        <StackPanel x:Name="Header" Grid.Row="0" Margin="0,0,0,12" Background="#FF113B20">
+            <TextBlock Grid.Column="1" x:Name="MainTitle" Text="for your location" Margin="24,10,0,10" Style="{StaticResource PhoneTextTitle1Style}" FontSize="44" TextWrapping="Wrap"/>
         </StackPanel>
         
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="24,0,0,0">
@@ -39,9 +38,9 @@
                                 </StackPanel.Background>
                                 <Image x:Name="LegislatorImage" Width="100" Height="125" Source="{Binding PhotoUrlMedium}" />
                             </StackPanel>
-                            <StackPanel>
+                            <StackPanel VerticalAlignment="Center" Margin="10,0,0,0">
                                 <TextBlock x:Name="LegislatorName" Text="{Binding OfficialName}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="32" />
-                                <TextBlock x:Name="LegislatorParty" Text="{Binding Party}" Style="{StaticResource PhoneTextNormalStyle}" />
+                                <TextBlock x:Name="LegislatorParty" Text="{Binding Party}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="20" />
                                 <TextBlock x:Name="LegislatorPosition" Text="{Binding Position}" Style="{StaticResource PhoneTextNormalStyle}" VerticalAlignment="Bottom" />
                             </StackPanel>
                         </StackPanel>

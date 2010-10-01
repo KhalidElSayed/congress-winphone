@@ -47,18 +47,18 @@ namespace Congress {
             MainListBox.Visibility = Visibility.Collapsed;
 
             if (searchType == MainPage.SEARCH_LOCATION) {
-                ListTitle.Text = "for your location";
+                MainTitle.Text = "for your location";
             }
             else if (searchType == MainPage.SEARCH_LASTNAME) {
-                ListTitle.Text = "named \"" + lastName + "\"";
+                MainTitle.Text = "named \"" + lastName + "\"";
                 Legislator.findByLastName(lastName, loadLegislators);
             }
             else if (searchType == MainPage.SEARCH_STATE) {
-                ListTitle.Text = "for " + state;
+                MainTitle.Text = "for " + state;
                 Legislator.findByState(state, loadLegislators);
             }
             else if (searchType == MainPage.SEARCH_ZIP) {
-                ListTitle.Text = "for " + zip;
+                MainTitle.Text = "for " + zip;
                 Legislator.findByZip(zip, loadLegislators);
             }
         }
