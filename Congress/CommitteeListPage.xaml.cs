@@ -33,6 +33,8 @@ namespace Congress {
             HouseListBox.Visibility = Visibility.Collapsed;
             SenateLoading.Visibility = Visibility.Visible;
             SenateListBox.Visibility = Visibility.Collapsed;
+            JointLoading.Visibility = Visibility.Visible;
+            JointListBox.Visibility = Visibility.Collapsed;
 
             Committee.allForChamber("House", loadHouseCommittees);
         }
@@ -49,6 +51,14 @@ namespace Congress {
             SenateLoading.Visibility = Visibility.Collapsed;
             SenateListBox.Visibility = Visibility.Visible;
             SenateListBox.DataContext = CommitteeListViewModel.fromCollection(committees);
+
+            Committee.allForChamber("Joint", loadJointCommittees);
+        }
+
+        private void loadJointCommittees(Collection<Committee> committees) {
+            JointLoading.Visibility = Visibility.Collapsed;
+            JointListBox.Visibility = Visibility.Visible;
+            JointListBox.DataContext = CommitteeListViewModel.fromCollection(committees);
         }
 
         private void HouseListBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
@@ -57,6 +67,10 @@ namespace Congress {
 
         private void SenateListBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             launchCommittee(SenateListBox);
+        }
+
+        private void JointListBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            launchCommittee(JointListBox);
         }
 
         private void launchCommittee(ListBox listBox) {
