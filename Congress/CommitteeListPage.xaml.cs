@@ -64,7 +64,7 @@ namespace Congress {
                 return;
             
             CommitteeViewModel model = (listBox.ItemsSource as ObservableCollection<CommitteeViewModel>)[listBox.SelectedIndex];
-            NavigationService.Navigate(new Uri("/LegislatorListPage.xaml?committeeId=" + model.committee.id + "&committeeName=" + model.Name, UriKind.Relative));
+            NavigationService.Navigate(new Uri("/LegislatorListPage.xaml?searchType=" + MainPage.SEARCH_COMMITTEE + "&committeeId=" + model.committee.id + "&committeeName=" + model.Name, UriKind.Relative));
 
             listBox.SelectedIndex = -1;
         }

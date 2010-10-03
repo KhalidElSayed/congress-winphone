@@ -42,6 +42,10 @@ namespace Congress {
             string zip;
             NavigationContext.QueryString.TryGetValue("zip", out zip);
 
+            string committeeId, committeeName;
+            NavigationContext.QueryString.TryGetValue("committeeId", out committeeId);
+            NavigationContext.QueryString.TryGetValue("committeeName", out committeeName);
+
             // turn on Loading... message
             Loading.Visibility = Visibility.Visible;
             MainListBox.Visibility = Visibility.Collapsed;
@@ -49,22 +53,32 @@ namespace Congress {
             if (searchType == MainPage.SEARCH_LOCATION) {
                 MainTitle.Text = "for your location";
             }
+
             else if (searchType == MainPage.SEARCH_LASTNAME) {
                 MainTitle.Text = "named \"" + lastName + "\"";
                 Legislator.findByLastName(lastName, loadLegislators);
             }
+
             else if (searchType == MainPage.SEARCH_STATE) {
                 MainTitle.Text = "for " + state;
                 Legislator.findByState(state, loadLegislators);
             }
+
             else if (searchType == MainPage.SEARCH_ZIP) {
                 MainTitle.Text = "for " + zip;
                 Legislator.findByZip(zip, loadLegislators);
+            } 
+
+            else if (searchType == MainPage.SEARCH_COMMITTEE) {
+                MainTitle.FontSize = 24;
+                MainTitle.Text = committeeName;
+                Committee.find(committeeId, (committee) => {
+                    loadLegislators(committee.members);
+                });
             }
         }
 
         private void loadLegislators(Collection<Legislator> legislators) {
-            // turn off Loading... message
             Loading.Visibility = Visibility.Collapsed;
             MainListBox.Visibility = Visibility.Visible;
 

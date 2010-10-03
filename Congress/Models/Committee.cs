@@ -11,7 +11,7 @@ namespace Congress.Models {
     public class Committee {
 
         public string id, name, chamber;
-        //public ObservableCollection<Legislator> members;
+        public Collection<Legislator> members;
 
         public Committee() {}
 
@@ -83,6 +83,17 @@ namespace Congress.Models {
             committee.id = (string)root["id"];
             committee.name = (string)root["name"];
             committee.chamber = (string)root["chamber"];
+
+            JToken membersToken = root["members"];
+            if (membersToken != null) {
+                committee.members = new Collection<Legislator>();
+
+                JArray membersRoot = (JArray)membersToken;
+                foreach(JToken item in membersRoot) {
+                    JObject itemRoot = (JObject) ((JObject)item)["legislator"];
+                    committee.members.Add(Legislator.oneFromJObject(itemRoot));
+                }
+            }
 
             return committee;
         }
