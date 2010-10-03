@@ -1,0 +1,21 @@
+﻿<local:CommitteeListViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Congress.ViewModels">
+
+    <local:CommitteeListViewModel.Committees>
+        <local:CommitteeViewModel
+            Name="House Committee on Transportation and Infrastructure"
+            Chamber="House"
+            />
+        <local:CommitteeViewModel
+            Name="House Select Committee on Energy Independence and Global Warming"
+            Chamber="House"
+            />
+        <local:CommitteeViewModel
+            Name="House Committee on Agriculture"
+            Chamber="House"
+            />
+    </local:CommitteeListViewModel.Committees>
+
+</local:CommitteeListViewModel>

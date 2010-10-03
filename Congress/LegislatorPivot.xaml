@@ -21,6 +21,7 @@
         <controls:Pivot x:Name="MainPivot" Foreground="White" Title="{Binding TitledName}" FontSize="24">
 
             <controls:PivotItem Margin="0,10,0,0" Name="ProfilePivot" Header="profile" d:DataContext="{d:DesignData SampleData/Legislators.xaml}" Foreground="White">
+                
                 <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="24,10,0,0" d:DataContext="{Binding Legislators[0]}">
                     <StackPanel x:Name="TopPanel" Orientation="Horizontal" Margin="0,0,0,10">
                         <StackPanel x:Name="LegislatorPhotoBackground" Width="200" Height="250">

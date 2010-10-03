@@ -65,12 +65,16 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CommitteeListPage.xaml.cs">
+      <DependentUpon>CommitteeListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LegislatorListPage.xaml.cs">
       <DependentUpon>LegislatorListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Committee.cs" />
     <Compile Include="Models\Video.cs" />
     <Compile Include="Models\Tweet.cs" />
     <Compile Include="Models\NewsItem.cs" />
@@ -87,6 +91,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\CommitteeListViewModel.cs" />
+    <Compile Include="ViewModels\CommitteeViewModel.cs" />
     <Compile Include="ViewModels\VideoListViewModel.cs" />
     <Compile Include="ViewModels\VideoViewModel.cs" />
     <Compile Include="ViewModels\TweetListViewModel.cs" />
@@ -101,6 +107,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="CommitteeListPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="LegislatorListPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -125,6 +135,10 @@
     <Page Include="About.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SampleData\Committees.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="SampleData\Videos.xaml">
       <Generator>MSBuild:Compile</Generator>

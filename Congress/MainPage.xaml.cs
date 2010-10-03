@@ -21,6 +21,7 @@ namespace Congress {
         public static int SEARCH_ZIP = 1;
         public static int SEARCH_STATE = 2;
         public static int SEARCH_LASTNAME = 3;
+        public static int SEARCH_COMMITTEE = 4;
 
         public MainPage() {
             InitializeComponent();
@@ -129,6 +130,10 @@ namespace Congress {
 
         private void LaunchList(int searchType, string queryString) {
             NavigationService.Navigate(new Uri("/LegislatorListPage.xaml?searchType=" + searchType + "&" + queryString, UriKind.Relative));
+        }
+
+        private void CommitteeSearch(object sender, MouseEventArgs e) {
+            NavigationService.Navigate(new Uri("/CommitteeListPage.xaml", UriKind.Relative));
         }
 
         private void sendFeedback(object sender, EventArgs e) {

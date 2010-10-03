@@ -38,6 +38,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             
             <StackPanel Grid.Row="0" Orientation="Horizontal" x:Name="SearchLocation" Height="77" VerticalAlignment="Top" Margin="0">
@@ -54,6 +55,10 @@
                 
             <StackPanel MouseLeftButtonDown="LastNameSearch" Grid.Row="3" Orientation="Horizontal" x:Name="SearchName" Height="77" VerticalAlignment="Top" Margin="0,20,0,0">
                 <TextBlock Text="last name" Style="{StaticResource PhoneTextNormalStyle}" FontSize="60" Margin="0,0,12,0" Foreground="White" />
+            </StackPanel>
+
+            <StackPanel MouseLeftButtonDown="CommitteeSearch" Grid.Row="4" Orientation="Horizontal" x:Name="SearchCommittee" Height="77" VerticalAlignment="Top" Margin="0,20,0,0">
+                <TextBlock Text="committee" Style="{StaticResource PhoneTextNormalStyle}" FontSize="60" Margin="0,0,12,0" Foreground="White" />
             </StackPanel>
         </Grid>
     </Grid>
