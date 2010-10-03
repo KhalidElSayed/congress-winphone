@@ -74,8 +74,9 @@ namespace Congress {
             TextBox input = new TextBox() { 
                 Margin = new Thickness(10, 5, 0, 5),
                 InputScope = scope,
-                Foreground = new SolidColorBrush(Colors.White),
-                BorderBrush = new SolidColorBrush(Colors.White)
+                Foreground = new SolidColorBrush(Colors.Black),
+                Background = new SolidColorBrush(Colors.White),
+                BorderBrush = new SolidColorBrush(Colors.Black)
             };
 
             StackPanel buttons = new StackPanel() {
@@ -119,7 +120,7 @@ namespace Congress {
             popup.Child = border;
 
             popup.HorizontalOffset = 100;
-            popup.VerticalOffset = 250;
+            popup.VerticalOffset = 100;
 
             popup.IsOpen = true;
         }
