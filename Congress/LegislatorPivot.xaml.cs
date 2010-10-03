@@ -48,14 +48,15 @@ namespace Congress {
             NewsItem.search(view.NewsKeyword, displayNews);
 
             // if twitter_id then add pivot and trigger tweet fetching
-            if (view.legislator.twitterId != null && view.legislator.twitterId.Length > 0) {
+            if (view.legislator.twitterId != null && view.legislator.twitterId.Length > 0)
                 Tweet.search(legislator.twitterId, displayTweets);
-            }
 
             // if youtube_url then add pivot and trigger video fetching
-            if (view.legislator.youtubeUrl != null && view.legislator.youtubeUrl.Length > 0) {
+            if (view.legislator.youtubeUrl != null && view.legislator.youtubeUrl.Length > 0)
                 Video.getVideos(youtubeUsername(legislator.youtubeUrl), displayVideos);
-            }
+
+            // committee fetching
+            Committee.allForLegislator(view.legislator.bioguideId, displayCommittees);
         }
 
         protected void displayNews(Collection<NewsItem> items) {
@@ -68,6 +69,10 @@ namespace Congress {
 
         protected void displayVideos(Collection<Video> videos) {
             VideosPivot.DataContext = VideoListViewModel.fromCollection(videos);
+        }
+
+        protected void displayCommittees(Collection<Committee> committees) {
+            CommitteesPivot.DataContext = CommitteeListViewModel.fromCollection(committees);
         }
 
         private void makeCall(object sender, MouseButtonEventArgs e) {
@@ -90,6 +95,16 @@ namespace Congress {
 
         private void TweetsList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             // no action
+        }
+
+        private void CommitteesList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            if (CommitteesList.SelectedIndex == -1)
+                return;
+
+            CommitteeViewModel model = (CommitteesList.ItemsSource as ObservableCollection<CommitteeViewModel>)[CommitteesList.SelectedIndex];
+            NavigationService.Navigate(new Uri("/LegislatorListPage.xaml?searchType=" + MainPage.SEARCH_COMMITTEE + "&committeeId=" + model.committee.id + "&committeeName=" + model.Name, UriKind.Relative));
+
+            CommitteesList.SelectedIndex = -1;
         }
 
         private void VideosList_SelectionChanged(object sender, SelectionChangedEventArgs e) {

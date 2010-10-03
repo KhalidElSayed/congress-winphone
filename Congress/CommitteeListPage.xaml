@@ -58,7 +58,7 @@
                     <ListBox x:Name="JointListBox" ItemsSource="{Binding Committees}" SelectionChanged="JointListBox_SelectionChanged" BorderThickness="0" BorderBrush="Transparent">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock x:Name="LegislatorName" Text="{Binding Name}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="26" Foreground="White" Margin="0,0,12,35" TextWrapping="Wrap" />
+                                <TextBlock x:Name="CommitteeName" Text="{Binding Name}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="26" Foreground="White" Margin="0,0,12,35" TextWrapping="Wrap" />
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
