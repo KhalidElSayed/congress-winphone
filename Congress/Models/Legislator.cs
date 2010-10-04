@@ -128,6 +128,7 @@ namespace Congress.Models {
         }
 
         public static string stateCodeToName(string code) {
+            code = code.ToUpper();
             if (code == "AL")
                 return "Alabama";
             if (code == "AK")

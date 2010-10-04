@@ -60,7 +60,7 @@ namespace Congress {
             }
 
             else if (searchType == MainPage.SEARCH_STATE) {
-                MainTitle.Text = "for " + state;
+                MainTitle.Text = "for " + Legislator.stateCodeToName(state);
                 Legislator.findByState(state, loadLegislators);
             }
 
