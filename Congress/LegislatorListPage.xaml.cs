@@ -46,9 +46,10 @@ namespace Congress {
             NavigationContext.QueryString.TryGetValue("committeeId", out committeeId);
             NavigationContext.QueryString.TryGetValue("committeeName", out committeeName);
 
+            MainListBox.Visibility = Visibility.Collapsed;
+            ListMessage.Visibility = Visibility.Collapsed;
             (Spinner.FindName("LoadingText") as TextBlock).Text = "Finding legislators...";
             Spinner.Visibility = Visibility.Visible;
-            MainListBox.Visibility = Visibility.Collapsed;
 
             if (searchType == MainPage.SEARCH_LOCATION) {
                 MainTitle.Text = "for your location";
@@ -73,17 +74,26 @@ namespace Congress {
                 MainTitle.FontSize = 24;
                 MainTitle.Text = committeeName;
                 Committee.find(committeeId, (committee) => {
-                    loadLegislators(committee.members);
+                    if (committee != null)
+                        loadLegislators(committee.members);
+                    else
+                        loadLegislators(null);
                 });
             }
         }
 
         private void loadLegislators(Collection<Legislator> legislators) {
             Spinner.Visibility = Visibility.Collapsed;
-            MainListBox.Visibility = Visibility.Visible;
 
-            if (DataContext == null)
-                DataContext = LegislatorListViewModel.fromCollection(legislators);
+            if (legislators != null) {
+                MainListBox.Visibility = Visibility.Visible;
+
+                if (DataContext == null)
+                    DataContext = LegislatorListViewModel.fromCollection(legislators);
+            } else {
+                (ListMessage.FindName("Message") as TextBlock).Text = "There was a problem loading legislator information.";
+                ListMessage.Visibility = Visibility.Visible;
+            }
         }
 
         private void MainListBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {

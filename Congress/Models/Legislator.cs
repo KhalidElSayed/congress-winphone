@@ -42,7 +42,11 @@ namespace Congress.Models {
             WebClient downloader = new WebClient();
 
             downloader.DownloadStringCompleted += (s, e) => {
-                handler.Invoke(oneFromJSON(e.Result));
+                try {
+                    handler.Invoke(oneFromJSON(e.Result));
+                } catch (WebException ex) {
+                    handler.Invoke(null);
+                }
             };
 
             downloader.DownloadStringAsync(new Uri(Sunlight.url("legislators.get", "bioguide_id=" + bioguideId)));
@@ -52,7 +56,11 @@ namespace Congress.Models {
             WebClient downloader = new WebClient();
 
             downloader.DownloadStringCompleted += (s, e) => {
-                handler.Invoke(manyFromJSON(e.Result));
+                try {
+                    handler.Invoke(manyFromJSON(e.Result));
+                } catch (WebException ex) {
+                    handler.Invoke(null);
+                }
             };
 
             downloader.DownloadStringAsync(new Uri(Sunlight.url("legislators." + method, queryString)));

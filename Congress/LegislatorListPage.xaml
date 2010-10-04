@@ -25,11 +25,13 @@
             <TextBlock Grid.Column="1" x:Name="MainTitle" Text="for your location" Margin="24,10,0,10" Style="{StaticResource PhoneTextTitle1Style}" FontSize="44" TextWrapping="Wrap" Foreground="White"/>
         </StackPanel>
         
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="24,0,0,0">
+        <Grid x:Name="ContentPanel" Grid.Row="1" >
 
             <local:Spinner x:Name="Spinner" />
             
-            <ListBox x:Name="MainListBox" ItemsSource="{Binding Legislators}" SelectionChanged="MainListBox_SelectionChanged" BorderThickness="0" BorderBrush="Transparent">
+            <local:ListMessage x:Name="ListMessage" />
+            
+            <ListBox x:Name="MainListBox" Margin="24,0,0,0" ItemsSource="{Binding Legislators}" SelectionChanged="MainListBox_SelectionChanged" BorderThickness="0" BorderBrush="Transparent">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" x:Name="DataTemplateStackPanel" Margin="0,10">

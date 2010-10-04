@@ -33,21 +33,31 @@ namespace Congress {
             NavigationContext.QueryString.TryGetValue("titledName", out titledName);
             NavigationContext.QueryString.TryGetValue("bioguideId", out bioguideId);
 
+            ProfileMessage.Visibility = Visibility.Collapsed;
+            MainPivot.Visibility = Visibility.Collapsed;
+            ApplicationBar.IsVisible = false;
             (ProfileSpinner.FindName("LoadingText") as TextBlock).Text = "Loading legislator...";
-            ProfilePanel.Visibility = Visibility.Collapsed;
             ProfileSpinner.Visibility = Visibility.Visible;
 
-            (NewsSpinner.FindName("LoadingText") as TextBlock).Text = "Plucking news from the air...";
+            NewsMessage.Visibility = Visibility.Collapsed;
             NewsList.Visibility = Visibility.Collapsed;
+            (NewsSpinner.FindName("LoadingText") as TextBlock).Text = "Plucking news from the air...";
             NewsSpinner.Visibility = Visibility.Visible;
 
-            (TweetsSpinner.FindName("LoadingText") as TextBlock).Text = "Plucking tweets from the air...";
+            TweetsMessage.Visibility = Visibility.Collapsed;
             TweetsList.Visibility = Visibility.Collapsed;
+            (TweetsSpinner.FindName("LoadingText") as TextBlock).Text = "Plucking tweets from the air...";
             TweetsSpinner.Visibility = Visibility.Visible;
 
-            (VideosSpinner.FindName("LoadingText") as TextBlock).Text = "Plucking videos from the air...";
+            VideosMessage.Visibility = Visibility.Collapsed;
             VideosList.Visibility = Visibility.Collapsed;
+            (VideosSpinner.FindName("LoadingText") as TextBlock).Text = "Plucking videos from the air...";
             VideosSpinner.Visibility = Visibility.Visible;
+
+            CommitteesMessage.Visibility = Visibility.Collapsed;
+            CommitteesList.Visibility = Visibility.Collapsed;
+            (CommitteesSpinner.FindName("LoadingText") as TextBlock).Text = "Plucking committees from the air...";
+            CommitteesSpinner.Visibility = Visibility.Visible;
 
             MainPivot.Title = titledName;
             Legislator.find(bioguideId, new Legislator.LegislatorFoundEventHandler(displayLegislator));
@@ -55,46 +65,80 @@ namespace Congress {
 
         protected void displayLegislator(Legislator legislator) {
             ProfileSpinner.Visibility = Visibility.Collapsed;
-            ProfilePanel.Visibility = Visibility.Visible;
 
-            this.view = LegislatorViewModel.fromLegislator(legislator);
-            DataContext = view;
+            if (legislator != null) {
             
-            // trigger news fetching
-            NewsItem.search(view.NewsKeyword, displayNews);
+                MainPivot.Visibility = Visibility.Visible;
+                ApplicationBar.IsVisible = true;
 
-            // if twitter_id then add pivot and trigger tweet fetching
-            if (view.legislator.twitterId != null && view.legislator.twitterId.Length > 0)
-                Tweet.search(legislator.twitterId, displayTweets);
+                this.view = LegislatorViewModel.fromLegislator(legislator);
+                DataContext = view;
+            
+                // trigger news fetching
+                NewsItem.search(view.NewsKeyword, displayNews);
 
-            // if youtube_url then add pivot and trigger video fetching
-            if (view.legislator.youtubeUrl != null && view.legislator.youtubeUrl.Length > 0)
-                Video.getVideos(youtubeUsername(legislator.youtubeUrl), displayVideos);
+                // if twitter_id then add pivot and trigger tweet fetching
+                if (view.legislator.twitterId != null && view.legislator.twitterId.Length > 0)
+                    Tweet.search(legislator.twitterId, displayTweets);
 
-            // committee fetching
-            Committee.allForLegislator(view.legislator.bioguideId, displayCommittees);
+                // if youtube_url then add pivot and trigger video fetching
+                if (view.legislator.youtubeUrl != null && view.legislator.youtubeUrl.Length > 0)
+                    Video.getVideos(youtubeUsername(legislator.youtubeUrl), displayVideos);
+
+                // committee fetching
+                Committee.allForLegislator(view.legislator.bioguideId, displayCommittees);
+            } else {
+                (ProfileMessage.FindName("Message") as TextBlock).Text = "There was a problem loading legislator information.";
+                ProfileMessage.Visibility = Visibility.Visible;
+            }
         }
 
         protected void displayNews(Collection<NewsItem> items) {
             NewsSpinner.Visibility = Visibility.Collapsed;
-            NewsList.Visibility = Visibility.Visible;
-            NewsPivot.DataContext = NewsItemListViewModel.fromCollection(items);
+
+            if (items != null) {
+                NewsList.Visibility = Visibility.Visible;
+                NewsPivot.DataContext = NewsItemListViewModel.fromCollection(items);
+            } else {
+                (NewsMessage.FindName("Message") as TextBlock).Text = "There was a problem loading news mentions.";
+                NewsMessage.Visibility = Visibility.Visible;
+            }
         }
 
         protected void displayTweets(Collection<Tweet> tweets) {
             TweetsSpinner.Visibility = Visibility.Collapsed;
-            TweetsList.Visibility = Visibility.Visible;
-            TweetsPivot.DataContext = TweetListViewModel.fromCollection(tweets);
+
+            if (tweets != null) {
+                TweetsList.Visibility = Visibility.Visible;
+                TweetsPivot.DataContext = TweetListViewModel.fromCollection(tweets);
+            } else {
+                (TweetsMessage.FindName("Message") as TextBlock).Text = "There was a problem loading tweets.";
+                TweetsMessage.Visibility = Visibility.Visible;
+            }
         }
 
         protected void displayVideos(Collection<Video> videos) {
             VideosSpinner.Visibility = Visibility.Collapsed;
-            VideosList.Visibility = Visibility.Visible;
-            VideosPivot.DataContext = VideoListViewModel.fromCollection(videos);
+
+            if (videos != null) {
+                VideosList.Visibility = Visibility.Visible;
+                VideosPivot.DataContext = VideoListViewModel.fromCollection(videos);
+            } else {
+                (VideosMessage.FindName("Message") as TextBlock).Text = "There was a problem loading videos.";
+                VideosMessage.Visibility = Visibility.Visible;
+            }
         }
 
         protected void displayCommittees(Collection<Committee> committees) {
-            CommitteesPivot.DataContext = CommitteeListViewModel.fromCollection(committees);
+            CommitteesSpinner.Visibility = Visibility.Collapsed;
+
+            if (committees != null) {
+                CommitteesList.Visibility = Visibility.Visible;
+                CommitteesPivot.DataContext = CommitteeListViewModel.fromCollection(committees);
+            } else {
+                (CommitteesMessage.FindName("Message") as TextBlock).Text = "There was a problem loading committee information.";
+                CommitteesMessage.Visibility = Visibility.Visible;
+            }
         }
 
         private void makeCall(object sender, MouseButtonEventArgs e) {

@@ -25,7 +25,11 @@ namespace Congress.Models {
             WebClient downloader = new WebClient();
 
             downloader.DownloadStringCompleted += (s, e) => {
-                handler.Invoke(manyFromJSON(e.Result));
+                try {
+                    handler.Invoke(manyFromJSON(e.Result));
+                } catch (WebException ex) {
+                    handler.Invoke(null);
+                }
             };
 
             String url = YahooNews.searchUrl(query);

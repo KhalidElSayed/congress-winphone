@@ -18,52 +18,67 @@ using Congress.ViewModels;
 namespace Congress {
 
     public partial class CommitteeListPage : PhoneApplicationPage {
-        private int searchType;
-
-        // Constructor
         public CommitteeListPage() {
             InitializeComponent();
         }
 
-        // When page is navigated to, set data context to selected item in list
         protected override void OnNavigatedTo(NavigationEventArgs e) {
             base.OnNavigatedTo(e);
 
             (HouseSpinner.FindName("LoadingText") as TextBlock).Text = "Loading committees...";
             HouseSpinner.Visibility = Visibility.Visible;
             HouseListBox.Visibility = Visibility.Collapsed;
+            HouseMessage.Visibility = Visibility.Collapsed;
 
             (SenateSpinner.FindName("LoadingText") as TextBlock).Text = "Loading committees...";
             SenateSpinner.Visibility = Visibility.Visible;
             SenateListBox.Visibility = Visibility.Collapsed;
+            SenateMessage.Visibility = Visibility.Collapsed;
 
             (JointSpinner.FindName("LoadingText") as TextBlock).Text = "Loading committees...";
             JointSpinner.Visibility = Visibility.Visible;
             JointListBox.Visibility = Visibility.Collapsed;
+            JointMessage.Visibility = Visibility.Collapsed;
 
             Committee.allForChamber("House", loadHouseCommittees);
+            Committee.allForChamber("Senate", loadSenateCommittees);
+            Committee.allForChamber("Joint", loadJointCommittees);
         }
 
         private void loadHouseCommittees(Collection<Committee> committees) {
             HouseSpinner.Visibility = Visibility.Collapsed;
-            HouseListBox.Visibility = Visibility.Visible;
-            HouseListBox.DataContext = CommitteeListViewModel.fromCollection(committees);
 
-            Committee.allForChamber("Senate", loadSenateCommittees);
+            if (committees != null) {
+                HouseListBox.Visibility = Visibility.Visible;
+                HouseListBox.DataContext = CommitteeListViewModel.fromCollection(committees);
+            } else {
+                (HouseMessage.FindName("Message") as TextBlock).Text = "There was a problem loading committee information.";
+                HouseMessage.Visibility = Visibility.Visible;
+            }
         }
 
         private void loadSenateCommittees(Collection<Committee> committees) {
             SenateSpinner.Visibility = Visibility.Collapsed;
-            SenateListBox.Visibility = Visibility.Visible;
-            SenateListBox.DataContext = CommitteeListViewModel.fromCollection(committees);
 
-            Committee.allForChamber("Joint", loadJointCommittees);
+            if (committees != null) {
+                SenateListBox.Visibility = Visibility.Visible;
+                SenateListBox.DataContext = CommitteeListViewModel.fromCollection(committees);
+            } else {
+                (SenateMessage.FindName("Message") as TextBlock).Text = "There was a problem loading committee information.";
+                SenateMessage.Visibility = Visibility.Visible;
+            }
         }
 
         private void loadJointCommittees(Collection<Committee> committees) {
             JointSpinner.Visibility = Visibility.Collapsed;
-            JointListBox.Visibility = Visibility.Visible;
-            JointListBox.DataContext = CommitteeListViewModel.fromCollection(committees);
+
+            if (committees != null) {
+                JointListBox.Visibility = Visibility.Visible;
+                JointListBox.DataContext = CommitteeListViewModel.fromCollection(committees);
+            } else {
+                (JointMessage.FindName("Message") as TextBlock).Text = "There was a problem loading committee information.";
+                JointMessage.Visibility = Visibility.Visible;
+            }
         }
 
         private void HouseListBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {

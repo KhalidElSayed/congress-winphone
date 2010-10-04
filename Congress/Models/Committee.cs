@@ -35,7 +35,11 @@ namespace Congress.Models {
             WebClient downloader = new WebClient();
 
             downloader.DownloadStringCompleted += (s, e) => {
-                handler.Invoke(oneFromJSON(e.Result));
+                try {
+                    handler.Invoke(oneFromJSON(e.Result));
+                } catch (WebException ex) {
+                    handler.Invoke(null);
+                }
             };
 
             string url = Sunlight.url("committees.get", "id=" + id);
@@ -46,7 +50,11 @@ namespace Congress.Models {
             WebClient downloader = new WebClient();
 
             downloader.DownloadStringCompleted += (s, e) => {
-                handler.Invoke(manyFromJSON(e.Result));
+                try {
+                    handler.Invoke(manyFromJSON(e.Result));
+                } catch(WebException ex) {
+                    handler.Invoke(null);
+                }
             };
 
             string url = Sunlight.url(method, queryString);

@@ -20,11 +20,13 @@
 
             <controls:PivotItem Name="HousePivot" Margin="0,10,0,0" Header="house" Foreground="White">
 
-                <Grid x:Name="HousePanel" Margin="24,0,0,0" d:DataContext="{d:DesignData SampleData/Committees.xaml}">
+                <Grid x:Name="HousePanel" Margin="0,0,0,0" d:DataContext="{d:DesignData SampleData/Committees.xaml}">
 
                     <local:Spinner x:Name="HouseSpinner" />
+                    
+                    <local:ListMessage x:Name="HouseMessage" />
 
-                    <ListBox x:Name="HouseListBox" ItemsSource="{Binding Committees}" SelectionChanged="HouseListBox_SelectionChanged" BorderThickness="0" BorderBrush="Transparent">
+                    <ListBox x:Name="HouseListBox" Margin="24,0,0,0" ItemsSource="{Binding Committees}" SelectionChanged="HouseListBox_SelectionChanged" BorderThickness="0" BorderBrush="Transparent">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock x:Name="LegislatorName" Text="{Binding Name}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="26" Foreground="White" Margin="0,0,12,35" TextWrapping="Wrap" />
@@ -36,11 +38,13 @@
 
             <controls:PivotItem Name="SenatePivot" Margin="0,10,0,0" Header="senate" Foreground="White">
 
-                <Grid x:Name="SenatePanel" Margin="24,0,0,0" d:DataContext="{d:DesignData SampleData/Committees.xaml}">
+                <Grid x:Name="SenatePanel" Margin="0,0,0,0" d:DataContext="{d:DesignData SampleData/Committees.xaml}">
 
                     <local:Spinner x:Name="SenateSpinner" />
 
-                    <ListBox x:Name="SenateListBox" ItemsSource="{Binding Committees}" SelectionChanged="SenateListBox_SelectionChanged" BorderThickness="0" BorderBrush="Transparent">
+                    <local:ListMessage x:Name="SenateMessage" />
+
+                    <ListBox x:Name="SenateListBox" Margin="24,0,0,0" ItemsSource="{Binding Committees}" SelectionChanged="SenateListBox_SelectionChanged" BorderThickness="0" BorderBrush="Transparent">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock x:Name="LegislatorName" Text="{Binding Name}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="26" Foreground="White" Margin="0,0,12,35" TextWrapping="Wrap" />
@@ -52,11 +56,13 @@
 
             <controls:PivotItem Name="JointPivot" Margin="0,10,0,0" Header="joint" Foreground="White">
 
-                <Grid x:Name="JointPanel" Margin="24,0,0,0" d:DataContext="{d:DesignData SampleData/Committees.xaml}">
+                <Grid x:Name="JointPanel" Margin="0,0,0,0" d:DataContext="{d:DesignData SampleData/Committees.xaml}">
 
                     <local:Spinner x:Name="JointSpinner"/>
 
-                    <ListBox x:Name="JointListBox" ItemsSource="{Binding Committees}" SelectionChanged="JointListBox_SelectionChanged" BorderThickness="0" BorderBrush="Transparent">
+                    <local:ListMessage x:Name="JointMessage" />
+
+                    <ListBox x:Name="JointListBox" Margin="24,0,0,0" ItemsSource="{Binding Committees}" SelectionChanged="JointListBox_SelectionChanged" BorderThickness="0" BorderBrush="Transparent">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock x:Name="CommitteeName" Text="{Binding Name}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="26" Foreground="White" Margin="0,0,12,35" TextWrapping="Wrap" />
