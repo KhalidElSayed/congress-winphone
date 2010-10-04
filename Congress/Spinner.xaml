@@ -58,6 +58,6 @@
             </Canvas.Triggers>
         </Canvas>
 
-        <TextBlock x:Name="HouseLoading" Grid.Column="1" VerticalAlignment="Center" Text="Loading committees..." FontSize="28" Foreground="White" TextAlignment="Left" Margin="-20,0,0,0" />
+        <TextBlock x:Name="LoadingText" Grid.Column="1" VerticalAlignment="Center" Text="Loading..." FontSize="28" Foreground="White" TextAlignment="Left" Margin="-20,0,0,0" />
     </Grid>
 </UserControl>

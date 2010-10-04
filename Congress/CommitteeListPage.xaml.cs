@@ -29,16 +29,19 @@ namespace Congress {
         protected override void OnNavigatedTo(NavigationEventArgs e) {
             base.OnNavigatedTo(e);
 
+            (HouseSpinner.FindName("LoadingText") as TextBlock).Text = "Loading committees...";
             HouseSpinner.Visibility = Visibility.Visible;
             HouseListBox.Visibility = Visibility.Collapsed;
 
-            SenateLoading.Visibility = Visibility.Visible;
+            (SenateSpinner.FindName("LoadingText") as TextBlock).Text = "Loading committees...";
+            SenateSpinner.Visibility = Visibility.Visible;
             SenateListBox.Visibility = Visibility.Collapsed;
 
-            JointLoading.Visibility = Visibility.Visible;
+            (JointSpinner.FindName("LoadingText") as TextBlock).Text = "Loading committees...";
+            JointSpinner.Visibility = Visibility.Visible;
             JointListBox.Visibility = Visibility.Collapsed;
 
-            //Committee.allForChamber("House", loadHouseCommittees);
+            Committee.allForChamber("House", loadHouseCommittees);
         }
 
         private void loadHouseCommittees(Collection<Committee> committees) {
@@ -50,7 +53,7 @@ namespace Congress {
         }
 
         private void loadSenateCommittees(Collection<Committee> committees) {
-            SenateLoading.Visibility = Visibility.Collapsed;
+            SenateSpinner.Visibility = Visibility.Collapsed;
             SenateListBox.Visibility = Visibility.Visible;
             SenateListBox.DataContext = CommitteeListViewModel.fromCollection(committees);
 
@@ -58,7 +61,7 @@ namespace Congress {
         }
 
         private void loadJointCommittees(Collection<Committee> committees) {
-            JointLoading.Visibility = Visibility.Collapsed;
+            JointSpinner.Visibility = Visibility.Collapsed;
             JointListBox.Visibility = Visibility.Visible;
             JointListBox.DataContext = CommitteeListViewModel.fromCollection(committees);
         }

@@ -38,7 +38,7 @@
 
                 <Grid x:Name="SenatePanel" Margin="24,0,0,0" d:DataContext="{d:DesignData SampleData/Committees.xaml}">
 
-                    <TextBlock x:Name="SenateLoading" Style="{StaticResource PhoneTextNormalStyle}" Text="Loading..." Visibility="Collapsed" Margin="0,0,0,530" Foreground="White"/>
+                    <local:Spinner x:Name="SenateSpinner" />
 
                     <ListBox x:Name="SenateListBox" ItemsSource="{Binding Committees}" SelectionChanged="SenateListBox_SelectionChanged" BorderThickness="0" BorderBrush="Transparent">
                         <ListBox.ItemTemplate>
@@ -54,7 +54,7 @@
 
                 <Grid x:Name="JointPanel" Margin="24,0,0,0" d:DataContext="{d:DesignData SampleData/Committees.xaml}">
 
-                    <TextBlock x:Name="JointLoading" Style="{StaticResource PhoneTextNormalStyle}" Text="Loading..." Visibility="Collapsed" Margin="0,0,0,530" Foreground="White"/>
+                    <local:Spinner x:Name="JointSpinner"/>
 
                     <ListBox x:Name="JointListBox" ItemsSource="{Binding Committees}" SelectionChanged="JointListBox_SelectionChanged" BorderThickness="0" BorderBrush="Transparent">
                         <ListBox.ItemTemplate>
