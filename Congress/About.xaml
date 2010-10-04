@@ -30,10 +30,12 @@
         </Grid>
 
         <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <TextBlock x:Name="About1" FontSize="24" Margin="0,10,0,10" Text="Bill information provided by GovTrack.us, through the Library of Congress.  Bill summaries written by the Congressional Research Service." TextWrapping="Wrap" Foreground="White"/>
-            <TextBlock x:Name="About2" FontSize="24" Margin="0,10,0,10" Text="Legislator search and information powered by the Sunlight Labs Congress API." TextWrapping="Wrap" Foreground="White"/>
-            <TextBlock x:Name="About3" FontSize="24" Margin="0,10,0,10" Text="News mentions provided by the Yahoo! News API." TextWrapping="Wrap" Foreground="White"/>
-            <TextBlock x:Name="About4" FontSize="20" Margin="0,30,0,10" Text="This app is made by the Sunlight Foundation, a non-profit dedicated to increasing government transparency through the power of technology." TextWrapping="Wrap" VerticalAlignment="Stretch" Foreground="#FFBEBBBB" />
+            <TextBlock x:Name="About1" FontSize="26" Margin="0,10,0,10" Text="Legislator search and information powered by the Sunlight Labs Congress API." TextWrapping="Wrap" Foreground="White"/>
+            <TextBlock x:Name="About2" FontSize="26" Margin="0,10,0,10" Text="News mentions provided by the Yahoo! News API." TextWrapping="Wrap" Foreground="White"/>
+            <TextBlock x:Name="About3" FontSize="22" Margin="0,20,0,10" Text="This app is made by the Sunlight Foundation, a non-profit dedicated to increasing government transparency through the power of technology." TextWrapping="Wrap" VerticalAlignment="Stretch" Foreground="#FFBEBBBB" />
+            <TextBlock x:Name="Links" FontSize="44" Margin="0,10,0,10" Text="links" Foreground="White"/>
+            <HyperlinkButton NavigateUri="http://sunlightfoundation.com" Content="Sunlight Foundation" HorizontalAlignment="Left" Margin="-12,5,0,10" HorizontalContentAlignment="Left" TargetName="_blank" />
+            <HyperlinkButton NavigateUri="http://sunlightlabs.com" Content="Sunlight Labs" HorizontalAlignment="Left" Margin="-12,5,0,5" HorizontalContentAlignment="Left" TargetName="_blank"/>
         </StackPanel>
     </Grid>
 
