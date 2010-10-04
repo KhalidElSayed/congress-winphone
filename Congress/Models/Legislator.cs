@@ -126,5 +126,122 @@ namespace Congress.Models {
                 return BaseUrl + method + ".json" + "?" + queryString;
             }
         }
+
+        public static string stateCodeToName(string code) {
+            if (code == "AL")
+                return "Alabama";
+            if (code == "AK")
+                return "Alaska";
+            if (code == "AS")
+                return "American Samoa";
+            if (code == "AZ")
+                return "Arizona";
+            if (code == "AR")
+                return "Arkansas";
+            if (code == "CA")
+                return "California";
+            if (code == "CO")
+                return "Colorado";
+            if (code == "CT")
+                return "Connecticut";
+            if (code == "DE")
+                return "Delaware";
+            if (code == "DC")
+                return "District of Columbia";
+            if (code == "FL")
+                return "Florida";
+            if (code == "GA")
+                return "Georgia";
+            if (code == "GU")
+                return "Guam";
+            if (code == "HI")
+                return "Hawaii";
+            if (code == "ID")
+                return "Idaho";
+            if (code == "IL")
+                return "Illinois";
+            if (code == "IN")
+                return "Indiana";
+            if (code == "IA")
+                return "Iowa";
+            if (code == "KS")
+                return "Kansas";
+            if (code == "KY")
+                return "Kentucky";
+            if (code == "LA")
+                return "Louisiana";
+            if (code == "ME")
+                return "Maine";
+            if (code == "MD")
+                return "Maryland";
+            if (code == "MA")
+                return "Massachusetts";
+            if (code == "MI")
+                return "Michigan";
+            if (code == "MN")
+                return "Minnesota";
+            if (code == "MS")
+                return "Mississippi";
+            if (code == "MO")
+                return "Missouri";
+            if (code == "MT")
+                return "Montana";
+            if (code == "NE")
+                return "Nebraska";
+            if (code == "NV")
+                return "Nevada";
+            if (code == "NH")
+                return "New Hampshire";
+            if (code == "NJ")
+                return "New Jersey";
+            if (code == "NM")
+                return "New Mexico";
+            if (code == "NY")
+                return "New York";
+            if (code == "NC")
+                return "North Carolina";
+            if (code == "ND")
+                return "North Dakota";
+            if (code == "MP")
+                return "Northern Mariana Islands";
+            if (code == "OH")
+                return "Ohio";
+            if (code == "OK")
+                return "Oklahaoma";
+            if (code == "OR")
+                return "Oregon";
+            if (code == "PA")
+                return "Pennsylvania";
+            if (code == "PR")
+                return "Puerto Rico";
+            if (code == "RI")
+                return "Rhode Island";
+            if (code == "SC")
+                return "South Carolina";
+            if (code == "SD")
+                return "South Dakota";
+            if (code == "TN")
+                return "Tennessee";
+            if (code == "TX")
+                return "Texas";
+            if (code == "UT")
+                return "Utah";
+            if (code == "VT")
+                return "Vermont";
+            if (code == "VI")
+                return "Virgin Islands";
+            if (code == "VA")
+                return "Virginia";
+            if (code == "WA")
+                return "Washington";
+            if (code == "WV")
+                return "West Virginia";
+            if (code == "WI")
+                return "Wisconsin";
+            if (code == "WY")
+                return "Wyoming";
+            else
+                return null;
+        }
     }
 }
