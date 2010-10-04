@@ -80,15 +80,25 @@ namespace Congress {
                 // if twitter_id then add pivot and trigger tweet fetching
                 if (view.legislator.twitterId != null && view.legislator.twitterId.Length > 0)
                     Tweet.search(legislator.twitterId, displayTweets);
+                else {
+                    TweetsSpinner.Visibility = Visibility.Collapsed;
+                    (TweetsMessage.FindName("Message") as TextBlock).Text = this.view.TitledName + " doesn't use Twitter.";
+                    TweetsMessage.Visibility = Visibility.Visible;
+                }
 
                 // if youtube_url then add pivot and trigger video fetching
                 if (view.legislator.youtubeUrl != null && view.legislator.youtubeUrl.Length > 0)
                     Video.getVideos(youtubeUsername(legislator.youtubeUrl), displayVideos);
+                else {
+                    VideosSpinner.Visibility = Visibility.Collapsed;
+                    (VideosMessage.FindName("Message") as TextBlock).Text = this.view.TitledName + " doesn't use YouTube.";
+                    VideosMessage.Visibility = Visibility.Visible;
+                }
 
                 // committee fetching
                 Committee.allForLegislator(view.legislator.bioguideId, displayCommittees);
             } else {
-                (ProfileMessage.FindName("Message") as TextBlock).Text = "There was a problem loading legislator information.";
+                (ProfileMessage.FindName("Message") as TextBlock).Text = "There was a problem loading information for " + this.view.TitledName + ".";
                 ProfileMessage.Visibility = Visibility.Visible;
             }
         }
@@ -102,7 +112,7 @@ namespace Congress {
                     NewsList.Visibility = Visibility.Visible;
                     NewsPivot.DataContext = NewsItemListViewModel.fromCollection(items);
                 } else {
-                    (NewsMessage.FindName("Message") as TextBlock).Text = "There aren't any recent news mentions for this legislator.";
+                    (NewsMessage.FindName("Message") as TextBlock).Text = "There aren't any recent news mentions for " + this.view.TitledName + ".";
                     NewsMessage.Visibility = Visibility.Visible;
                 }
 
@@ -122,7 +132,7 @@ namespace Congress {
                     TweetsPivot.DataContext = TweetListViewModel.fromCollection(tweets);
                 } else {
                     // should probably never happen
-                    (TweetsMessage.FindName("Message") as TextBlock).Text = "This legislator uses Twitter, but doesn't have any tweets.";
+                    (TweetsMessage.FindName("Message") as TextBlock).Text = this.view.TitledName + " uses Twitter, but doesn't have any tweets.";
                     TweetsMessage.Visibility = Visibility.Visible;
                 }
 
@@ -141,7 +151,7 @@ namespace Congress {
                     VideosPivot.DataContext = VideoListViewModel.fromCollection(videos);
                 } else {
                     // should probably never happen
-                    (VideosMessage.FindName("Message") as TextBlock).Text = "This legislator uses YouTube, but doesn't have any videos.";
+                    (VideosMessage.FindName("Message") as TextBlock).Text = this.view.TitledName + " uses YouTube, but doesn't have any videos.";
                     VideosMessage.Visibility = Visibility.Visible;
                 }
 
@@ -159,7 +169,7 @@ namespace Congress {
                     CommitteesList.Visibility = Visibility.Visible;
                     CommitteesPivot.DataContext = CommitteeListViewModel.fromCollection(committees);
                 } else {
-                    (CommitteesMessage.FindName("Message") as TextBlock).Text = "This legislator doesn't belong to any committees.";
+                    (CommitteesMessage.FindName("Message") as TextBlock).Text = this.view.TitledName + " doesn't belong to any committees.";
                     CommitteesMessage.Visibility = Visibility.Visible;
                 }
 
