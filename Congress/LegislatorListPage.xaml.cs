@@ -46,8 +46,8 @@ namespace Congress {
             NavigationContext.QueryString.TryGetValue("committeeId", out committeeId);
             NavigationContext.QueryString.TryGetValue("committeeName", out committeeName);
 
-            // turn on Loading... message
-            Loading.Visibility = Visibility.Visible;
+            (Spinner.FindName("LoadingText") as TextBlock).Text = "Finding legislators...";
+            Spinner.Visibility = Visibility.Visible;
             MainListBox.Visibility = Visibility.Collapsed;
 
             if (searchType == MainPage.SEARCH_LOCATION) {
@@ -79,7 +79,7 @@ namespace Congress {
         }
 
         private void loadLegislators(Collection<Legislator> legislators) {
-            Loading.Visibility = Visibility.Collapsed;
+            Spinner.Visibility = Visibility.Collapsed;
             MainListBox.Visibility = Visibility.Visible;
 
             if (DataContext == null)

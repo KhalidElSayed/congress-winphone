@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:local="clr-namespace:Congress"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DataContext="{d:DesignData SampleData/Legislators.xaml}"
@@ -26,7 +27,7 @@
         
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="24,0,0,0">
 
-            <TextBlock x:Name="Loading" Style="{StaticResource PhoneTextNormalStyle}" Text="Loading..." Visibility="Collapsed" Margin="0,0,0,530" Foreground="White"/>
+            <local:Spinner x:Name="Spinner" />
             
             <ListBox x:Name="MainListBox" ItemsSource="{Binding Legislators}" SelectionChanged="MainListBox_SelectionChanged" BorderThickness="0" BorderBrush="Transparent">
                 <ListBox.ItemTemplate>
