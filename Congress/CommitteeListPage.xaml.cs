@@ -29,18 +29,20 @@ namespace Congress {
         protected override void OnNavigatedTo(NavigationEventArgs e) {
             base.OnNavigatedTo(e);
 
-            HouseLoading.Visibility = Visibility.Visible;
+            HouseSpinner.Visibility = Visibility.Visible;
             HouseListBox.Visibility = Visibility.Collapsed;
+
             SenateLoading.Visibility = Visibility.Visible;
             SenateListBox.Visibility = Visibility.Collapsed;
+
             JointLoading.Visibility = Visibility.Visible;
             JointListBox.Visibility = Visibility.Collapsed;
 
-            Committee.allForChamber("House", loadHouseCommittees);
+            //Committee.allForChamber("House", loadHouseCommittees);
         }
 
         private void loadHouseCommittees(Collection<Committee> committees) {
-            HouseLoading.Visibility = Visibility.Collapsed;
+            HouseSpinner.Visibility = Visibility.Collapsed;
             HouseListBox.Visibility = Visibility.Visible;
             HouseListBox.DataContext = CommitteeListViewModel.fromCollection(committees);
 
