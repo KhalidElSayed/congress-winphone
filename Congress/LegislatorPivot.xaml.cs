@@ -67,7 +67,7 @@ namespace Congress {
             ProfileSpinner.Visibility = Visibility.Collapsed;
 
             if (legislator != null) {
-            
+                
                 MainPivot.Visibility = Visibility.Visible;
                 ApplicationBar.IsVisible = true;
 
@@ -97,8 +97,15 @@ namespace Congress {
             NewsSpinner.Visibility = Visibility.Collapsed;
 
             if (items != null) {
-                NewsList.Visibility = Visibility.Visible;
-                NewsPivot.DataContext = NewsItemListViewModel.fromCollection(items);
+
+                if (items.Count > 0) {
+                    NewsList.Visibility = Visibility.Visible;
+                    NewsPivot.DataContext = NewsItemListViewModel.fromCollection(items);
+                } else {
+                    (NewsMessage.FindName("Message") as TextBlock).Text = "There aren't any recent news mentions for this legislator.";
+                    NewsMessage.Visibility = Visibility.Visible;
+                }
+
             } else {
                 (NewsMessage.FindName("Message") as TextBlock).Text = "There was a problem loading news mentions.";
                 NewsMessage.Visibility = Visibility.Visible;
@@ -109,8 +116,16 @@ namespace Congress {
             TweetsSpinner.Visibility = Visibility.Collapsed;
 
             if (tweets != null) {
-                TweetsList.Visibility = Visibility.Visible;
-                TweetsPivot.DataContext = TweetListViewModel.fromCollection(tweets);
+
+                if (tweets.Count > 0) {
+                    TweetsList.Visibility = Visibility.Visible;
+                    TweetsPivot.DataContext = TweetListViewModel.fromCollection(tweets);
+                } else {
+                    // should probably never happen
+                    (TweetsMessage.FindName("Message") as TextBlock).Text = "This legislator uses Twitter, but doesn't have any tweets.";
+                    TweetsMessage.Visibility = Visibility.Visible;
+                }
+
             } else {
                 (TweetsMessage.FindName("Message") as TextBlock).Text = "There was a problem loading tweets.";
                 TweetsMessage.Visibility = Visibility.Visible;
@@ -121,8 +136,15 @@ namespace Congress {
             VideosSpinner.Visibility = Visibility.Collapsed;
 
             if (videos != null) {
-                VideosList.Visibility = Visibility.Visible;
-                VideosPivot.DataContext = VideoListViewModel.fromCollection(videos);
+                if (videos.Count > 0) {
+                    VideosList.Visibility = Visibility.Visible;
+                    VideosPivot.DataContext = VideoListViewModel.fromCollection(videos);
+                } else {
+                    // should probably never happen
+                    (VideosMessage.FindName("Message") as TextBlock).Text = "This legislator uses YouTube, but doesn't have any videos.";
+                    VideosMessage.Visibility = Visibility.Visible;
+                }
+
             } else {
                 (VideosMessage.FindName("Message") as TextBlock).Text = "There was a problem loading videos.";
                 VideosMessage.Visibility = Visibility.Visible;
@@ -133,8 +155,14 @@ namespace Congress {
             CommitteesSpinner.Visibility = Visibility.Collapsed;
 
             if (committees != null) {
-                CommitteesList.Visibility = Visibility.Visible;
-                CommitteesPivot.DataContext = CommitteeListViewModel.fromCollection(committees);
+                if (committees.Count > 0) {
+                    CommitteesList.Visibility = Visibility.Visible;
+                    CommitteesPivot.DataContext = CommitteeListViewModel.fromCollection(committees);
+                } else {
+                    (CommitteesMessage.FindName("Message") as TextBlock).Text = "This legislator doesn't belong to any committees.";
+                    CommitteesMessage.Visibility = Visibility.Visible;
+                }
+
             } else {
                 (CommitteesMessage.FindName("Message") as TextBlock).Text = "There was a problem loading committee information.";
                 CommitteesMessage.Visibility = Visibility.Visible;

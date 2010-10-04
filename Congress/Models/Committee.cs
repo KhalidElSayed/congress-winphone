@@ -97,8 +97,8 @@ namespace Congress.Models {
                 committee.members = new Collection<Legislator>();
 
                 JArray membersRoot = (JArray)membersToken;
-                foreach(JToken item in membersRoot) {
-                    JObject itemRoot = (JObject) ((JObject)item)["legislator"];
+                foreach (JToken item in membersRoot) {
+                    JObject itemRoot = (JObject)((JObject)item)["legislator"];
                     committee.members.Add(Legislator.oneFromJObject(itemRoot));
                 }
             }

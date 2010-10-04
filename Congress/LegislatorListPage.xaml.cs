@@ -86,10 +86,15 @@ namespace Congress {
             Spinner.Visibility = Visibility.Collapsed;
 
             if (legislators != null) {
-                MainListBox.Visibility = Visibility.Visible;
-
-                if (DataContext == null)
+                
+                if (legislators.Count > 0) {
+                    MainListBox.Visibility = Visibility.Visible;
                     DataContext = LegislatorListViewModel.fromCollection(legislators);
+                } else {
+                    (ListMessage.FindName("Message") as TextBlock).Text = "No legislators found.";
+                    ListMessage.Visibility = Visibility.Visible;
+                }
+
             } else {
                 (ListMessage.FindName("Message") as TextBlock).Text = "There was a problem loading legislator information.";
                 ListMessage.Visibility = Visibility.Visible;

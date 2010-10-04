@@ -46,38 +46,31 @@ namespace Congress {
         }
 
         private void loadHouseCommittees(Collection<Committee> committees) {
-            HouseSpinner.Visibility = Visibility.Collapsed;
-
-            if (committees != null) {
-                HouseListBox.Visibility = Visibility.Visible;
-                HouseListBox.DataContext = CommitteeListViewModel.fromCollection(committees);
-            } else {
-                (HouseMessage.FindName("Message") as TextBlock).Text = "There was a problem loading committee information.";
-                HouseMessage.Visibility = Visibility.Visible;
-            }
+            loadCommittees(committees, HouseSpinner, HouseListBox, HouseMessage);
         }
 
         private void loadSenateCommittees(Collection<Committee> committees) {
-            SenateSpinner.Visibility = Visibility.Collapsed;
-
-            if (committees != null) {
-                SenateListBox.Visibility = Visibility.Visible;
-                SenateListBox.DataContext = CommitteeListViewModel.fromCollection(committees);
-            } else {
-                (SenateMessage.FindName("Message") as TextBlock).Text = "There was a problem loading committee information.";
-                SenateMessage.Visibility = Visibility.Visible;
-            }
+            loadCommittees(committees, SenateSpinner, SenateListBox, SenateMessage);
         }
 
         private void loadJointCommittees(Collection<Committee> committees) {
-            JointSpinner.Visibility = Visibility.Collapsed;
+            loadCommittees(committees, JointSpinner, JointListBox, JointMessage);
+        }
+
+        private void loadCommittees(Collection<Committee> committees, Spinner spinner, ListBox listBox, ListMessage message) {
+            spinner.Visibility = Visibility.Collapsed;
 
             if (committees != null) {
-                JointListBox.Visibility = Visibility.Visible;
-                JointListBox.DataContext = CommitteeListViewModel.fromCollection(committees);
+                if (committees.Count > 0) {
+                    listBox.Visibility = Visibility.Visible;
+                    listBox.DataContext = CommitteeListViewModel.fromCollection(committees);
+                } else {
+                    (message.FindName("Message") as TextBlock).Text = "No committees found.";
+                    message.Visibility = Visibility.Visible;
+                }
             } else {
-                (JointMessage.FindName("Message") as TextBlock).Text = "There was a problem loading committee information.";
-                JointMessage.Visibility = Visibility.Visible;
+                (message.FindName("Message") as TextBlock).Text = "There was a problem loading committee information.";
+                message.Visibility = Visibility.Visible;
             }
         }
 
