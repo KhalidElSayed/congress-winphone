@@ -7,6 +7,7 @@
     xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:local="clr-namespace:Congress"
     mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -21,92 +22,109 @@
         <controls:Pivot x:Name="MainPivot" Foreground="White" Title="{Binding TitledName}" FontSize="24">
 
             <controls:PivotItem Margin="0,10,0,0" Name="ProfilePivot" Header="profile" d:DataContext="{d:DesignData SampleData/Legislators.xaml}" Foreground="White">
+
+                <Grid Margin="24,10,0,0" d:DataContext="{Binding Legislators[0]}">
                 
-                <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="24,10,0,0" d:DataContext="{Binding Legislators[0]}">
-                    <StackPanel x:Name="TopPanel" Orientation="Horizontal" Margin="0,0,0,10">
-                        <StackPanel x:Name="LegislatorPhotoBackground" Width="200" Height="250">
-                            <StackPanel.Background>
-                                <ImageBrush ImageSource="/Congress;component/Images/loading_photo.png"/>
-                            </StackPanel.Background>
-                            <Image Height="250" x:Name="LegislatorPhoto" Source="{Binding PhotoUrlLarge}" Stretch="Fill" Width="200" />
+                    <local:Spinner x:Name="ProfileSpinner" />
+
+                    <StackPanel Orientation="Vertical" x:Name="ProfilePanel">
+                        <StackPanel x:Name="TopPanel" Orientation="Horizontal" Margin="0,0,0,10">
+                            <StackPanel x:Name="LegislatorPhotoBackground" Width="200" Height="250">
+                                <StackPanel.Background>
+                                    <ImageBrush ImageSource="/Congress;component/Images/loading_photo.png"/>
+                                </StackPanel.Background>
+                                <Image Height="250" x:Name="LegislatorPhoto" Source="{Binding PhotoUrlLarge}" Stretch="Fill" Width="200" />
+                            </StackPanel>
+
+                            <StackPanel x:Name="FactsPanel" Orientation="Vertical" Margin="20,0,0,0" VerticalAlignment="Top">
+                                <TextBlock x:Name="LegislatorParty" Text="{Binding Party}" Margin="0,0,0,10" FontSize="28" TextWrapping="Wrap" Foreground="White"/>
+                                <TextBlock x:Name="LegislatorState" Text="{Binding State}" Margin="0,10" FontSize="28" TextWrapping="Wrap" Foreground="White"/>
+                                <TextBlock x:Name="LegislatorDistrict" Text="{Binding District}" Margin="0,10" FontSize="28" TextWrapping="Wrap" Foreground="White"/>
+                                <TextBlock x:Name="LegislatorOffice" Text="{Binding Office}" Margin="0,10" FontSize="28" TextWrapping="Wrap" Foreground="White"/>
+                            </StackPanel>
                         </StackPanel>
 
-                        <StackPanel x:Name="FactsPanel" Orientation="Vertical" Margin="20,0,0,0" VerticalAlignment="Top">
-                            <TextBlock x:Name="LegislatorParty" Text="{Binding Party}" Margin="0,0,0,10" FontSize="28" TextWrapping="Wrap" Foreground="White"/>
-                            <TextBlock x:Name="LegislatorState" Text="{Binding State}" Margin="0,10" FontSize="28" TextWrapping="Wrap" Foreground="White"/>
-                            <TextBlock x:Name="LegislatorDistrict" Text="{Binding District}" Margin="0,10" FontSize="28" TextWrapping="Wrap" Foreground="White"/>
-                            <TextBlock x:Name="LegislatorOffice" Text="{Binding Office}" Margin="0,10" FontSize="28" TextWrapping="Wrap" Foreground="White"/>
+                        <StackPanel MouseLeftButtonUp="makeCall" x:Name="PhonePanel" Orientation="Horizontal" Margin="0,20,0,0">
+                            <Image Source="/Congress;component/Images/phone.png" />
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock x:Name="LegislatorPhone" Text="{Binding CallMessage}" FontSize="40" Margin="30,0,0,0" Foreground="White"/>
+                                <TextBlock Text="{Binding Phone}" Margin="30,0,0,0" FontSize="24" Foreground="Gray" />
+                            </StackPanel>
                         </StackPanel>
-                    </StackPanel>
 
-                    <StackPanel MouseLeftButtonUp="makeCall" x:Name="PhonePanel" Orientation="Horizontal" Margin="0,20,0,0">
-                        <Image Source="/Congress;component/Images/phone.png" />
-                        <StackPanel Orientation="Vertical">
-                            <TextBlock x:Name="LegislatorPhone" Text="{Binding CallMessage}" FontSize="40" Margin="30,0,0,0" Foreground="White"/>
-                            <TextBlock Text="{Binding Phone}" Margin="30,0,0,0" FontSize="24" Foreground="Gray" />
+                        <StackPanel MouseLeftButtonUp="visitWebsite" x:Name="WebPanel" Orientation="Horizontal" Margin="0,20,0,0">
+                            <Image Source="/Congress;component/Images/web.png" />
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock x:Name="LegislatorWeb" Text="{Binding WebsiteMessage}" FontSize="40" Margin="30,0,0,0" Foreground="White"/>
+                                <TextBlock Text="{Binding ShortWebsite}" Margin="30,0,0,0" FontSize="24" Foreground="Gray" />
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
-
-                    <StackPanel MouseLeftButtonUp="visitWebsite" x:Name="WebPanel" Orientation="Horizontal" Margin="0,20,0,0">
-                        <Image Source="/Congress;component/Images/web.png" />
-                        <StackPanel Orientation="Vertical">
-                            <TextBlock x:Name="LegislatorWeb" Text="{Binding WebsiteMessage}" FontSize="40" Margin="30,0,0,0" Foreground="White"/>
-                            <TextBlock Text="{Binding ShortWebsite}" Margin="30,0,0,0" FontSize="24" Foreground="Gray" />
-                        </StackPanel>
-                    </StackPanel>
-                </StackPanel>
+                </Grid>
             </controls:PivotItem>
 
             <controls:PivotItem Name="NewsPivot" Margin="0,10,0,0" Header="news" d:DataContext="{d:DesignData SampleData/NewsItems.xaml}" Foreground="White">
                 
-                <ListBox x:Name="NewsList" ItemsSource="{Binding NewsItems}" SelectionChanged="NewsList_SelectionChanged" BorderThickness="0" BorderBrush="Transparent">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Vertical" Margin="10,0,0,30">
-                                <TextBlock x:Name="NewsItemTitle" Text="{Binding Title}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="24" TextWrapping="Wrap" Foreground="White"/>
-                                <TextBlock x:Name="NewsItemDateSource" Text="{Binding DateSource}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="16" TextWrapping="Wrap" Foreground="Gray" Margin="12,2,12,0" />
-                                <TextBlock x:Name="NewsItemExcerpt" Text="{Binding Excerpt}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="18" TextWrapping="Wrap" Margin="12,7,12,0" Foreground="White"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                <Grid>
+                    <local:Spinner x:Name="NewsSpinner" />
+                    
+                    <ListBox x:Name="NewsList" ItemsSource="{Binding NewsItems}" SelectionChanged="NewsList_SelectionChanged" BorderThickness="0" BorderBrush="Transparent">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical" Margin="10,0,0,30">
+                                    <TextBlock x:Name="NewsItemTitle" Text="{Binding Title}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="24" TextWrapping="Wrap" Foreground="White"/>
+                                    <TextBlock x:Name="NewsItemDateSource" Text="{Binding DateSource}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="16" TextWrapping="Wrap" Foreground="Gray" Margin="12,2,12,0" />
+                                    <TextBlock x:Name="NewsItemExcerpt" Text="{Binding Excerpt}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="18" TextWrapping="Wrap" Margin="12,7,12,0" Foreground="White"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
                 
             </controls:PivotItem>
 
             <controls:PivotItem Name="TweetsPivot" Margin="0,10,0,0" Header="tweets" d:DataContext="{d:DesignData SampleData/Tweets.xaml}" Foreground="White">
-                <ListBox x:Name="TweetsList" ItemsSource="{Binding Tweets}" SelectionChanged="TweetsList_SelectionChanged" BorderThickness="0" BorderBrush="Transparent">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Vertical" Margin="10,0,0,30">
-                                <TextBlock x:Name="TweetText" Text="{Binding Text}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="22" TextWrapping="Wrap" Foreground="White" />
-                                <TextBlock x:Name="TweetByline" Text="{Binding Byline}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="18" TextWrapping="Wrap" Margin="12,3,12,0" Foreground="Gray"></TextBlock>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                <Grid>
+                    <local:Spinner x:Name="TweetsSpinner" />
+                    
+                    <ListBox x:Name="TweetsList" ItemsSource="{Binding Tweets}" SelectionChanged="TweetsList_SelectionChanged" BorderThickness="0" BorderBrush="Transparent">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical" Margin="10,0,0,30">
+                                    <TextBlock x:Name="TweetText" Text="{Binding Text}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="22" TextWrapping="Wrap" Foreground="White" />
+                                    <TextBlock x:Name="TweetByline" Text="{Binding Byline}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="18" TextWrapping="Wrap" Margin="12,3,12,0" Foreground="Gray"></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
             </controls:PivotItem>
 
             <controls:PivotItem Name="VideosPivot" Margin="0,10,0,0" Header="videos" d:DataContext="{d:DesignData SampleData/Videos.xaml}" Foreground="White">
+                
+                <Grid>
+                    <local:Spinner x:Name="VideosSpinner" />
 
-                <ListBox x:Name="VideosList" ItemsSource="{Binding Videos}" SelectionChanged="VideosList_SelectionChanged" BorderThickness="0" BorderBrush="Transparent">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Grid Margin="20,0,0,30" Width="Auto">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
+                    <ListBox x:Name="VideosList" ItemsSource="{Binding Videos}" SelectionChanged="VideosList_SelectionChanged" BorderThickness="0" BorderBrush="Transparent">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="20,0,0,30" Width="Auto">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
                                 
-                                <Image Grid.Column="0" x:Name="VideoThumbnail" Source="{Binding ThumbnailUrl}" VerticalAlignment="Top" Margin="0,5,0,0" />
-                                <StackPanel Grid.Column="1" Orientation="Vertical" Width="Auto" VerticalAlignment="Top" Margin="0">
-                                    <TextBlock x:Name="VideoTitle" Text="{Binding Title}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="22" TextWrapping="Wrap" Foreground="White"/>
-                                    <TextBlock x:Name="VideoDate" Text="{Binding Date}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="16" Foreground="Gray"/>
-                                    <TextBlock x:Name="VideoDescription" Text="{Binding Description}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="18" Margin="12,15" TextWrapping="Wrap" Foreground="White"/>
-                                </StackPanel>
-                            </Grid>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                                    <Image Grid.Column="0" x:Name="VideoThumbnail" Source="{Binding ThumbnailUrl}" VerticalAlignment="Top" Margin="0,5,0,0" />
+                                    <StackPanel Grid.Column="1" Orientation="Vertical" Width="Auto" VerticalAlignment="Top" Margin="0">
+                                        <TextBlock x:Name="VideoTitle" Text="{Binding Title}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="22" TextWrapping="Wrap" Foreground="White"/>
+                                        <TextBlock x:Name="VideoDate" Text="{Binding Date}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="16" Foreground="Gray"/>
+                                        <TextBlock x:Name="VideoDescription" Text="{Binding Description}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="18" Margin="12,15" TextWrapping="Wrap" Foreground="White"/>
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
 
             </controls:PivotItem>
 

@@ -29,18 +29,34 @@ namespace Congress {
         protected override void OnNavigatedTo(NavigationEventArgs e) {
             base.OnNavigatedTo(e);
 
-            string titledName = null;
-            if (NavigationContext.QueryString.TryGetValue("titledName", out titledName)) {
-                MainPivot.Title = titledName;
-            }
+            string titledName, bioguideId;
+            NavigationContext.QueryString.TryGetValue("titledName", out titledName);
+            NavigationContext.QueryString.TryGetValue("bioguideId", out bioguideId);
 
-            string bioguideId = null;
-            if (NavigationContext.QueryString.TryGetValue("bioguideId", out bioguideId)) {
-                Legislator.find(bioguideId, new Legislator.LegislatorFoundEventHandler(displayLegislator));
-            }
+            (ProfileSpinner.FindName("LoadingText") as TextBlock).Text = "Loading legislator...";
+            ProfilePanel.Visibility = Visibility.Collapsed;
+            ProfileSpinner.Visibility = Visibility.Visible;
+
+            (NewsSpinner.FindName("LoadingText") as TextBlock).Text = "Plucking news from the air...";
+            NewsList.Visibility = Visibility.Collapsed;
+            NewsSpinner.Visibility = Visibility.Visible;
+
+            (TweetsSpinner.FindName("LoadingText") as TextBlock).Text = "Plucking tweets from the air...";
+            TweetsList.Visibility = Visibility.Collapsed;
+            TweetsSpinner.Visibility = Visibility.Visible;
+
+            (VideosSpinner.FindName("LoadingText") as TextBlock).Text = "Plucking videos from the air...";
+            VideosList.Visibility = Visibility.Collapsed;
+            VideosSpinner.Visibility = Visibility.Visible;
+
+            MainPivot.Title = titledName;
+            Legislator.find(bioguideId, new Legislator.LegislatorFoundEventHandler(displayLegislator));
         }
 
         protected void displayLegislator(Legislator legislator) {
+            ProfileSpinner.Visibility = Visibility.Collapsed;
+            ProfilePanel.Visibility = Visibility.Visible;
+
             this.view = LegislatorViewModel.fromLegislator(legislator);
             DataContext = view;
             
@@ -60,14 +76,20 @@ namespace Congress {
         }
 
         protected void displayNews(Collection<NewsItem> items) {
+            NewsSpinner.Visibility = Visibility.Collapsed;
+            NewsList.Visibility = Visibility.Visible;
             NewsPivot.DataContext = NewsItemListViewModel.fromCollection(items);
         }
 
         protected void displayTweets(Collection<Tweet> tweets) {
+            TweetsSpinner.Visibility = Visibility.Collapsed;
+            TweetsList.Visibility = Visibility.Visible;
             TweetsPivot.DataContext = TweetListViewModel.fromCollection(tweets);
         }
 
         protected void displayVideos(Collection<Video> videos) {
+            VideosSpinner.Visibility = Visibility.Collapsed;
+            VideosList.Visibility = Visibility.Visible;
             VideosPivot.DataContext = VideoListViewModel.fromCollection(videos);
         }
 
