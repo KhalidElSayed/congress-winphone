@@ -154,9 +154,6 @@
     <None Include="Properties\WMAppManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ApplicationIcon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Page Include="LegislatorPivot.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -185,22 +182,24 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Resource Include="Images\app_icon.png" />
     <Resource Include="Images\search_all.png" />
     <Resource Include="Images\search_lastname.png" />
     <Resource Include="Images\search_location.png" />
     <Resource Include="Images\search_zip.png" />
     <Resource Include="Images\phone.png" />
     <Resource Include="Images\web.png" />
+    <Content Include="ApplicationIcon.png" />
+    <Content Include="Background.png" />
     <Content Include="Images\appbar.check.rest.png" />
+    <Content Include="Images\appbar.CongressionalBio.png" />
     <Content Include="Images\appbar.feature.email.rest.png" />
+    <Content Include="Images\appbar.GovTrack.png" />
+    <Content Include="Images\appbar.OpenCongress.png" />
     <Content Include="Images\appbar.questionmark.rest.png" />
     <Resource Include="Images\loading_photo.png" />
-    <Resource Include="Images\app_icon.png" />
     <Content Include="SplashScreenImage.jpg" />
     <Resource Include="Images\ArrowImg.png" />
-    <Content Include="Background.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Strings.resx">
