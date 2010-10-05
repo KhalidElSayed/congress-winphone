@@ -37,7 +37,7 @@ namespace Congress.Models {
             downloader.DownloadStringCompleted += (s, e) => {
                 try {
                     handler.Invoke(oneFromJSON(e.Result));
-                } catch (WebException ex) {
+                } catch (Exception ex) {
                     handler.Invoke(null);
                 }
             };
@@ -52,7 +52,7 @@ namespace Congress.Models {
             downloader.DownloadStringCompleted += (s, e) => {
                 try {
                     handler.Invoke(manyFromJSON(e.Result));
-                } catch(WebException ex) {
+                } catch(Exception ex) {
                     handler.Invoke(null);
                 }
             };
