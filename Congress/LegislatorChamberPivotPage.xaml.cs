@@ -18,8 +18,6 @@ using Congress.ViewModels;
 namespace Congress {
 
     public partial class LegislatorChamberPivotPage : PhoneApplicationPage {
-        private int searchType;
-
         public LegislatorChamberPivotPage() {
             InitializeComponent();
         }
