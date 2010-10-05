@@ -26,6 +26,15 @@ namespace Congress.Models {
             findMany("getList", "state=" + state, handler);
         }
 
+        public static void findByChamber(string chamber, LegislatorsFoundEventHandler handler) {
+            string title;
+            if (chamber == "House")
+                title = "Rep";
+            else
+                title = "Sen";
+            findMany("getList", "title=" + title, handler);
+        }
+
         public static void findByZip(string zip, LegislatorsFoundEventHandler handler) {
             findMany("allForZip", "zip=" + zip, handler);
         }

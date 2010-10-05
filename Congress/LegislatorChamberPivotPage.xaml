@@ -1,0 +1,87 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="Congress.LegislatorChamberPivotPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:local="clr-namespace:Congress"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DataContext="{d:DesignData SampleData/Legislators.xaml}"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768" 
+    shell:SystemTray.IsVisible="True">
+
+    <Grid x:Name="LayoutRoot" Background="#FF051924">
+
+        <controls:Pivot x:Name="MainPivot" Foreground="White" Title="all legislators" FontSize="24">
+
+            <controls:PivotItem Name="HousePivot" Margin="0,10,0,0" Header="house" Foreground="White">
+
+                <Grid x:Name="HousePanel" Margin="0,0,0,0" d:DataContext="{d:DesignData SampleData/Legislators.xaml}">
+
+                    <local:Spinner x:Name="HouseSpinner" />
+
+                    <local:ListMessage x:Name="HouseMessage" />
+
+                    <ListBox x:Name="HouseListBox" Margin="24,0,0,0" ItemsSource="{Binding Legislators}" SelectionChanged="HouseListBox_SelectionChanged" BorderThickness="0" BorderBrush="Transparent">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" x:Name="DataTemplateStackPanel" Margin="0,10">
+                                    <StackPanel x:Name="LegislatorImageBackground" Width="100" Height="125">
+                                        <StackPanel.Background>
+                                            <ImageBrush ImageSource="/Congress;component/Images/loading_photo.png"/>
+                                        </StackPanel.Background>
+                                        <Image x:Name="LegislatorImage" Width="100" Height="125" Source="{Binding PhotoUrlMedium}" />
+                                    </StackPanel>
+                                    <StackPanel VerticalAlignment="Center" Margin="10,0,0,0">
+                                        <TextBlock x:Name="LegislatorName" Text="{Binding OfficialName}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="32" Foreground="White"/>
+                                        <TextBlock x:Name="LegislatorParty" Text="{Binding Party}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="20" Foreground="White"/>
+                                        <TextBlock x:Name="LegislatorPosition" Text="{Binding Position}" Style="{StaticResource PhoneTextNormalStyle}" VerticalAlignment="Bottom" Foreground="White"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </controls:PivotItem>
+
+            <controls:PivotItem Name="SenatePivot" Margin="0,10,0,0" Header="senate" Foreground="White">
+
+                <Grid x:Name="SenatePanel" Margin="0,0,0,0" d:DataContext="{d:DesignData SampleData/Legislators.xaml}">
+
+                    <local:Spinner x:Name="SenateSpinner" />
+
+                    <local:ListMessage x:Name="SenateMessage" />
+
+                    <ListBox x:Name="SenateListBox" Margin="24,0,0,0" ItemsSource="{Binding Legislators}" SelectionChanged="SenateListBox_SelectionChanged" BorderThickness="0" BorderBrush="Transparent">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" x:Name="DataTemplateStackPanel" Margin="0,10">
+                                    <StackPanel x:Name="LegislatorImageBackground" Width="100" Height="125">
+                                        <StackPanel.Background>
+                                            <ImageBrush ImageSource="/Congress;component/Images/loading_photo.png"/>
+                                        </StackPanel.Background>
+                                        <Image x:Name="LegislatorImage" Width="100" Height="125" Source="{Binding PhotoUrlMedium}" />
+                                    </StackPanel>
+                                    <StackPanel VerticalAlignment="Center" Margin="10,0,0,0">
+                                        <TextBlock x:Name="LegislatorName" Text="{Binding OfficialName}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="32" Foreground="White"/>
+                                        <TextBlock x:Name="LegislatorParty" Text="{Binding Party}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="20" Foreground="White"/>
+                                        <TextBlock x:Name="LegislatorPosition" Text="{Binding Position}" Style="{StaticResource PhoneTextNormalStyle}" VerticalAlignment="Bottom" Foreground="White"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </controls:PivotItem>
+            
+        </controls:Pivot>
+
+    </Grid>
+
+</phone:PhoneApplicationPage>

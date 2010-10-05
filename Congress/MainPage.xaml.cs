@@ -35,7 +35,7 @@ namespace Congress {
         }
 
         private void NameSearch(object sender, MouseEventArgs e) {
-            // navigate to pivot on two legislator lists by chamber
+            NavigationService.Navigate(new Uri("/LegislatorChamberPivotPage.xaml", UriKind.Relative));
         }
 
         private void CommitteeSearch(object sender, MouseEventArgs e) {
