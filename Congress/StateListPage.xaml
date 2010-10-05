@@ -24,118 +24,175 @@
             <TextBlock Grid.Column="1" x:Name="MainTitle" Text="choose a state" Margin="24,10,0,10" Style="{StaticResource PhoneTextTitle1Style}" FontSize="44" TextWrapping="Wrap" Foreground="White"/>
         </StackPanel>
         
-        <ListBox x:Name="ContentPanel" Grid.Row="1">
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Alabama" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Alaska" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="American Samoa" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Arizona" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Arkansas" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="California" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Colorado" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Connecticut" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Delaware" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="District of Columbia" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Florida" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Georgia" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Guam" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Hawaii" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Idaho" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Illinois" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Indiana" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Iowa" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Kansas" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Kentucky" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Louisiana" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Maine" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Maryland" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Massachusetts" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Michigan" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Minnesota" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Mississippi" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Missouri" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Montana" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Nebraska" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Nevada" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="New Hampshire" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="New Jersey" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="New Mexico" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="New York" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="North Carolina" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="North Dakota" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Northern Mariana Islands" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Ohio" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Oklahaoma" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Oregon" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Pennsylvania" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Puerto Rico" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Rhode Island" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="South Carolina" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="South Dakota" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Tennessee" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Texas" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Utah" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Vermont" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Virgin Islands" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Virginia" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Washington" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="West Virginia" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Wisconsin" FontSize="32" Foreground="White" Margin="24,0,0,25" />
-
-            <TextBlock MouseLeftButtonUp="StateSelected" Text="Wyoming" FontSize="32" Foreground="White" Margin="24,0,0,25" />
+        <ListBox x:Name="ContentPanel" Grid.Row="1" HorizontalContentAlignment="Stretch">
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Alabama" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Alaska" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="American Samoa" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Arizona" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Arkansas" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="California" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Colorado" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Connecticut" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Delaware" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="District of Columbia" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Florida" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Georgia" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Guam" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Hawaii" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Idaho" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Illinois" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Indiana" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Iowa" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Kansas" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Kentucky" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Louisiana" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Maine" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Maryland" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Massachusetts" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Michigan" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Minnesota" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Mississippi" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Missouri" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Montana" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Nebraska" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Nevada" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="New Hampshire" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="New Jersey" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="New Mexico" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="New York" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="North Carolina" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="North Dakota" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Northern Mariana Islands" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Ohio" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Oklahaoma" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Oregon" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Pennsylvania" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Puerto Rico" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Rhode Island" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="South Carolina" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="South Dakota" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Tennessee" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Texas" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Utah" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Vermont" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Virgin Islands" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Virginia" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Washington" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="West Virginia" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Wisconsin" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
+                <TextBlock Text="Wyoming" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+            </StackPanel>
         </ListBox>
     </Grid>
 

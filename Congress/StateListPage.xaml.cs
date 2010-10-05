@@ -35,7 +35,9 @@ namespace Congress {
         }
 
         private void StateSelected(object sender, MouseEventArgs e) {
-            string stateName = (sender as TextBlock).Text;
+            StackPanel panel = sender as StackPanel;
+            TextBlock stateText = panel.Children.ElementAt(0) as TextBlock;
+            string stateName = stateText.Text;
 
             NavigationService.Navigate(new Uri("/LegislatorListPage.xaml?searchType=" + MainPage.SEARCH_STATE + "&stateName=" + stateName, UriKind.Relative));
         }
