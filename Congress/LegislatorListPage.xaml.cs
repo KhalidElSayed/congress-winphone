@@ -20,12 +20,10 @@ namespace Congress {
     public partial class LegislatorListPage : PhoneApplicationPage {
         private int searchType;
 
-        // Constructor
         public LegislatorListPage() {
             InitializeComponent();
         }
 
-        // When page is navigated to, set data context to selected item in list
         protected override void OnNavigatedTo(NavigationEventArgs e) {
             base.OnNavigatedTo(e);
 
@@ -33,8 +31,8 @@ namespace Congress {
             if (NavigationContext.QueryString.TryGetValue("searchType", out searchTypeString))
                 searchType = int.Parse(searchTypeString);
 
-            string state;
-            NavigationContext.QueryString.TryGetValue("state", out state);
+            string stateName;
+            NavigationContext.QueryString.TryGetValue("stateName", out stateName);
 
             string lastName;
             NavigationContext.QueryString.TryGetValue("lastName", out lastName);
@@ -55,20 +53,10 @@ namespace Congress {
                 MainTitle.Text = "for your location";
             }
 
-            else if (searchType == MainPage.SEARCH_LASTNAME) {
-                MainTitle.Text = "named \"" + lastName + "\"";
-                Legislator.findByLastName(lastName, loadLegislators);
-            }
-
             else if (searchType == MainPage.SEARCH_STATE) {
-                MainTitle.Text = "for " + Legislator.stateCodeToName(state);
-                Legislator.findByState(state, loadLegislators);
+                MainTitle.Text = "for " + stateName;
+                Legislator.findByState(Legislator.stateNameToCode(stateName), loadLegislators);
             }
-
-            else if (searchType == MainPage.SEARCH_ZIP) {
-                MainTitle.Text = "for " + zip;
-                Legislator.findByZip(zip, loadLegislators);
-            } 
 
             else if (searchType == MainPage.SEARCH_COMMITTEE) {
                 MainTitle.FontSize = 24;
