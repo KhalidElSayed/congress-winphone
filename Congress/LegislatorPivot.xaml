@@ -157,7 +157,7 @@
 
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar x:Name="MainBar" IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton Click="gotoOpenCongress" x:Name="OpenCongressButton" IconUri="/Images/appbar.OpenCongress.png" Text="OpenCongress"></shell:ApplicationBarIconButton>
+            <shell:ApplicationBarIconButton Click="gotoOpenCongress" x:Name="OpenCongressButton" IconUri="/Images/appbar.OpenCongress.png" Text="o.c."></shell:ApplicationBarIconButton>
             <shell:ApplicationBarIconButton Click="gotoGovTrack" x:Name="GovTrackButton" IconUri="/Images/appbar.GovTrack.png" Text="GovTrack"></shell:ApplicationBarIconButton>
             <shell:ApplicationBarIconButton Click="gotoBioguide" x:Name="BioguideButton" IconUri="/Images/appbar.CongressionalBio.png" Text="Biography"></shell:ApplicationBarIconButton>
         </shell:ApplicationBar>
