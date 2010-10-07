@@ -7,6 +7,10 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
+             
+             VerticalAlignment="Center"
+             HorizontalAlignment="Center"
+             Margin="10,-100,10,0"
     >
     <StackPanel Orientation="Vertical" x:Name="LayoutRoot" Background="Transparent" Margin="0,0,0,0" VerticalAlignment="Center">
         <ProgressBar IsIndeterminate="True" VerticalAlignment="Center" />

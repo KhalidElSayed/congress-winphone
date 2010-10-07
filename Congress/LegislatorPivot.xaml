@@ -77,8 +77,8 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Vertical" Margin="10,0,0,30">
                                     <TextBlock x:Name="NewsItemTitle" Text="{Binding Title}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="24" TextWrapping="Wrap" Foreground="White"/>
-                                    <TextBlock x:Name="NewsItemDateSource" Text="{Binding DateSource}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="16" TextWrapping="Wrap" Foreground="#FFCBCBCB" Margin="12,2,12,0" />
-                                    <TextBlock x:Name="NewsItemExcerpt" Text="{Binding Excerpt}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="18" TextWrapping="Wrap" Margin="12,7,12,0" Foreground="White"/>
+                                    <TextBlock x:Name="NewsItemDateSource" Text="{Binding DateSource}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="18" TextWrapping="Wrap" Foreground="#FFCBCBCB" Margin="12,2,12,0" />
+                                    <TextBlock x:Name="NewsItemExcerpt" Text="{Binding Excerpt}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="20" TextWrapping="Wrap" Margin="12,7,12,0" Foreground="White"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -98,7 +98,7 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Vertical" Margin="10,0,0,30">
                                     <TextBlock x:Name="TweetText" Text="{Binding Text}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="22" TextWrapping="Wrap" Foreground="White" />
-                                    <TextBlock x:Name="TweetByline" Text="{Binding Byline}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="18" TextWrapping="Wrap" Margin="12,3,12,0" Foreground="#FFCBCBCB"></TextBlock>
+                                    <TextBlock x:Name="TweetByline" Text="{Binding Byline}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="20" TextWrapping="Wrap" Margin="12,3,12,0" Foreground="#FFCBCBCB"></TextBlock>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -125,8 +125,8 @@
                                     <Image Grid.Column="0" x:Name="VideoThumbnail" Source="{Binding ThumbnailUrl}" VerticalAlignment="Top" Margin="0,5,0,0" />
                                     <StackPanel Grid.Column="1" Orientation="Vertical" Width="Auto" VerticalAlignment="Top" Margin="0">
                                         <TextBlock x:Name="VideoTitle" Text="{Binding Title}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="22" TextWrapping="Wrap" Foreground="White"/>
-                                        <TextBlock x:Name="VideoDate" Text="{Binding Date}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="16" Foreground="#FFCBCBCB"/>
-                                        <TextBlock x:Name="VideoDescription" Text="{Binding Description}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="18" Margin="12,15" TextWrapping="Wrap" Foreground="White"/>
+                                        <TextBlock x:Name="VideoDate" Text="{Binding Date}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="20" Foreground="#FFCBCBCB"/>
+                                        <TextBlock x:Name="VideoDescription" Text="{Binding Description}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="20" Margin="12,15" TextWrapping="Wrap" Foreground="White"/>
                                     </StackPanel>
                                 </Grid>
                             </DataTemplate>
