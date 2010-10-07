@@ -10,27 +10,27 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait" 
-    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768" 
     shell:SystemTray.IsVisible="True">
 
     
-    <Grid x:Name="LayoutRoot" Background="#FF051924" Margin="0">
+    <Grid x:Name="LayoutRoot" Margin="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid x:Name="Header" Grid.Row="0" Margin="0,0,0,12" Background="#FF113B20">
+        <Grid x:Name="Header" Grid.Row="0" Margin="0,0,0,12">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Image Grid.Column="0" x:Name="MainIcon" Source="/Congress;component/Images/app_icon.png" Margin="24,10,10,10" />
-            <TextBlock Grid.Column="1" x:Name="MainTitle" Text="Congress" Margin="10,5,0,0" Style="{StaticResource PhoneTextTitle1Style}" FontSize="48" Foreground="White"/>
+            
+            <TextBlock Grid.Column="1" x:Name="MainTitle" Text="Congress" Margin="24,5,0,0" Style="{StaticResource PhoneTextTitle1Style}" FontSize="48" Foreground="White"/>
         </Grid>
         
-        <TextBlock Grid.Row="1" x:Name="LegislatorHeader" FontSize="24" Text="Find your legislators by" Margin="24,10,0,0" Foreground="#FFC4C4C4" />
+        <TextBlock Grid.Row="1" x:Name="LegislatorHeader" FontSize="24" Text="Find your legislators by" Margin="24,40,0,0" Foreground="White" />
 
         <Grid x:Name="ContentPanel" Grid.Row="2" Margin="24,10,0,0">
             <Grid.RowDefinitions>
@@ -41,7 +41,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             
-            <StackPanel MouseLeftButtonUp="LocationSearch" Grid.Row="0" Orientation="Horizontal" x:Name="SearchLocation" Height="77" VerticalAlignment="Top" Margin="0">
+            <StackPanel MouseLeftButtonUp="LocationSearch" Grid.Row="0" Orientation="Horizontal" x:Name="SearchLocation" Height="77" VerticalAlignment="Top" Margin="0,20,0,0">
                 <TextBlock Text="your location" Style="{StaticResource PhoneTextNormalStyle}" FontSize="60" Margin="0,0,12,0" Foreground="White" />
             </StackPanel>
                 
@@ -57,11 +57,14 @@
                 <TextBlock Text="committee" Style="{StaticResource PhoneTextNormalStyle}" FontSize="60" Margin="0,0,12,0" Foreground="White" />
             </StackPanel>
         </Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Congress;component/Images/Panorama_lowcontrast.png" Stretch="UniformToFill" />
+        </Grid.Background>
     </Grid>
     
     
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" Opacity="0.5">
             <shell:ApplicationBarIconButton Click="sendFeedback" x:Name="FeedbackButton" IconUri="/Images/appbar.feature.email.rest.png" Text="Feedback"></shell:ApplicationBarIconButton>
             <shell:ApplicationBarIconButton Click="showAbout" x:Name="AboutButton" IconUri="/Images/appbar.questionmark.rest.png" Text="Email"></shell:ApplicationBarIconButton>
         </shell:ApplicationBar>

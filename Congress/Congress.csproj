@@ -207,6 +207,7 @@
     <Content Include="Images\appbar.PrivacyPolicy.png" />
     <Content Include="Images\appbar.questionmark.rest.png" />
     <Resource Include="Images\loading_photo.png" />
+    <Resource Include="Images\Panorama_lowcontrast.png" />
     <Content Include="SplashScreenImage.jpg" />
     <Resource Include="Images\ArrowImg.png" />
   </ItemGroup>
