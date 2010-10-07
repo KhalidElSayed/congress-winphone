@@ -14,15 +14,13 @@
     mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768" 
     shell:SystemTray.IsVisible="True">
 
-    <Grid x:Name="LayoutRoot" Background="#FF051924">
+    <Grid x:Name="LayoutRoot" Background="#FF0388B8">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel x:Name="Header" Grid.Row="0" Margin="0,0,0,12" Background="#FF113B20">
-            <TextBlock Grid.Column="1" x:Name="MainTitle" Text="choose a state" Margin="24,10,0,10" Style="{StaticResource PhoneTextTitle1Style}" FontSize="44" TextWrapping="Wrap" Foreground="White"/>
-        </StackPanel>
+        <TextBlock Grid.Column="1" x:Name="MainTitle" Text="choose a state" Margin="24,10,0,24" Style="{StaticResource PhoneTextTitle1Style}" FontSize="44" TextWrapping="Wrap" Foreground="White"/>
         
         <ListBox x:Name="ContentPanel" Grid.Row="1" HorizontalContentAlignment="Stretch">
             <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">

@@ -15,7 +15,7 @@
     mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768" 
     shell:SystemTray.IsVisible="True">
 
-    <Grid x:Name="LayoutRoot" Background="#FF051924">
+    <Grid x:Name="LayoutRoot" Background="#FF0388B8">
         <controls:Pivot x:Name="MainPivot" Foreground="White" Title="committees" FontSize="24">
 
             <controls:PivotItem Name="HousePivot" Margin="0,10,0,0" Header="house" Foreground="White">

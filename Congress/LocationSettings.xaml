@@ -18,21 +18,14 @@
         <local:AppSettings x:Key="appSettings"></local:AppSettings>
     </phone:PhoneApplicationPage.Resources>
 
-    <Grid x:Name="LayoutRoot" Background="#FF051924">
+    <Grid x:Name="LayoutRoot" Background="#FF0388B8">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid x:Name="Header" Grid.Row="0" Margin="0,0,0,12" Background="#FF113B20">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Image Grid.Column="0" x:Name="MainIcon" Source="/Congress;component/Images/app_icon.png" Margin="24,10,10,10" />
-            <TextBlock Grid.Column="1" x:Name="MainTitle" Text="your location" Margin="10,5,0,0" Style="{StaticResource PhoneTextTitle1Style}" FontSize="48" Foreground="White"/>
-        </Grid>
+        <TextBlock Grid.Row="0" x:Name="MainTitle" Text="your location" Margin="24,10,10,10" Style="{StaticResource PhoneTextTitle1Style}" FontSize="48" Foreground="White"/>
         
         <StackPanel x:Name="SettingsPanel" Grid.Row="1" Margin="12,0,12,0" Orientation="Vertical">
             <CheckBox Content="Enable use of your location" Name="locationEnabled" IsChecked="{Binding Source={StaticResource appSettings}, Path=LocationEnabled, Mode=TwoWay}"  />

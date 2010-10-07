@@ -8,7 +8,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:local="clr-namespace:Congress"
-    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -17,7 +17,7 @@
     d:DataContext="{d:DesignData SampleData/Legislators.xaml}"
     >
 
-    <Grid x:Name="LayoutRoot" Background="#FF051924" d:DataContext="{Binding Legislators[0]}">
+    <Grid x:Name="LayoutRoot" Background="#FF0388B8" d:DataContext="{Binding Legislators[0]}">
 
         <local:Spinner x:Name="ProfileSpinner" />
 
@@ -50,7 +50,7 @@
                             <Image Source="/Congress;component/Images/phone.png" />
                             <StackPanel Orientation="Vertical">
                                 <TextBlock x:Name="LegislatorPhone" Text="{Binding CallMessage}" FontSize="40" Margin="30,0,0,0" Foreground="White"/>
-                                <TextBlock Text="{Binding Phone}" Margin="30,0,0,0" FontSize="24" Foreground="Gray" />
+                                <TextBlock Text="{Binding Phone}" Margin="30,0,0,0" FontSize="24" Foreground="#FFCBCBCB" />
                             </StackPanel>
                         </StackPanel>
 
@@ -58,7 +58,7 @@
                             <Image Source="/Congress;component/Images/web.png" />
                             <StackPanel Orientation="Vertical">
                                 <TextBlock x:Name="LegislatorWeb" Text="{Binding WebsiteMessage}" FontSize="40" Margin="30,0,0,0" Foreground="White"/>
-                                <TextBlock Text="{Binding ShortWebsite}" Margin="30,0,0,0" FontSize="24" Foreground="Gray" />
+                                <TextBlock Text="{Binding ShortWebsite}" Margin="30,0,0,0" FontSize="24" Foreground="#FFCBCBCB" />
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>
@@ -77,7 +77,7 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Vertical" Margin="10,0,0,30">
                                     <TextBlock x:Name="NewsItemTitle" Text="{Binding Title}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="24" TextWrapping="Wrap" Foreground="White"/>
-                                    <TextBlock x:Name="NewsItemDateSource" Text="{Binding DateSource}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="16" TextWrapping="Wrap" Foreground="Gray" Margin="12,2,12,0" />
+                                    <TextBlock x:Name="NewsItemDateSource" Text="{Binding DateSource}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="16" TextWrapping="Wrap" Foreground="#FFCBCBCB" Margin="12,2,12,0" />
                                     <TextBlock x:Name="NewsItemExcerpt" Text="{Binding Excerpt}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="18" TextWrapping="Wrap" Margin="12,7,12,0" Foreground="White"/>
                                 </StackPanel>
                             </DataTemplate>
@@ -98,7 +98,7 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Vertical" Margin="10,0,0,30">
                                     <TextBlock x:Name="TweetText" Text="{Binding Text}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="22" TextWrapping="Wrap" Foreground="White" />
-                                    <TextBlock x:Name="TweetByline" Text="{Binding Byline}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="18" TextWrapping="Wrap" Margin="12,3,12,0" Foreground="Gray"></TextBlock>
+                                    <TextBlock x:Name="TweetByline" Text="{Binding Byline}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="18" TextWrapping="Wrap" Margin="12,3,12,0" Foreground="#FFCBCBCB"></TextBlock>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -125,7 +125,7 @@
                                     <Image Grid.Column="0" x:Name="VideoThumbnail" Source="{Binding ThumbnailUrl}" VerticalAlignment="Top" Margin="0,5,0,0" />
                                     <StackPanel Grid.Column="1" Orientation="Vertical" Width="Auto" VerticalAlignment="Top" Margin="0">
                                         <TextBlock x:Name="VideoTitle" Text="{Binding Title}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="22" TextWrapping="Wrap" Foreground="White"/>
-                                        <TextBlock x:Name="VideoDate" Text="{Binding Date}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="16" Foreground="Gray"/>
+                                        <TextBlock x:Name="VideoDate" Text="{Binding Date}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="16" Foreground="#FFCBCBCB"/>
                                         <TextBlock x:Name="VideoDescription" Text="{Binding Description}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="18" Margin="12,15" TextWrapping="Wrap" Foreground="White"/>
                                     </StackPanel>
                                 </Grid>
@@ -156,7 +156,7 @@
     </Grid>
 
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar x:Name="MainBar" IsVisible="True" IsMenuEnabled="True">
+        <shell:ApplicationBar x:Name="MainBar" IsVisible="True" IsMenuEnabled="True" Opacity="0.5">
             <shell:ApplicationBarIconButton Click="gotoOpenCongress" x:Name="OpenCongressButton" IconUri="/Images/appbar.OpenCongress.png" Text="o.c."></shell:ApplicationBarIconButton>
             <shell:ApplicationBarIconButton Click="gotoGovTrack" x:Name="GovTrackButton" IconUri="/Images/appbar.GovTrack.png" Text="GovTrack"></shell:ApplicationBarIconButton>
             <shell:ApplicationBarIconButton Click="gotoBioguide" x:Name="BioguideButton" IconUri="/Images/appbar.CongressionalBio.png" Text="Biography"></shell:ApplicationBarIconButton>
