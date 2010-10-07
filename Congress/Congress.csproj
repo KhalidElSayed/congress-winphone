@@ -69,6 +69,9 @@
     <Compile Include="CommitteeListPage.xaml.cs">
       <DependentUpon>CommitteeListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LocationSettings.xaml.cs">
+      <DependentUpon>LocationSettings.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LegislatorChamberPivotPage.xaml.cs">
       <DependentUpon>LegislatorChamberPivotPage.xaml</DependentUpon>
     </Compile>
@@ -121,6 +124,10 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="CommitteeListPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="LocationSettings.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -196,6 +203,7 @@
     <Content Include="Images\appbar.feature.email.rest.png" />
     <Content Include="Images\appbar.GovTrack.png" />
     <Content Include="Images\appbar.OpenCongress.png" />
+    <Content Include="Images\appbar.PrivacyPolicy.png" />
     <Content Include="Images\appbar.questionmark.rest.png" />
     <Resource Include="Images\loading_photo.png" />
     <Content Include="SplashScreenImage.jpg" />

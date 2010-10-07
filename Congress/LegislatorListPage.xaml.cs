@@ -24,6 +24,7 @@ namespace Congress {
 
         public LegislatorListPage() {
             InitializeComponent();
+            ApplicationBar.IsVisible = false;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e) {
@@ -44,6 +45,7 @@ namespace Congress {
             ListMessage.Visibility = Visibility.Collapsed;
             
             if (searchType == MainPage.SEARCH_LOCATION) {
+                ApplicationBar.IsVisible = true;
                 MainTitle.Text = "for your location";
                 setSpinner("Finding your location. This can take a while...");
                 startFetchingLocation();
@@ -161,6 +163,10 @@ namespace Congress {
             NavigationService.Navigate(new Uri("/LegislatorPivot.xaml?bioguideId=" + model.legislator.bioguideId + "&titledName=" + model.TitledName, UriKind.Relative));
 
             MainListBox.SelectedIndex = -1;
+        }
+
+        private void launchPrivacy(object sender, EventArgs e) {
+            NavigationService.Navigate(new Uri("/LocationSettings.xaml", UriKind.Relative));
         }
     }
 }

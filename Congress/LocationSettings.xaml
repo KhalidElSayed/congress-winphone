@@ -1,5 +1,5 @@
 ﻿<phone:PhoneApplicationPage 
-    x:Class="Congress.About"
+    x:Class="Congress.LocationSettings"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
@@ -25,16 +25,16 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Image Grid.Column="0" x:Name="MainIcon" Source="/Congress;component/Images/app_icon.png" Margin="24,10,10,10" />
-            <TextBlock Grid.Column="1" x:Name="MainTitle" Text="Congress" Margin="10,5,0,0" Style="{StaticResource PhoneTextTitle1Style}" FontSize="48" Foreground="White"/>
+            <TextBlock Grid.Column="1" x:Name="MainTitle" Text="my location" Margin="10,5,0,0" Style="{StaticResource PhoneTextTitle1Style}" FontSize="48" Foreground="White"/>
         </Grid>
 
         <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <TextBlock x:Name="About1" FontSize="26" Margin="0,10,0,10" Text="Legislator search and information powered by the Sunlight Labs Congress API." TextWrapping="Wrap" Foreground="White"/>
-            <TextBlock x:Name="About2" FontSize="26" Margin="0,10,0,10" Text="News mentions provided by the Yahoo! News API." TextWrapping="Wrap" Foreground="White"/>
-            <TextBlock x:Name="About3" FontSize="22" Margin="0,20,0,10" Text="This app is made by the Sunlight Foundation, a non-profit dedicated to increasing government transparency through the power of technology." TextWrapping="Wrap" VerticalAlignment="Stretch" Foreground="#FFBEBBBB" />
-            <TextBlock x:Name="Links" FontSize="44" Margin="0,10,0,10" Text="links" Foreground="White"/>
-            <HyperlinkButton NavigateUri="http://sunlightfoundation.com" Content="Sunlight Foundation" HorizontalAlignment="Left" Margin="-12,5,0,10" HorizontalContentAlignment="Left" TargetName="_blank" Foreground="White" />
-            <HyperlinkButton NavigateUri="http://sunlightlabs.com" Content="Sunlight Labs" HorizontalAlignment="Left" Margin="-12,5,0,5" HorizontalContentAlignment="Left" TargetName="_blank" Foreground="White" />
+            <TextBlock x:Name="About1" FontSize="22" Margin="0,10,0,10" Text="Your location will not be used in any way except to determine your elected officials in Congress." TextWrapping="Wrap" Foreground="White"/>
+            <TextBlock x:Name="About2" FontSize="22" Margin="0,10,0,10" Text="Your legislators are determined by using the Sunlight Foundation's Congress API, a free public service that is based on data from the US Census." TextWrapping="Wrap" Foreground="White"/>
+            <TextBlock x:Name="About3" FontSize="22" Margin="0,10,0,10" Text="The Sunlight Foundation is a non-profit organization, and does not give, trade, or sell information about  the users of its data services to anyone." TextWrapping="Wrap" Foreground="White"/>
+            <TextBlock x:Name="About4" FontSize="22" Margin="0,10,0,10" Text="For more information about the Sunlight Foundation's data services, visit the Sunlight Labs data service homepage below." TextWrapping="Wrap" Foreground="White"/>
+            
+            <HyperlinkButton NavigateUri="http://services.sunlightlabs.com" Content="Sunlight Labs Services" HorizontalAlignment="Left" Margin="-12,5,0,10" HorizontalContentAlignment="Left" TargetName="_blank" Foreground="White" />
         </StackPanel>
     </Grid>
 
