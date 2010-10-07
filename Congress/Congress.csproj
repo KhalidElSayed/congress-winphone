@@ -67,6 +67,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppSettings.cs" />
+    <Compile Include="StateUtils.cs" />
     <Compile Include="CommitteeListPage.xaml.cs">
       <DependentUpon>CommitteeListPage.xaml</DependentUpon>
     </Compile>

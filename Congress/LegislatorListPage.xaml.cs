@@ -51,8 +51,10 @@ namespace Congress {
                 MainTitle.Text = "for your location";
 
                 if (settings.LocationEnabled) {
-                    setSpinner("Finding your location. This can take a while...");
-                    startFetchingLocation();
+                    if (!restoreContext()) {
+                        setSpinner("Finding your location. This can take a while...");
+                        startFetchingLocation();
+                    }
                 } else {
                     Spinner.Visibility = Visibility.Collapsed;
                     MainListBox.Visibility = Visibility.Collapsed;
@@ -62,21 +64,46 @@ namespace Congress {
 
             else if (searchType == MainPage.SEARCH_STATE) {
                 MainTitle.Text = "for " + stateName;
-                setSpinner("Finding legislators for " + stateName + "...");
-                Legislator.findByState(Legislator.stateNameToCode(stateName), loadLegislators);
+
+                if (!restoreContext()) {
+                    setSpinner("Finding legislators for " + stateName + "...");
+                    Legislator.findByState(Legislator.stateNameToCode(stateName), loadLegislators);
+                }
             }
 
             else if (searchType == MainPage.SEARCH_COMMITTEE) {
                 MainTitle.FontSize = 24;
                 MainTitle.Text = committeeName;
-                setSpinner("Finding members of the " + committeeName + "...");
-                Committee.find(committeeId, (committee) => {
-                    if (committee != null)
-                        loadLegislators(committee.members);
-                    else
-                        loadLegislators(null);
-                });
+
+                if (!restoreContext()) {
+                    setSpinner("Finding members of the " + committeeName + "...");
+                    Committee.find(committeeId, (committee) => {
+                        if (committee != null)
+                            loadLegislators(committee.members);
+                        else
+                            loadLegislators(null);
+                    });
+                }
             }
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e) {
+            base.OnNavigatedFrom(e);
+
+            if (DataContext != null)
+                State["DataContext"] = DataContext;
+        }
+
+        private bool restoreContext() {
+            object context;
+            if (State.TryGetValue("DataContext", out context)) {
+                Spinner.Visibility = Visibility.Collapsed;
+                ListMessage.Visibility = Visibility.Collapsed;
+                DataContext = context;
+                MainListBox.Visibility = Visibility.Visible;
+                return true;
+            } else
+                return false;
         }
 
         private void startFetchingLocation() {
