@@ -25,18 +25,43 @@ namespace Congress {
         protected override void OnNavigatedTo(NavigationEventArgs e) {
             base.OnNavigatedTo(e);
 
-            (HouseSpinner.FindName("LoadingText") as TextBlock).Text = "Loading legislators...";
-            HouseSpinner.Visibility = Visibility.Visible;
-            HouseListBox.Visibility = Visibility.Collapsed;
-            HouseMessage.Visibility = Visibility.Collapsed;
+            if (!restoreContext("House_DataContext", HouseSpinner, HouseMessage, HouseListBox)) {
+                (HouseSpinner.FindName("LoadingText") as TextBlock).Text = "Loading legislators...";
+                HouseSpinner.Visibility = Visibility.Visible;
+                HouseListBox.Visibility = Visibility.Collapsed;
+                HouseMessage.Visibility = Visibility.Collapsed;
+                Legislator.findByChamber("House", loadHouseLegislators);
+            }
 
-            (SenateSpinner.FindName("LoadingText") as TextBlock).Text = "Loading legislators...";
-            SenateSpinner.Visibility = Visibility.Visible;
-            SenateListBox.Visibility = Visibility.Collapsed;
-            SenateMessage.Visibility = Visibility.Collapsed;
+            if (!restoreContext("Senate_DataContext", SenateSpinner, SenateMessage, SenateListBox)) {
+                (SenateSpinner.FindName("LoadingText") as TextBlock).Text = "Loading legislators...";
+                SenateSpinner.Visibility = Visibility.Visible;
+                SenateListBox.Visibility = Visibility.Collapsed;
+                SenateMessage.Visibility = Visibility.Collapsed;
+                Legislator.findByChamber("Senate", loadSenateLegislators);
+            }
+        }
 
-            Legislator.findByChamber("House", loadHouseLegislators);
-            Legislator.findByChamber("Senate", loadSenateLegislators);
+        protected override void OnNavigatedFrom(NavigationEventArgs e) {
+            base.OnNavigatedFrom(e);
+
+            if (HouseListBox.DataContext != null)
+                State["House_DataContext"] = HouseListBox.DataContext;
+
+            if (SenateListBox.DataContext != null)
+                State["Senate_DataContext"] = SenateListBox.DataContext;
+        }
+
+        private bool restoreContext(string name, Spinner spinner, ListMessage message, ListBox listBox) {
+            object context;
+            if (State.TryGetValue(name, out context)) {
+                spinner.Visibility = Visibility.Collapsed;
+                message.Visibility = Visibility.Collapsed;
+                listBox.DataContext = context;
+                listBox.Visibility = Visibility.Visible;
+                return true;
+            } else
+                return false;
         }
 
         private void loadLegislators(Spinner spinner, ListBox listBox, ListMessage message, Collection<Legislator> legislators) {

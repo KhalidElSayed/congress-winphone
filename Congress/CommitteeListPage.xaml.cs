@@ -25,24 +25,54 @@ namespace Congress {
         protected override void OnNavigatedTo(NavigationEventArgs e) {
             base.OnNavigatedTo(e);
 
-            (HouseSpinner.FindName("LoadingText") as TextBlock).Text = "Loading committees...";
-            HouseSpinner.Visibility = Visibility.Visible;
-            HouseListBox.Visibility = Visibility.Collapsed;
-            HouseMessage.Visibility = Visibility.Collapsed;
+            if (!restoreContext("House_DataContext", HouseSpinner, HouseMessage, HouseListBox)) {
+                (HouseSpinner.FindName("LoadingText") as TextBlock).Text = "Loading committees...";
+                HouseSpinner.Visibility = Visibility.Visible;
+                HouseListBox.Visibility = Visibility.Collapsed;
+                HouseMessage.Visibility = Visibility.Collapsed;
+                Committee.allForChamber("House", loadHouseCommittees);
+            }
 
-            (SenateSpinner.FindName("LoadingText") as TextBlock).Text = "Loading committees...";
-            SenateSpinner.Visibility = Visibility.Visible;
-            SenateListBox.Visibility = Visibility.Collapsed;
-            SenateMessage.Visibility = Visibility.Collapsed;
+            if (!restoreContext("Senate_DataContext", SenateSpinner, SenateMessage, SenateListBox)) {
+                (SenateSpinner.FindName("LoadingText") as TextBlock).Text = "Loading committees...";
+                SenateSpinner.Visibility = Visibility.Visible;
+                SenateListBox.Visibility = Visibility.Collapsed;
+                SenateMessage.Visibility = Visibility.Collapsed;
+                Committee.allForChamber("Senate", loadSenateCommittees);
+            }
 
-            (JointSpinner.FindName("LoadingText") as TextBlock).Text = "Loading committees...";
-            JointSpinner.Visibility = Visibility.Visible;
-            JointListBox.Visibility = Visibility.Collapsed;
-            JointMessage.Visibility = Visibility.Collapsed;
+            if (!restoreContext("Joint_DataContext", JointSpinner, JointMessage, JointListBox)) {
+                (JointSpinner.FindName("LoadingText") as TextBlock).Text = "Loading committees...";
+                JointSpinner.Visibility = Visibility.Visible;
+                JointListBox.Visibility = Visibility.Collapsed;
+                JointMessage.Visibility = Visibility.Collapsed;
+                Committee.allForChamber("Joint", loadJointCommittees);
+            }
+        }
 
-            Committee.allForChamber("House", loadHouseCommittees);
-            Committee.allForChamber("Senate", loadSenateCommittees);
-            Committee.allForChamber("Joint", loadJointCommittees);
+        protected override void OnNavigatedFrom(NavigationEventArgs e) {
+            base.OnNavigatedFrom(e);
+
+            if (HouseListBox.DataContext != null)
+                State["House_DataContext"] = HouseListBox.DataContext;
+
+            if (SenateListBox.DataContext != null)
+                State["Senate_DataContext"] = SenateListBox.DataContext;
+
+            if (JointListBox.DataContext != null)
+                State["Joint_DataContext"] = JointListBox.DataContext;
+        }
+
+        private bool restoreContext(string name, Spinner spinner, ListMessage message, ListBox listBox) {
+            object context;
+            if (State.TryGetValue(name, out context)) {
+                spinner.Visibility = Visibility.Collapsed;
+                message.Visibility = Visibility.Collapsed;
+                listBox.DataContext = context;
+                listBox.Visibility = Visibility.Visible;
+                return true;
+            } else
+                return false;
         }
 
         private void loadHouseCommittees(Collection<Committee> committees) {
