@@ -6,6 +6,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:Congress"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -13,8 +14,13 @@
     mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
     shell:SystemTray.IsVisible="True">
 
+    <phone:PhoneApplicationPage.Resources>
+        <local:AppSettings x:Key="appSettings"></local:AppSettings>
+    </phone:PhoneApplicationPage.Resources>
+
     <Grid x:Name="LayoutRoot" Background="#FF051924">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -25,10 +31,14 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Image Grid.Column="0" x:Name="MainIcon" Source="/Congress;component/Images/app_icon.png" Margin="24,10,10,10" />
-            <TextBlock Grid.Column="1" x:Name="MainTitle" Text="my location" Margin="10,5,0,0" Style="{StaticResource PhoneTextTitle1Style}" FontSize="48" Foreground="White"/>
+            <TextBlock Grid.Column="1" x:Name="MainTitle" Text="your location" Margin="10,5,0,0" Style="{StaticResource PhoneTextTitle1Style}" FontSize="48" Foreground="White"/>
         </Grid>
+        
+        <StackPanel x:Name="SettingsPanel" Grid.Row="1" Margin="12,0,12,0" Orientation="Vertical">
+            <CheckBox Content="Enable use of your location" Name="locationEnabled" IsChecked="{Binding Source={StaticResource appSettings}, Path=LocationEnabled, Mode=TwoWay}"  />
+        </StackPanel>
 
-        <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+        <StackPanel x:Name="ContentPanel" Grid.Row="2" Margin="12,0,12,0">
             <TextBlock x:Name="About1" FontSize="22" Margin="0,10,0,10" Text="Your location will not be used in any way except to determine your elected officials in Congress." TextWrapping="Wrap" Foreground="White"/>
             <TextBlock x:Name="About2" FontSize="22" Margin="0,10,0,10" Text="Your legislators are determined by using the Sunlight Foundation's Congress API, a free public service that is based on data from the US Census." TextWrapping="Wrap" Foreground="White"/>
             <TextBlock x:Name="About3" FontSize="22" Margin="0,10,0,10" Text="The Sunlight Foundation is a non-profit organization, and does not give, trade, or sell information about  the users of its data services to anyone." TextWrapping="Wrap" Foreground="White"/>

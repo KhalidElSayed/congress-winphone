@@ -21,10 +21,12 @@ namespace Congress {
     public partial class LegislatorListPage : PhoneApplicationPage {
         private int searchType;
         GeoCoordinateWatcher watcher;
+        AppSettings settings;
 
         public LegislatorListPage() {
             InitializeComponent();
             ApplicationBar.IsVisible = false;
+            settings = new AppSettings();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e) {
@@ -47,8 +49,15 @@ namespace Congress {
             if (searchType == MainPage.SEARCH_LOCATION) {
                 ApplicationBar.IsVisible = true;
                 MainTitle.Text = "for your location";
-                setSpinner("Finding your location. This can take a while...");
-                startFetchingLocation();
+
+                if (settings.LocationEnabled) {
+                    setSpinner("Finding your location. This can take a while...");
+                    startFetchingLocation();
+                } else {
+                    Spinner.Visibility = Visibility.Collapsed;
+                    MainListBox.Visibility = Visibility.Collapsed;
+                    setListMessage("You have disabled access to your location. You can re-enable access by tapping the lock icon below.");
+                }
             }
 
             else if (searchType == MainPage.SEARCH_STATE) {
@@ -97,6 +106,12 @@ namespace Congress {
                     break;
 
                 case GeoPositionStatus.Ready:
+                    // last minute check to see if they disabled settings while legislators were being found
+                    if (searchType == MainPage.SEARCH_LOCATION && !settings.LocationEnabled) {
+                        setListMessage("You have disabled access to your location. You can re-enable access by tapping the lock icon below.");
+                        break;
+                    }
+
                     setSpinner("Finding legislators for your location...");
                     
                     GeoCoordinate coordinate = watcher.Position.Location;
@@ -126,8 +141,14 @@ namespace Congress {
             if (legislators != null) {
                 
                 if (legislators.Count > 0) {
-                    MainListBox.Visibility = Visibility.Visible;
-                    DataContext = LegislatorListViewModel.fromCollection(legislators);
+
+                    // last minute check to see if they disabled settings while legislators were being found
+                    if (searchType == MainPage.SEARCH_LOCATION && !settings.LocationEnabled) {
+                        setListMessage("You have disabled access to your location. You can re-enable access by tapping the lock icon below.");
+                    } else {
+                        MainListBox.Visibility = Visibility.Visible;
+                        DataContext = LegislatorListViewModel.fromCollection(legislators);
+                    }
                 } else {
                     if (searchType == MainPage.SEARCH_LOCATION)
                         setListMessage("No legislators found for your location.");
