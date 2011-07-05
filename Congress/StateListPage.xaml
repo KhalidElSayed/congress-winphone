@@ -141,7 +141,7 @@
                 <TextBlock Text="Ohio" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
             </StackPanel>
             <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
-                <TextBlock Text="Oklahaoma" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
+                <TextBlock Text="Oklahoma" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
             </StackPanel>
             <StackPanel MouseLeftButtonUp="StateSelected" HorizontalAlignment="Stretch">
                 <TextBlock Text="Oregon" FontSize="32" Foreground="White" Margin="24,12,80,12" HorizontalAlignment="Stretch" />
