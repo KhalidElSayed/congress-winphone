@@ -225,7 +225,7 @@ namespace Congress.Models {
             if (code == "OH")
                 return "Ohio";
             if (code == "OK")
-                return "Oklahaoma";
+                return "Oklahoma";
             if (code == "OR")
                 return "Oregon";
             if (code == "PA")
@@ -341,7 +341,7 @@ namespace Congress.Models {
                 return "MP";
             if (name == "Ohio")
                 return "OH";
-            if (name == "Oklahaoma")
+            if (name == "Oklahoma")
                 return "OK";
             if (name == "Oregon")
                 return "OR";
